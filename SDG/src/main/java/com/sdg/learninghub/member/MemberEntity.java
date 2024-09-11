@@ -43,5 +43,10 @@ public class MemberEntity {
 	@Enumerated(EnumType.STRING)
 	private Provider provider;
 	
-	private String providerId;
+	public MemberEntity update(Provider provider) {
+		if(this.provider == null) {
+			this.provider = provider;
+		}
+		return this;
+	}
 }

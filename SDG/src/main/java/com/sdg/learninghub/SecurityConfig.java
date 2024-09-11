@@ -50,8 +50,10 @@ public class SecurityConfig {
 	    );
 		http
 			.logout((logout) -> logout
-					.logoutSuccessUrl("/home")
+					.logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
+					.logoutSuccessUrl("/user/login")
 					.invalidateHttpSession(true)
+					.deleteCookies("JSESSIONID")
 		);
 			
 		return http.build();
@@ -61,8 +63,4 @@ public class SecurityConfig {
 	PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-	
-    /**public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(memberSecurityService).passwordEncoder(new BCryptPasswordEncoder());
-    }*/
 }

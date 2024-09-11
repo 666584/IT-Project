@@ -34,6 +34,7 @@ public class MemberService {
 		memberEntity.setFirstName(firstName);
 		memberEntity.setLastName(lastName);
 		memberEntity.setRole(MemberRole.USER);
+		memberEntity.setProvider(Provider.LOCAL);
 		this.memberRepository.save(memberEntity);
 		return memberEntity;
 	}

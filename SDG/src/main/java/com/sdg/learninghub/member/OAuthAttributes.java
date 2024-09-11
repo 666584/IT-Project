@@ -15,6 +15,7 @@ public class OAuthAttributes {
     private String lastName;
     private String username;
     private String email;
+    private Provider provider = Provider.GOOGLE;
 
     @Builder
     public OAuthAttributes(Map<String, Object> attributes, String nameAttributeKey, String firstName, String lastName, String email){
@@ -46,6 +47,7 @@ public class OAuthAttributes {
 		memberEntity.setFirstName(firstName);
 		memberEntity.setLastName(lastName);
 		memberEntity.setRole(MemberRole.USER);
+		memberEntity.setProvider(provider);
     	return memberEntity;
     }
 }

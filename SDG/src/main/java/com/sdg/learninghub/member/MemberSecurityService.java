@@ -29,7 +29,6 @@ UsernameNotFoundException {
 			new UsernameNotFoundException("USER_NOT_FOUND");
 		}
 		MemberEntity memberEntity = user.get();
-
 		List<GrantedAuthority>	authorities = new ArrayList<>();
 		if("admin".equals(email)) {
 			authorities.add(new SimpleGrantedAuthority(MemberRole.ADMIN.getValue()));
