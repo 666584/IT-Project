@@ -1,12 +1,12 @@
 package com.sdg.learninghub.member;
 
-import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+//import com.sdg.learninghub.DataNotFoundException;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -38,4 +38,13 @@ public class MemberService {
 		this.memberRepository.save(memberEntity);
 		return memberEntity;
 	}
+	
+	/**public MemberEntity getMember(Long id) {
+		Optional<MemberEntity> member = this.memberRepository.findById(id);
+		if (member.isPresent()) {
+			return member.get();
+		} else {
+			throw new DataNotFoundException("User does not exist.");
+		}
+	}*/
 }

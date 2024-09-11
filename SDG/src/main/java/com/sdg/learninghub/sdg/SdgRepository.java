@@ -10,4 +10,5 @@ import org.springframework.stereotype.Repository;
 public interface SdgRepository extends JpaRepository<Sdg, Integer>{
     @Query("SELECT s From Sdg s WHERE CONCAT(s.id, '',s.title, ' ', s.content, ' ') LIKE %?1%")
     List<Sdg> findAll(String keyword);
+    List<Sdg> findAll();
 }
