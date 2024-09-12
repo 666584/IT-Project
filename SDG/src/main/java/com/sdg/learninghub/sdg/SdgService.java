@@ -12,7 +12,7 @@ public class SdgService {
 
     public List<Sdg> listAll(String keyword) {
         if (keyword != null) {
-            return SdgRepository.findAll(keyword);
+            return SdgRepository.search(keyword);
         }
         return SdgRepository.findAll();
     }

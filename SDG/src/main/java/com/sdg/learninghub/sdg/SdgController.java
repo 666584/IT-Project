@@ -18,7 +18,6 @@ public class SdgController {
         List<Sdg> listSdg = SdgService.listAll(keyword);
         model.addAttribute("listSdg", listSdg);
         model.addAttribute("keyword", keyword);
-
         return "index";
     }
 }
