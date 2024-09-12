@@ -14,7 +14,7 @@ public class Sdg {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     private String title;
 
@@ -32,7 +32,7 @@ public class Sdg {
         if (getClass() != obj.getClass())
             return false;
         Sdg other = (Sdg) obj;
-        return id == other.id;
+        return id.equals(other.id);
     }
 
     @Override
