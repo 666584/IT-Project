@@ -13,7 +13,7 @@ public class Sdg {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer goal_id;
 
-    @Column(unique = true, length = 255)
+    @Column(unique = true, nullable = false)
     private String title;
 
     @Column(length = 10000)
