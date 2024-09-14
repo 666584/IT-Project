@@ -16,4 +16,5 @@ public class SdgService {
         }
         return SdgRepository.findAll();
     }
+
 }

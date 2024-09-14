@@ -1,9 +1,6 @@
 package com.sdg.learninghub.sdg;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,14 +11,13 @@ public class Sdg {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer goal_id;
 
+    @Column(unique = true, length = 255)
     private String title;
 
+    @Column(length = 10000)
     private String content;
-
-    public Sdg() {
-    }
 
     @Override
     public boolean equals(Object obj) {
@@ -32,7 +28,7 @@ public class Sdg {
         if (getClass() != obj.getClass())
             return false;
         Sdg other = (Sdg) obj;
-        return id.equals(other.id);
+        return goal_id.equals(other.goal_id);
     }
 
     @Override
