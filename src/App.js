@@ -4,6 +4,7 @@ import SearchBar from './components/SearchBar';
 import GoalCard from './components/GoalCard';
 import './App.css';
 
+
 const goalsData = [
   { id: 1, title: 'No Poverty', goal: 'Goal 1', color: '#E74C3C', icon: '🧑‍🤝‍🧑' },
   { id: 2, title: 'Zero Hunger', goal: 'Goal 2', color: '#F1C40F', icon: '🍲' },
