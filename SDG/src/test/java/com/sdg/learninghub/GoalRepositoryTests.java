@@ -27,7 +27,7 @@ public class GoalRepositoryTests {
 	private SdgRepository sdgRepository;
 	
 	@Test
-	@DisplayName("Test 1: Store member data in repository.")
+	@DisplayName("Test 1: Store goal data in repository.")
 	public void testCreateMember() {
 		Sdg goal = new Sdg();
 		goal.setTitle("TestGoal1");

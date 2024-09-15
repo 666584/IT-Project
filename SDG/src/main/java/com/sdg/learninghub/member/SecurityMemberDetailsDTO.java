@@ -17,6 +17,10 @@ public class SecurityMemberDetailsDTO implements UserDetails{
 	private MemberEntity memberEntity;
 	private Collection<? extends GrantedAuthority> authorities;
 	
+	public SecurityMemberDetailsDTO(MemberEntity memberEntity) {
+		this.memberEntity = memberEntity;
+	}
+	
 	@Override
 	public Collection <? extends GrantedAuthority> getAuthorities() {
 		return Collections.singletonList(new SimpleGrantedAuthority(memberEntity.getRole().getValue()));
@@ -29,8 +33,16 @@ public class SecurityMemberDetailsDTO implements UserDetails{
 	
 	@Override
 	public String getUsername() {
-		return memberEntity.getPassword();
+		return memberEntity.getUsername();
 	}
+	
+	public Long getId() {
+    	return memberEntity.getId();
+    }
+    
+    public String getEmail() {
+    	return memberEntity.getEmail();
+    }
 	
 	@Override
 	public boolean isAccountNonExpired() {
@@ -41,5 +53,5 @@ public class SecurityMemberDetailsDTO implements UserDetails{
     public boolean isAccountNonLocked() {
         return false;
     }
-
+	
 }

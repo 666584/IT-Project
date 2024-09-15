@@ -2,6 +2,7 @@ package com.sdg.learninghub.sdgmodule;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -18,20 +19,20 @@ import com.sdg.learninghub.sdg.Sdg;
 @Setter
 @Entity
 @Table(name = "goal_progress")
-public class sdgProgress {
+public class SdgProgress {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="progress_id")
+	@Column(name = "progress_id")
 	private Long id;
 	
-	 @ManyToOne
-	 @JoinColumn(name = "user_id")
-	 private MemberEntity member;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "user_id")
+	private MemberEntity member;
 	 
-	 @ManyToOne
-	 @JoinColumn(name = "goal_id")
-	 private Sdg goal;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "goal_id")
+	private Sdg goal; 
 	 
-	 private boolean completed;
+	private boolean completed;
 }

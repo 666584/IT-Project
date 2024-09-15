@@ -17,7 +17,7 @@ public class Sdg {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="goal_id")
+    @Column(name = "goal_id")
     private Long id;
 
     private String title;

@@ -1,10 +1,14 @@
 package com.sdg.learninghub.member;
 
+import com.sdg.learninghub.member.jwt.Auth;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import lombok.Getter;
@@ -42,6 +46,9 @@ public class MemberEntity {
 	
 	@Enumerated(EnumType.STRING)
 	private Provider provider;
+	
+	@OneToOne(mappedBy = "user", cascade = CascadeType.REMOVE)
+    private Auth auth;
 	
 	public MemberEntity update(Provider provider) {
 		if(this.provider == null) {
