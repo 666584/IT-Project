@@ -6,14 +6,14 @@ import './App.css';
 
 
 const goalsData = [
-  { id: 1, title: 'No Poverty', goal: 'Goal 1', color: '#E74C3C', icon: '🧑‍🤝‍🧑' },
-  { id: 2, title: 'Zero Hunger', goal: 'Goal 2', color: '#F1C40F', icon: '🍲' },
-  { id: 3, title: 'Good Health', goal: 'Goal 3', color: '#27AE60', icon: '❤️' },
-  { id: 4, title: 'Quality Education', goal: 'Goal 4', color: '#C0392B', icon: '📘' },
-  { id: 5, title: 'Gender Equality', goal: 'Goal 5', color: '#E67E22', icon: '⚧' },
-  { id: 6, title: 'Clean Water', goal: 'Goal 6', color: '#1ABC9C', icon: '💧' },
-  { id: 7, title: 'Affordable Energy', goal: 'Goal 7', color: '#F39C12', icon: '☀️' },
-  { id: 8, title: 'Decent Work', goal: 'Goal 8', color: '#8E44AD', icon: '📈' },
+  { id: 1, title: 'No Poverty', goal: 'Goal 1', color: '#E5233E', icon: '🧑‍🤝‍🧑' },
+  { id: 2, title: 'Zero Hunger', goal: 'Goal 2', color: '#DEA83A', icon: '🍲' },
+  { id: 3, title: 'Good Health', goal: 'Goal 3', color: '#4CA146', icon: '❤️' },
+  { id: 4, title: 'Quality Education', goal: 'Goal 4', color: '#C7212F', icon: '📘' },
+  { id: 5, title: 'Gender Equality', goal: 'Goal 5', color: '#EF402D', icon: '⚧' },
+  { id: 6, title: 'Clean Water', goal: 'Goal 6', color: '#27BFE6', icon: '💧' },
+  { id: 7, title: 'Affordable Energy', goal: 'Goal 7', color: '#FBC412', icon: '☀️' },
+  { id: 8, title: 'Decent Work', goal: 'Goal 8', color: '#A31C44', icon: '📈' },
 ];
 
 function App() {

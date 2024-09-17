@@ -1,7 +1,7 @@
 .goal-card {
   background-color: #fff;
-  border-radius: 8px;
-  padding: 20px;
+  border-radius: 35px;
+  padding-top: 20px;
   color: #000;
   display: flex;
   flex-direction: column;
@@ -18,11 +18,12 @@
 }
 
 .play-button {
-  background: black;
+  background: #020E0F;
   border: none;
   color: white;
   padding: 10px;
-  border-radius: 50%;
+  border-radius: 35px;
+  height: 90px;
   cursor: pointer;
   font-size: 16px;
 }
