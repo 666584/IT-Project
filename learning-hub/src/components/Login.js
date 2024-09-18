@@ -1,36 +1,65 @@
 // src/components/Login.js
-import React from 'react';
-import '../assets/styles/Login.css';
-import SocialLogin from './SocialLogin';
+import React, { useState } from 'react';
+import './Login.css'; // Link to the CSS file for styling
+import illustration from '../assets/illustration.png'; // Import the illustration image
 
-const Login = () => {
+function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log('Email:', email, 'Password:', password);
+  };
+
   return (
-    <div className="login-container">
+    <div className="login-page">
       <div className="login-form">
-        <h2>Welcome back !!!</h2>
+        <h3>Welcome back !!!</h3>
         <h1>Log In</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="input-group">
             <label>Email</label>
-            <input type="email" placeholder="login@gmail.com" required />
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="login@gmail.com"
+              required
+            />
           </div>
-          <div className="input-group">
+          <div className="input-group password-group">
             <label>Password</label>
-            <input type="password" placeholder="********" required />
-            <a href="#" className="forgot-password">Forgot Password?</a>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="••••••••"
+              required
+            />
+            <a href="#" className="forgot-password">
+              Forgot Password?
+            </a>
           </div>
-          <button type="submit" className="login-button">LOGIN</button>
+          <button type="submit" className="login-button">
+            LOGIN
+          </button>
+          <p className="divider">or continue with</p>
+          <div className="social-login">
+            <button className="social-button google">G</button>
+            <button className="social-button github">GH</button>
+            <button className="social-button facebook">F</button>
+          </div>
+          <p className="signup-text">
+            Don't have an account yet? <a href="#">Sign up for free</a>
+          </p>
         </form>
-        <SocialLogin />
-        <p className="signup-link">
-          Don't have an account yet? <a href="#">Sign up for free</a>
-        </p>
       </div>
       <div className="illustration">
-        <img src="../assets/styles/image.png" alt="Illustration" />
+        <img src={illustration} alt="Illustration" />
       </div>
     </div>
   );
-};
+}
 
 export default Login;
