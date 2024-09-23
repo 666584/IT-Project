@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
+@RequestMapping("/goal")
 public class SdgController {
     @Autowired
     private SdgService SdgService;
@@ -18,6 +19,6 @@ public class SdgController {
         List<Sdg> listSdg = SdgService.listAll(keyword);
         model.addAttribute("listSdg", listSdg);
         model.addAttribute("keyword", keyword);
-        return "index";
+        return "index_sdg";
     }
 }
