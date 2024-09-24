@@ -1,3 +1,4 @@
+/* App.css */
 .app-container {
   display: flex;
 }
@@ -10,6 +11,13 @@
   box-sizing: border-box;
 }
 
+.app-title {
+  font-size: 2em;
+  text-align: left;
+  margin: 20px 0;
+  color: #333;
+}
+
 .goals-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -19,9 +27,8 @@
 }
 
 .goal-card {
-  min-width: 250px; /* Set a minimum width to prevent cards from becoming too narrow */
+  min-width: 250px; /* Prevent cards from becoming too narrow */
 }
-
 
 @media (max-width: 800px) {
   .goals-grid {

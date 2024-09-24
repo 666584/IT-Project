@@ -1,9 +1,9 @@
+// App.js
 import React, { useState } from 'react';
 import Sidebar from './components/Sidebar';
 import SearchBar from './components/SearchBar';
 import GoalCard from './components/GoalCard';
 import './App.css';
-
 
 const goalsData = [
   { id: 1, title: 'No Poverty', goal: 'Goal 1', color: '#E5233E', icon: '🧑‍🤝‍🧑' },
@@ -28,9 +28,17 @@ function App() {
       <Sidebar />
       <div className="main-content">
         <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+        {/* Move the title here */}
+        <h1 className="app-title">SDG Games</h1>
         <div className="goals-grid">
           {filteredGoals.map((goal) => (
-            <GoalCard key={goal.id} title={goal.title} goal={goal.goal} color={goal.color} icon={goal.icon} />
+            <GoalCard
+              key={goal.id}
+              title={goal.title}
+              goal={goal.goal}
+              color={goal.color}
+              icon={goal.icon}
+            />
           ))}
         </div>
       </div>
