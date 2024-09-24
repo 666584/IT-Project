@@ -1,5 +1,6 @@
 /* src/components/Login.css */
 .login-page {
+  font-family: Poppins;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -63,9 +64,10 @@ input {
   background-color: #007bff;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 30px;
   cursor: pointer;
   font-size: 1rem;
+  font-family: 'Poppins'
 }
 
 .divider {
@@ -104,10 +106,11 @@ input {
 
 .illustration {
   max-width: 500px;
+  margin-right: 120px;
 }
 
 .illustration img {
-  width: 100%;
+  width: 140%;
   height: auto;
 }
 
