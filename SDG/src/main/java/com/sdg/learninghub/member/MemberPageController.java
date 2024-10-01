@@ -69,7 +69,7 @@ public class MemberPageController {
 		}
 		
 		//terms.accept
-		return "login_success";
+		return "register_success";
 	}
 	@PostMapping("/login")
 	public ResponseEntity<?> login(@RequestBody MemberEntity loginRequest) {

@@ -1,9 +1,6 @@
 package com.sdg.learninghub.member.jwt;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sdg.learninghub.member.MemberEntity;
-import com.sdg.learninghub.member.MemberRole;
-import com.sdg.learninghub.member.Provider;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
