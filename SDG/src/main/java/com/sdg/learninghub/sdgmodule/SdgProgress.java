@@ -1,5 +1,6 @@
 package com.sdg.learninghub.sdgmodule;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -30,7 +31,7 @@ public class SdgProgress {
 	@JoinColumn(name = "user_id")
 	private MemberEntity member;
 	 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "goal_id")
 	private Sdg goal; 
 	 

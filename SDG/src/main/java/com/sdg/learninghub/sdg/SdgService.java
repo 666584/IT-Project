@@ -8,12 +8,12 @@ import java.util.List;
 @Service
 public class SdgService {
     @Autowired
-    private SdgRepository SdgRepository;
+    private SdgRepository sdgRepository;
 
     public List<Sdg> listAll(String keyword) {
         if (keyword != null) {
-            return SdgRepository.findAll(keyword);
+            return sdgRepository.findAll(keyword);
         }
-        return SdgRepository.findAll();
-    }
+        return sdgRepository.findAll();
+    }    
 }

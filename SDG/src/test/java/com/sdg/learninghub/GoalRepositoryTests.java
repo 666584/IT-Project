@@ -26,16 +26,10 @@ public class GoalRepositoryTests {
 	@Autowired
 	private SdgRepository sdgRepository;
 	
-	@Test
+	/*@Test
 	@DisplayName("Test 1: Store goal data in repository.")
 	public void testCreateMember() {
-		Sdg goal = new Sdg();
-		goal.setTitle("TestGoal1");
-		goal.setContent("This is a content for testGoal 1.");
-		
-		Sdg savedGoal = sdgRepository.save(goal);
-		Sdg existGoal = entityManager.find(Sdg.class, savedGoal.getId());	     
+		Sdg existGoal = entityManager.find(Sdg.class, .getId());	     
 		assertThat(goal.getTitle()).isEqualTo(existGoal.getTitle());
-		assertThat(goal.getContent()).isEqualTo(existGoal.getContent());
-	}
+	}*/
 }

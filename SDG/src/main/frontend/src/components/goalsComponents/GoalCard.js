@@ -1,6 +1,6 @@
 import React from 'react';
 import './GoalCard.css';
-import playbutton from './icons/play-circle.svg';
+import playbutton from '../icons/play-circle.svg';
 
 function GoalCard({ title, goal, color, icon }) {
   return (

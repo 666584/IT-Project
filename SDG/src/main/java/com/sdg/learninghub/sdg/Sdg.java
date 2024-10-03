@@ -16,18 +16,22 @@ import lombok.Setter;
 public class Sdg {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "goal_id")
     private Long id;
 
     private String title;
-
+    
     private String content;
-
+    
     public Sdg() {
     }
+    
+    public Sdg(Long id, String title) {
+		this.id = id;
+		this.title = title;
+	}
 
-    @Override
+	@Override
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
@@ -41,7 +45,6 @@ public class Sdg {
 
     @Override
     public String toString() {
-        return "Sdg [title=" +  title + ", content=" + content + "]";
+        return "Sdg [title=" +  title  + "]";
     }
-
 }
