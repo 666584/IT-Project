@@ -10,6 +10,7 @@ function SearchBar({ searchTerm, setSearchTerm }) {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
+      <img src={require('../../assets/search.png')} alt='module' />
     </div>
   );
 }

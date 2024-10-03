@@ -1,9 +1,9 @@
 import React from 'react';
 import './Sidebar.css';
-import homeIcon from '../icons/home-2.svg';
-import socialIcon from '../icons/people.svg';
-import gameIcon from '../icons/gameboy.svg';
-import moduleIcon from '../icons/category.svg';
+import homeIcon from '../../assets/home-2.svg';
+import socialIcon from '../../assets/people.svg';
+import gameIcon from '../../assets/gameboy.svg';
+import moduleIcon from '../../assets/category.svg';
 import { useNavigate, Link } from 'react-router-dom';
 
 function Sidebar() {

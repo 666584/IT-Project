@@ -16,10 +16,10 @@ const Games = () => {
                 </div>
                 <div className="searchItem">
                 <span className='icon'>
-                        <img src={require('./icons/user.png')} alt='module' />
+                        <img src={require('../assets/user.png')} alt='module' />
                     </span>
                     <span className='icon'>
-                        <img src={require('./icons/setting.png')} alt='module' />
+                        <img src={require('../assets/setting.png')} alt='module' />
                     </span>
                 </div>
             </div>
@@ -33,11 +33,11 @@ const Games = () => {
                     </div>
                 </div>
                 <div className='textItem'>
-                    <img src={require('./icons/image-05.png')} alt='games' />
+                    <img src={require('../assets/image-05.png')} alt='games' />
                 </div>
             </div>
             <div className='bgImg'>
-                <img src={require('./icons/game.png')} alt='games' />
+                <img src={require('../assets/game.png')} alt='games' />
             </div>
             </div>
 

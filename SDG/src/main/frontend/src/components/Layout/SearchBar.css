@@ -1,6 +1,6 @@
 .search-bar {
   margin-bottom: 20px;
-
+  position: relative;
 }
 
 .search-bar input {
@@ -10,4 +10,10 @@
   font-size: 16px;
   background-color: #D9D9D9;
   border: none;
+}
+.search-bar img {
+  position: absolute;
+  right: 10px;
+  top: 4px;
+  height: 30px;
 }
