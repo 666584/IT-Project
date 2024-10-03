@@ -1,9 +1,9 @@
 import React from 'react';
 import './Sidebar.css';
-import homeIcon from './icons/home-2.svg';
-import socialIcon from './icons/people.svg';
-import gameIcon from './icons/gameboy.svg';
-import moduleIcon from './icons/category.svg';
+import homeIcon from '../icons/home-2.svg';
+import socialIcon from '../icons/people.svg';
+import gameIcon from '../icons/gameboy.svg';
+import moduleIcon from '../icons/category.svg';
 import { useNavigate, Link } from 'react-router-dom';
 
 function Sidebar() {
@@ -11,7 +11,7 @@ function Sidebar() {
   
   const handleLogout = () => {    
     localStorage.clear();
-    navigate('/login');
+    navigate('/');
   };
 
   return (
@@ -24,13 +24,13 @@ function Sidebar() {
           </button>
         </li>
         <li>
-          <button className="sidebar-button" onClick={() => navigate('/')}>
+          <button className="sidebar-button" onClick={() => navigate('/module')}>
             <img src={moduleIcon} alt="Modules" />
             <span>Modules</span>
           </button>
         </li>
         <li>
-          <button className="sidebar-button" onClick={() => navigate('/')}>
+          <button className="sidebar-button" onClick={() => navigate('/games')}>
             <img src={gameIcon} alt="Games" />
             <span>Games</span>
           </button>

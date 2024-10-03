@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import Sidebar from './Sidebar';
-import SearchBar from './SearchBar';
-import GoalCard from './goalsComponents/GoalCard';
-import './Goals.css';
+import SearchBar from './Layout/SearchBar.js';
+import GoalCard from './moduleComponents/GoalCard';
+import './Module.css';
 import { Helmet } from 'react-helmet';
 
-function Goals() {
+function Module() {
   const [searchTerm, setSearchTerm] = useState('');
   const goalsData = [
     { id: 1, title: 'No Poverty', goal: 'Goal 1', color: '#E5233E', icon: '🧑‍🤝‍🧑' },
@@ -24,11 +23,10 @@ function Goals() {
   return (
     <div className="app-container">
         <Helmet>
-                <title>Goals</title>
-            </Helmet>
-        <Sidebar />
+          <title>Module</title>
+        </Helmet>
         <div className="main-content">
-        <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+          <SearchBar></SearchBar>
         <div className="goals-grid">
           {filteredGoals.map((goal) => (
             <GoalCard
@@ -45,4 +43,4 @@ function Goals() {
   );
 }
 
-export default Goals;
+export default Module;
