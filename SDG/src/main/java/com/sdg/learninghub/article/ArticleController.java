@@ -46,7 +46,7 @@ public class ArticleController {
     }
 
     @RequestMapping("/delete/{id}")
-    public String deleteProduct(@PathVariable(name = "id") int id) {
+    public String deleteArticle(@PathVariable(name = "id") int id) {
         articleService.delete(id);
         return "redirect:/article/";
     }
