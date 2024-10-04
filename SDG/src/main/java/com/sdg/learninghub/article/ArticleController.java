@@ -25,7 +25,7 @@ public class ArticleController {
     }
 
     @RequestMapping("/new_article")
-    public String showNewProductPage(Model model) {
+    public String showNewArticlePage(Model model) {
     Article article = new Article();
         model.addAttribute("article", article);
         return "new_article";
