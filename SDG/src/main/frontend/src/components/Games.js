@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SearchBar from './Layout/SearchBar';
+import Navbar from './Layout/Navbar';
 import './Games.css';
 import { Helmet } from 'react-helmet';
 
@@ -10,19 +10,7 @@ const Games = () => {
             <Helmet>
                 <title>Games</title>
             </Helmet>
-            <div className="search">
-                <div className="searchItem">
-                    <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-                </div>
-                <div className="searchItem">
-                <span className='icon'>
-                        <img src={require('../assets/user.png')} alt='module' />
-                    </span>
-                    <span className='icon'>
-                        <img src={require('../assets/setting.png')} alt='module' />
-                    </span>
-                </div>
-            </div>
+            <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm}></Navbar>
             <div className='text'>
                 <div className='textItem'>
                     <div className='header'>
@@ -39,7 +27,7 @@ const Games = () => {
             <div className='bgImg'>
                 <img src={require('../assets/game.png')} alt='games' />
             </div>
-            </div>
+        </div>
 
     )
 }

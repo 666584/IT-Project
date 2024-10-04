@@ -13,6 +13,7 @@ import com.sdg.learninghub.member.MemberRole;
 import com.sdg.learninghub.member.MemberSecurityService;
 import com.sdg.learninghub.member.Provider;
 import com.sdg.learninghub.member.SecurityMemberDetailsDTO;
+import com.sdg.learninghub.member.UserDTO;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -70,4 +71,17 @@ public class AuthService {
     	this.authRepository.save(auth);
 		return auth;
     }
+    
+    public MemberEntity getUser(String accessToken) {
+    	if (this.jwtTokenProvider.validateToken(accessToken)) {
+            Optional<Auth> auth = this.authRepository.findByAccessToken(accessToken);
+            if(auth.isEmpty()){ 
+            	throw new IllegalArgumentException("Cannot find token.\nREFRESH_TOKEN = " + accessToken);
+            }
+            Auth accessAuth = auth.get();
+            return accessAuth.getUser();
+    	}
+    	return null;
+    };
+    
 }

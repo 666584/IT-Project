@@ -18,6 +18,7 @@ public class UserCreateForm {
 	private String lastName;
 	
 	@Size(min = 2, max = 45)
+	@NotEmpty(message = "Enter username.")
 	private String username;
 	
 	@Size(min = 2, max = 100)

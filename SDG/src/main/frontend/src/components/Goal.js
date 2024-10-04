@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SearchBar from './Layout/SearchBar';
+import Navbar from './Layout/Navbar';
 import { Helmet } from 'react-helmet';
 import { useParams } from 'react-router-dom';
 import './Goal.scss';
@@ -14,19 +14,7 @@ const Goal = () => {
             <Helmet>
                 <title>{params.title}</title>
             </Helmet>
-            <div className="search">
-                <div className="searchItem">
-                    <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-                </div>
-                <div className="searchItem">
-                    <span className='icon'>
-                        <img src={require('../assets/user.png')} alt='module' />
-                    </span>
-                    <span className='icon'>
-                        <img src={require('../assets/setting.png')} alt='module' />
-                    </span>
-                </div>
-            </div>
+            <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm}></Navbar>
             <div className="education">
                 <div className="educationItem">
                     <div className='header'>{params.title}</div>

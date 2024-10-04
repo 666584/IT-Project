@@ -1,5 +1,6 @@
 package com.sdg.learninghub.member;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sdg.learninghub.member.jwt.Auth;
 
 import jakarta.persistence.CascadeType;

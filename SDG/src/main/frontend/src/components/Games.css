@@ -1,28 +1,4 @@
 .games {
-    .search {
-        display: flex;
-        .searchItem {
-            &:first-child {
-                flex: 1;
-                margin-right: 45px;
-            }
-            &:last-child {
-                width: 60px;
-                display: flex;
-                justify-content: space-between;
-                margin-top: 3px;
-            }
-            .icon {
-                height: 30px;
-                width: 30px;
-                
-                img {
-                    height: 30px;
-                
-                }
-            }
-        }
-    }
     .text {
         display: flex;
         justify-content: space-between;

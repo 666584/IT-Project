@@ -14,5 +14,6 @@ function SearchBar({ searchTerm, setSearchTerm }) {
     </div>
   );
 }
+/* Group */
 
 export default SearchBar;

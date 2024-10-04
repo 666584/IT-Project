@@ -19,8 +19,9 @@ const Login = () => {
         const { tokenType, accessToken, refreshToken } = response.data;        
         localStorage.setItem('tokenType', tokenType);
         localStorage.setItem('accessToken', accessToken);
-        localStorage.setItem('refreshToken', refreshToken);
-        navigate('/dashboard');
+        localStorage.setItem('refreshToken', refreshToken);       
+        const res = await AuthAPI.auth({ accessToken });            
+        navigate(`/dashboard/${res.data}`); 
       } catch (error) {
           setMessage('Invalid credentials');
       }

@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const RegisterComponent = () => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
+    const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password1, setPassword1] = useState('');
     const [password2, setPassword2] = useState('');
@@ -15,9 +16,10 @@ const RegisterComponent = () => {
     const handleRegister = async (e) => {
         e.preventDefault();
         try {
-            const response = await AuthAPI.register({ firstName, lastName, email, password1, password2 });
+            const response = await AuthAPI.register({ firstName, lastName, username, email, password1, password2 });
             setMessage(response.data);
-            if (response.data === 'User registered successfully') {
+
+            if (response.data === 'register_success') {
                 navigate('/login');
             }
         } catch (error) {
@@ -50,6 +52,15 @@ const RegisterComponent = () => {
                                         className="form-control"
                                         value={lastName}
                                         onChange={(e) => setLastName(e.target.value)}
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label>Username</label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        value={username}
+                                        onChange={(e) => setUsername(e.target.value)}
                                     />
                                 </div>
                                 <div className="form-group">

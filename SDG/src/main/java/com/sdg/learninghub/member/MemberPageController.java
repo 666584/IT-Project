@@ -1,14 +1,12 @@
 package com.sdg.learninghub.member;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sdg.learninghub.member.jwt.Auth;
@@ -43,12 +41,12 @@ public class MemberPageController {
 	}
 	
 	@PostMapping("/signup")
-	public String signup(@Valid UserCreateForm userCreateForm, BindingResult bindingResult) {
+	public String signup(@Valid @RequestBody UserCreateForm userCreateForm, BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
 			for (FieldError error : bindingResult.getFieldErrors()) {
                 System.out.println(error.getField() + ": " + error.getDefaultMessage());
             }
-			return "signup_form";
+			return "Error";
 		}
 		
 		if(!userCreateForm.getPassword1().equals(userCreateForm.getPassword2())) {
@@ -71,6 +69,7 @@ public class MemberPageController {
 		//terms.accept
 		return "register_success";
 	}
+	
 	@PostMapping("/login")
 	public ResponseEntity<?> login(@RequestBody MemberEntity loginRequest) {
 		String email = loginRequest.getEmail(); 
@@ -104,6 +103,17 @@ public class MemberPageController {
 	@GetMapping("/access_denied")
 	public String access_denied() {
 		return "access_denied";
+	}
+	
+	@GetMapping("/user/{userId}")
+	public UserDTO UserData(@PathVariable(name = "userId") Long userId) {
+		MemberEntity member = memberService.getMember(userId);
+		if(member == null) {
+			return null;
+		}
+		UserDTO user = new UserDTO(member.getUsername(), member.getEmail(),
+				member.getFirstName(), member.getLastName());
+		return user;
 	}
 }
 

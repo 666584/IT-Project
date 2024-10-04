@@ -13,6 +13,10 @@ function Home() {
     const handleLoginClick = () => {
       navigate('/login'); // Navigates to the Login page
     };
+
+    const handleSignupClick = () => {
+      navigate('/register');
+    };
   
     return (
       <div className="home-page">
@@ -25,7 +29,7 @@ function Home() {
             <button className="login-button" onClick={handleLoginClick}>
               Log in
             </button>
-            <button className="signup-button">Sign Up</button>
+            <button className="signup-button" onClick={handleSignupClick}>Sign Up</button>
           </div>
         </header>
   

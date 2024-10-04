@@ -11,7 +11,7 @@ const PrivateRoute = ({ children  }) => {
             const accessToken = localStorage.getItem('accessToken');
             try {
                 const response = await AuthAPI.auth({accessToken});
-                if(response.data === "authorised"){
+                if(response.data != null){
                     console.log(response.data);
                     setIsAuthenticated(true);
                 } else {

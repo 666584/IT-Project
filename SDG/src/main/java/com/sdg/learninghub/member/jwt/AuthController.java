@@ -1,11 +1,17 @@
 package com.sdg.learninghub.member.jwt;
 
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sdg.learninghub.sdgmodule.SdgProgressDTO;
+import com.sdg.learninghub.member.MemberEntity;
+import com.sdg.learninghub.member.UserDTO;
 
 import lombok.RequiredArgsConstructor;
 
@@ -15,14 +21,16 @@ import lombok.RequiredArgsConstructor;
 public class AuthController {
 	
 	private final JwtTokenProvider jwtTokenProvider;
+	private final AuthRepository authRepository;
+	private final AuthService authService;
 	
 	@PostMapping("/auth")
-	public String Auth(@RequestBody AuthDTO authDTO) {
+	public Long Auth(@RequestBody AuthDTO authDTO) {
 		String accessToken = authDTO.getAccessToken();
-		System.out.println(accessToken);
-		if(jwtTokenProvider.validateToken(accessToken)){
-			return "authorised";
+		MemberEntity user = authService.getUser(accessToken);
+		if(user != null) {
+			return user.getId();
 		}
-		return "invalidate_token";
+		return null;
 	}
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SearchBar from './Layout/SearchBar.js';
+import Navbar from './Layout/Navbar.js';
 import GoalCard from './moduleComponents/GoalCard';
 import './Module.css';
 import { Helmet } from 'react-helmet';
@@ -26,7 +26,7 @@ function Module() {
           <title>Module</title>
         </Helmet>
         <div className="main-content">
-          <SearchBar></SearchBar>
+          <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} ></Navbar>
         <div className="goals-grid">
           {filteredGoals.map((goal) => (
             <GoalCard

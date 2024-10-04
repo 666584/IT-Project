@@ -1,14 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Sidebar.css';
 import homeIcon from '../../assets/home-2.svg';
 import socialIcon from '../../assets/people.svg';
 import gameIcon from '../../assets/gameboy.svg';
 import moduleIcon from '../../assets/category.svg';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import AuthAPI from '../../AuthAPI.js'
 
 function Sidebar() {
   const navigate = useNavigate();
-  
+  const [message, setMessage] = useState('');
+
+  const handleDashboardClick = async (e) => {
+      e.preventDefault();
+      const accessToken = localStorage.getItem('accessToken');                  
+      try {
+          const response = await AuthAPI.auth({ accessToken });            
+          navigate(`/dashboard/${response.data}`);    
+      }catch (error) {
+          setMessage('Invalid credentials');
+      }
+  };
+
   const handleLogout = () => {    
     localStorage.clear();
     navigate('/');
@@ -18,9 +31,9 @@ function Sidebar() {
     <div className="sidebar">
       <ul className="allIcons">
         <li>
-          <button className="sidebar-button" onClick={() => navigate('/')}>
+          <button className="sidebar-button" onClick={handleDashboardClick}>
             <img src={homeIcon} alt="Home" />
-            <span>Home</span>
+            <span>Dashboard</span>
           </button>
         </li>
         <li>

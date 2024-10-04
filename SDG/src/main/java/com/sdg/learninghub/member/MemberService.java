@@ -6,6 +6,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import jakarta.persistence.EntityNotFoundException;
 //import com.sdg.learninghub.DataNotFoundException;
 import lombok.RequiredArgsConstructor;
 
@@ -39,12 +40,12 @@ public class MemberService {
 		return memberEntity;
 	}
 	
-	/**public MemberEntity getMember(Long id) {
+	public MemberEntity getMember(Long id) {
 		Optional<MemberEntity> member = this.memberRepository.findById(id);
 		if (member.isPresent()) {
 			return member.get();
 		} else {
-			throw new DataNotFoundException("User does not exist.");
+			throw new EntityNotFoundException("User does not exist.");
 		}
-	}*/
+	}
 }
