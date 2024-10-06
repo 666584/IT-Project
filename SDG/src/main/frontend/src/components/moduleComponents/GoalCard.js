@@ -1,7 +1,7 @@
 import React from 'react';
 import './GoalCard.css';
 import playbutton from '../../assets/play-circle.svg';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+import { useNavigate } from 'react-router-dom';
 
 function GoalCard({ key, title, goal, color, icon }) {
   const navigate = useNavigate();

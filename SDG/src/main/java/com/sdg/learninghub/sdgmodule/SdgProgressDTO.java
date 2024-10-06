@@ -14,5 +14,8 @@ public class SdgProgressDTO {
 
     @JsonProperty("goalTitle")
     private String goalTitle;
+    
+    @JsonProperty("goalTask")
+    private String goalTask;
 
 }

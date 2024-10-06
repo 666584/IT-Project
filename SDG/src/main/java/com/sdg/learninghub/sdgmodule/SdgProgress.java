@@ -43,21 +43,37 @@ public class SdgProgress {
 	
 	private boolean completed;
 	
-	public void checkAllCompleted() {
-		if(overview && targets && progress) {
-			completed = true;
+	public boolean checkAllCompleted() {
+		if(completed) {
+			return false;
 		}
+		else if(overview && targets && progress) {
+			completed = true;
+			return true;
+		}
+		return false;
 	}
 	
-	public void markAsCompleted(String task) {
+	public boolean markAsCompleted(String task) {		
 		if("overview".equalsIgnoreCase(task)) {
+			if(overview == true) {
+				return false;
+			}
 			this.overview = true;
 		} else if ("targets".equalsIgnoreCase(task)) {
+			if(targets == true) {
+				return false;
+			}
 	        this.targets = true;
 	    } else if ("progress".equalsIgnoreCase(task)) {
+	    	if(progress == true) {
+				return false;
+			}
 	        this.progress = true;
-	    }
+	    } else {
+			return false;
+	    }	
 		
-		checkAllCompleted();
+		return true;
 	}
 }

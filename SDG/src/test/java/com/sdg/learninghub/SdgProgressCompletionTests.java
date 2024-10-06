@@ -13,7 +13,8 @@ import com.sdg.learninghub.sdgmodule.SdgProgress;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
-public class SdgProgressCompletionTest {
+public class SdgProgressCompletionTests {
+	
 	private SdgProgress testProgress;
 
     @BeforeEach
