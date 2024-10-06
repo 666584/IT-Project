@@ -17,7 +17,6 @@ import com.sdg.learninghub.sdg.Sdg;
  
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
-@Rollback(false)
 public class GoalRepositoryTests {
 	
 	@Autowired
@@ -26,7 +25,8 @@ public class GoalRepositoryTests {
 	@Autowired
 	private SdgRepository sdgRepository;
 	
-	/*@Test
+	/*
+	@Test
 	@DisplayName("Test 1: Store goal data in repository.")
 	public void testCreateMember() {
 		Sdg existGoal = entityManager.find(Sdg.class, .getId());	     

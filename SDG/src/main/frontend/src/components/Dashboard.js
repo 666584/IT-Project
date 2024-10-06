@@ -53,7 +53,7 @@ const DashboardComponent = () => {
                 <p><strong>Spent points: </strong> {record.spentPoints}</p>
                 <p><strong>Total SDG Progress: </strong>{record.totalSDGProgress}/2550 </p>
                 <p><strong>Modules complete: </strong> {record.numCompletedSDG}</p>
-                <p><strong>Rewards Earned: </strong> {record.numReward}</p>
+                <p><strong>Rewards Redeemed: </strong> {record.numReward}</p>
             </div>
         </div>
     );

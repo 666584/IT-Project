@@ -35,5 +35,29 @@ public class SdgProgress {
 	@JoinColumn(name = "goal_id")
 	private Sdg goal; 
 	 
+	private boolean overview;
+	
+	private boolean targets;
+	
+	private boolean progress;
+	
 	private boolean completed;
+	
+	public void checkAllCompleted() {
+		if(overview && targets && progress) {
+			completed = true;
+		}
+	}
+	
+	public void markAsCompleted(String task) {
+		if("overview".equalsIgnoreCase(task)) {
+			this.overview = true;
+		} else if ("targets".equalsIgnoreCase(task)) {
+	        this.targets = true;
+	    } else if ("progress".equalsIgnoreCase(task)) {
+	        this.progress = true;
+	    }
+		
+		checkAllCompleted();
+	}
 }

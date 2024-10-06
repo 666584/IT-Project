@@ -18,7 +18,6 @@ import com.sdg.learninghub.member.MemberRole;
  
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
-@Rollback(false)
 public class MemberRepositoryTests {
 	
 	@Autowired

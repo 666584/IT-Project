@@ -15,11 +15,11 @@ import lombok.RequiredArgsConstructor;
 @Service
 public class SdgProgressService {
 	
-	private final SdgProgressRepository SdgProgressRepository;
+	private final SdgProgressRepository sdgProgressRepository;
 	private final AuthRepository authRepository;
 	private final SdgRepository sdgRepository;
 	
-	public void markAsCompleted(String accessToken, String goalTitle) {
+	public void saveProgress(String accessToken, String goalTitle, String task) {
 		Optional<Auth> auths = authRepository.findByAccessToken(accessToken);
 		if(auths.isEmpty()) {
 			throw new IllegalArgumentException("Cannot find authority of user.");
@@ -31,10 +31,12 @@ public class SdgProgressService {
 		}
 		Sdg goal = sdgs.get();
 		MemberEntity member = authUser.getUser();
-		SdgProgress progress = new SdgProgress();
-		progress.setMember(member);
-		progress.setGoal(goal);
-		progress.setCompleted(true);
-		SdgProgressRepository.save(progress);
+		Optional<SdgProgress> existedProgress = sdgProgressRepository.findByMemberIdAndGoalId(member.getId(), goal.getId());
+		if(existedProgress.isEmpty()) {
+			SdgProgress progress = new SdgProgress();
+			progress.setMember(member);
+			progress.setGoal(goal);
+			sdgProgressRepository.save(progress);
+		}
 	}
 }

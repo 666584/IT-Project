@@ -22,8 +22,6 @@ function Navbar({searchTerm, setSearchTerm}) {
         <div className="search">
             <div className="searchItem">
                 <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-            </div>
-            <div className="searchItem">
                 <span className='icon'>
                     <button onClick={handleProfileClick}>
                         <img src={require('../../assets/user.png')} alt='module' />

@@ -29,7 +29,7 @@ public class SdgProgressController {
 		
 		String accessToken = sdgProgressInputDTO.getAccessToken();
 		String goalTitle = sdgProgressInputDTO.getGoalTitle();
-		sdgProgressService.markAsCompleted(accessToken, goalTitle);
+		sdgProgressService.saveProgress(accessToken, goalTitle, null);
 		
 		return ResponseEntity.ok("Progress saved.");
 	}

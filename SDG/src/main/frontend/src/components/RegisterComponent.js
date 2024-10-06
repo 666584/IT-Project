@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import AuthAPI from '../AuthAPI';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Helmet } from 'react-helmet';
 
 const RegisterComponent = () => {
     const [firstName, setFirstName] = useState('');
@@ -29,6 +30,9 @@ const RegisterComponent = () => {
 
     return (
         <div className="container mt-5">
+            <Helmet>
+                <title>Register</title>
+            </Helmet>
             <div className="row justify-content-center">
                 <div className="col-md-6">
                     <div className="card">
