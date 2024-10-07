@@ -20,6 +20,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import jakarta.validation.Valid;
@@ -74,19 +75,26 @@ public class MemberPageController {
 	public ResponseEntity<?> login(@RequestBody MemberEntity loginRequest) {
 		String email = loginRequest.getEmail(); 
         String password = loginRequest.getPassword();
-        
-        UserDetails userDetails = memberSecurityService.loadUserByUsername(email); 
-        if(userDetails == null) { 
-            System.out.println("Sign in details - null" + userDetails); 
-  
-            throw new BadCredentialsException("Invalid username and password"); 
-        } 
-        if(!passwordEncoder.matches(password,userDetails.getPassword())) { 
-            System.out.println("Sign in userDetails - password mismatch"+userDetails); 
-  
-            throw new BadCredentialsException("Invalid password"); 
-  
+
+        try {        	
+            UserDetails userDetails = memberSecurityService.loadUserByUsername(email);        
+            if(!passwordEncoder.matches(password,userDetails.getPassword())) { 
+                System.out.println("Sign in userDetails - password mismatch"+userDetails);      
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                        .body("The email or password is incorrect.");               
+            }
+        } catch (UsernameNotFoundException e) {
+            if (e.getMessage().equals("USER_NOT_FOUND")) {
+                System.out.println("The email or password is incorrect.");
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                        .body("The email or password is incorrect.");
+            } else {
+                System.out.println("An unexpected error occurred: " + e.getMessage());
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                        .body("An unexpected error occurred: " + e.getMessage());
+            }
         }
+        
         Auth response = authService.login(email);
         Map<String, String> authResponse = new HashMap<>();
         authResponse.put("tokenType", response.getTokenType());
