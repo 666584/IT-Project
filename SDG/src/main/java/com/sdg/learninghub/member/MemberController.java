@@ -1,40 +1,59 @@
 package com.sdg.learninghub.member;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
+import com.sdg.learninghub.member.jwt.Auth;
+import com.sdg.learninghub.member.jwt.AuthDTO;
+import com.sdg.learninghub.member.jwt.AuthService;
+
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-@Controller
-@RequestMapping("/user")
+@RestController
+@RequestMapping("/api/auth")
 public class MemberController {
 	
 	private final MemberService memberService;
-
+	private final MemberSecurityService memberSecurityService;
+	private final GoogleService googleService;
+	private final PasswordEncoder passwordEncoder;
+	private final AuthService authService;
+	
 	@GetMapping("/signup")
 	public String signup(UserCreateForm userCreateForm) {
 		return "signup_form";
 	}
 	
 	@PostMapping("/signup")
-	public String signup(@Valid UserCreateForm userCreateForm, BindingResult bindingResult) {
+	public String signup(@Valid @RequestBody UserCreateForm userCreateForm, BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
 			for (FieldError error : bindingResult.getFieldErrors()) {
                 System.out.println(error.getField() + ": " + error.getDefaultMessage());
             }
-			return "signup_form";
+			return "Error";
 		}
 		
 		if(!userCreateForm.getPassword1().equals(userCreateForm.getPassword2())) {
@@ -55,21 +74,73 @@ public class MemberController {
 		}
 		
 		//terms.accept
-		return "login_success";
-	}
-	@GetMapping("/login")
-	public String login() {
-		return "login";
+		return "register_success";
 	}
 	
-	@GetMapping("/login_success")
-	public String login_success() {
-		return "login_success";
+	@PostMapping("/login")
+	public ResponseEntity<?> login(@RequestBody MemberEntity loginRequest) {
+		String email = loginRequest.getEmail(); 
+        String password = loginRequest.getPassword();
+
+        try {        	
+            UserDetails userDetails = memberSecurityService.loadUserByUsername(email);        
+            if(!passwordEncoder.matches(password,userDetails.getPassword())) { 
+                System.out.println("Sign in userDetails - password mismatch"+userDetails);      
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                        .body("The email or password is incorrect.");               
+            }
+        } catch (UsernameNotFoundException e) {
+            if (e.getMessage().equals("USER_NOT_FOUND")) {
+                System.out.println("The email or password is incorrect.");
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                        .body("The email or password is incorrect.");
+            } else {
+                System.out.println("An unexpected error occurred: " + e.getMessage());
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                        .body("An unexpected error occurred: " + e.getMessage());
+            }
+        }
+        
+        Auth response = authService.login(email);
+        Map<String, String> authResponse = new HashMap<>();
+        authResponse.put("tokenType", response.getTokenType());
+        authResponse.put("accessToken", response.getAccessToken());
+        authResponse.put("refreshToken", response.getRefreshToken());
+        return ResponseEntity.status(HttpStatus.OK).body(authResponse);
+	}
+	
+	@PostMapping("/googleLogin")
+	public ResponseEntity<?> googleLogin(@RequestBody AuthDTO authDTO) {
+		String accessToken = authDTO.getAccessToken();
+		String email = googleService.getGoogleUser(accessToken);
+		if (email == null) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("An unexpected error occurred");
+		}
+		System.out.println("googleLogin: " + email);
+		Auth response = authService.login(email);
+        Map<String, String> authResponse = new HashMap<>();
+        authResponse.put("tokenType", response.getTokenType());
+        authResponse.put("accessToken", response.getAccessToken());
+        authResponse.put("refreshToken", response.getRefreshToken());
+		
+        return ResponseEntity.status(HttpStatus.OK).body(authResponse);
 	}
 	
 	@GetMapping("/access_denied")
 	public String access_denied() {
 		return "access_denied";
+	}
+	
+	@GetMapping("/user/{userId}")
+	public UserDTO UserData(@PathVariable(name = "userId") Long userId) {
+		MemberEntity member = memberService.getMember(userId);
+		if(member == null) {
+			return null;
+		}
+		UserDTO user = new UserDTO(member.getUsername(), member.getEmail(),
+				member.getFirstName(), member.getLastName());
+		return user;
 	}
 }
 

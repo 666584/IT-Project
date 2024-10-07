@@ -25,7 +25,7 @@ public class MemberSecurityService implements UserDetailsService{
 	public UserDetails loadUserByUsername(String email) throws
 UsernameNotFoundException {
 		Optional<MemberEntity> user = this.memberRepository.findByEmail(email);
-		System.out.println("Here we go");
+
 		// Should check the provider is LOCAL
 		if(user.isEmpty()) {
 			throw new UsernameNotFoundException("USER_NOT_FOUND");

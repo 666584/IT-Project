@@ -4,6 +4,7 @@ import illustration from '../assets/illustration.png'; // Import the illustratio
 import { useNavigate, Link } from 'react-router-dom';
 import AuthAPI from '../AuthAPI';
 import { Helmet } from 'react-helmet';
+import GoogleLogin from './GoogleLogin'
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -26,6 +27,14 @@ const Login = () => {
         const message = error.response?.data;
         alert(message);
       }
+  };
+
+  const handleGoogleLogin = () => {
+    window.location.href = `https://accounts.google.com/o/oauth2/v2/auth?
+		client_id=${ process.env.REACT_APP_GOOGLE_CLIENT_ID }
+		&redirect_uri=${ process.env.REACT_APP_GOOGLE_REDIRECT_URL  }
+		&response_type=token
+		&scope=email profile`;
   };
 
   return (
@@ -65,7 +74,7 @@ const Login = () => {
           </button>
           <p className="divider">or continue with</p>
           <div className="social-login">
-            <button className="social-button google">G</button>
+            <button className="social-button google" GoogleLogin onClick = { handleGoogleLogin }>G</button>
           </div>
           <p className="signup-text">
             Don't have an account yet? <Link to="/register">Sign up for free</Link>

@@ -14,6 +14,10 @@ class AuthAPI {
     auth(accessToken) {
         return axios.post(`${API_BASE_URL}`, accessToken);
     }
+
+    googleLogin(accessToken) {
+        return axios.post(`${API_BASE_URL}/googleLogin`, accessToken);
+    }
 }
 
 export default new AuthAPI();

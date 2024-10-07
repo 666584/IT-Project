@@ -10,7 +10,9 @@ import Layout from './components/Layout/Layout.js';
 import Register from './components/RegisterComponent';
 import Dashboard from './components/Dashboard.js';
 import Test from './components/ModuleComponent';
+import GoogleLoginProcess from './components/GoogleLogin.js'
 import PrivateRoute from './PrivateRoute';
+
 import './App.css';
 
 function App() {
@@ -21,6 +23,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/google/callback" element={<GoogleLoginProcess />} />
 
           {/* Private routes */}
           <Route path="/goal/testing" element={<PrivateRoute> <Test /> </PrivateRoute>} />
