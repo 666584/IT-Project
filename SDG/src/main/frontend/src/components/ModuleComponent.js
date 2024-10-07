@@ -9,10 +9,12 @@ const ModuleComponent = () => {
 	    e.preventDefault();
 		try {
 			const accessToken = localStorage.getItem('accessToken');
-			const goalTitle = "TestGoal1";
+			const goalTitle = "No Poverty";
+			const goalTask = "overview"
 			const response = await GoalAPI.module({			
 				accessToken: accessToken,
 			    goalTitle: goalTitle,
+				goalTask: goalTask,
 			});
 		} catch(error) {
 			setMessage('Error.');
@@ -22,7 +24,7 @@ const ModuleComponent = () => {
         <div className="container mt-5">
             <h2>Goal</h2>
             <p>Goal1</p>
-			<button onClick={handleClick}>Task Completed</button>
+			<button onClick={handleClick}>Task: Overview of No Poverty Completed</button>
         </div>
     );
 };

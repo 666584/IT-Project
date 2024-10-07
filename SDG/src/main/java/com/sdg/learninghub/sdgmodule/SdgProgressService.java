@@ -18,7 +18,7 @@ public class SdgProgressService {
 	private final SdgProgressRepository sdgProgressRepository;
 	private final AuthRepository authRepository;
 	private final SdgRepository sdgRepository;
-	private final LearningRecordRepository leanringRecordRepository;
+	private final LearningRecordService learningRecordService;
 	
 	public void saveProgress(String accessToken, String goalTitle, String task) {
 		Optional<Auth> auths = authRepository.findByAccessToken(accessToken);
@@ -37,10 +37,12 @@ public class SdgProgressService {
 		Sdg goal = sdgs.get();
 		MemberEntity member = authUser.getUser();
 		SdgProgress progress = saveSdgProgress(member, goal);
-		LearningRecord record = saveLearningRecord(member);
-		
+		LearningRecord record = learningRecordService.saveLearningRecord(member);
+
 		if(progress.markAsCompleted(task)) {
-			updateLearningRecord(record, progress);
+			sdgProgressRepository.save(progress);
+			boolean allTaskCompleted = progress.checkAllCompleted();
+			learningRecordService.updateLearningRecord(record, allTaskCompleted);			
 		}
 	
 	}
@@ -53,32 +55,10 @@ public class SdgProgressService {
 			progress = new SdgProgress();
 			progress.setMember(user);
 			progress.setGoal(goal);
-			sdgProgressRepository.save(progress);
 		}else {
 			progress = existedProgress.get();
 		}
-		
+		sdgProgressRepository.save(progress);
 		return progress;
-	}
-	
-	public LearningRecord saveLearningRecord(MemberEntity user) {
-		Optional<LearningRecord> existedRecord = leanringRecordRepository.findByUserId(user.getId());
-		LearningRecord record;
-		
-		if(existedRecord.isEmpty()) {
-			record = new LearningRecord(user);
-			leanringRecordRepository.save(record);
-		}else {
-			record = existedRecord.get();
-		}
-		
-		return record;
-	}
-	
-	public void updateLearningRecord(LearningRecord record, SdgProgress progress) {
-		record.increaseCurrPoint(50);
-		if(progress.checkAllCompleted()) {
-			record.increaseNumCompletedSDG(1);
-		}
 	}
 }

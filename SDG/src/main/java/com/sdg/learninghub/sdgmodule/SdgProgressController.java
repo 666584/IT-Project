@@ -1,14 +1,11 @@
 package com.sdg.learninghub.sdgmodule;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sdg.learninghub.member.MemberEntity;
@@ -23,8 +20,9 @@ public class SdgProgressController {
 	
 	private final SdgProgressService sdgProgressService;
 	private final MemberService memberService;
+	private final LearningRecordService learningRecordService;
 	
-	@PostMapping("/goal")
+	@PostMapping("/goal/module")
 	public ResponseEntity<String> module(@RequestBody SdgProgressDTO sdgProgressInputDTO) {
 		
 		String accessToken = sdgProgressInputDTO.getAccessToken();
@@ -41,10 +39,9 @@ public class SdgProgressController {
 		if(member == null) {
 			return null;
 		}
-		LearningRecord record = new LearningRecord(member);
-		LearningRecordDTO recordData = new LearningRecordDTO(member.getUsername(), 
-				 record.getCurrPoint(), record.getSpentPoints(), record.getTotalSDGProgress(), 
-				 record.getNumCompletedSDG(), record.getNumReward());
+		
+		LearningRecordDTO recordData = learningRecordService.getLearningRecordDTO(member);
+		
 		return ResponseEntity.ok(recordData);
 	}
 }

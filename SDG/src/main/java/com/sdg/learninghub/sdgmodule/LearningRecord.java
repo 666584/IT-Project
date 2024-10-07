@@ -44,6 +44,8 @@ public class LearningRecord {
 	@Column
 	private int numReward;
 	
+	public LearningRecord() {}
+	
 	public LearningRecord(MemberEntity user) {
 		this.user = user;
 		currPoint = 0;

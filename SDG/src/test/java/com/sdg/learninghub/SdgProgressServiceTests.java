@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -37,7 +38,6 @@ public class SdgProgressServiceTests {
 	private MemberEntity user;
 	private Sdg goal;
 	private SdgProgress sdgProgress;
-	private LearningRecord learningRecord;
 	
 	@BeforeEach
 	public void init() {
@@ -52,8 +52,6 @@ public class SdgProgressServiceTests {
         sdgProgress = new SdgProgress();
         sdgProgress.setMember(user);
         sdgProgress.setGoal(goal);
-        
-        learningRecord = new LearningRecord(user);
 	}
 	
 	@Test
@@ -81,32 +79,6 @@ public class SdgProgressServiceTests {
 		assertNotNull(result);
 		assertEquals(sdgProgress, result);
 		
-		verify(sdgProgressRepository, never()).save(any(SdgProgress.class));
-	}
-	
-	@Test
-	public void testSaveLearningReocrd_NewRecord() {
-		when(learningRecordRepository.findByUserId(user.getId()))
-        .thenReturn(Optional.empty());
-		
-		LearningRecord result = sdgProgressService.saveLearningRecord(user);
-		
-		assertNotNull(result);
-		assertEquals(user, result.getUser());
-		
-		verify(learningRecordRepository).save(result);
-	}
-	
-	@Test
-	public void testSaveLearningReocrd_ExistingRecord() {
-		when(learningRecordRepository.findByUserId(user.getId()))
-        .thenReturn(Optional.of(learningRecord));
-		
-		LearningRecord result = sdgProgressService.saveLearningRecord(user);
-		
-		assertNotNull(result);
-		assertEquals(learningRecord, result);
-		
-		verify(learningRecordRepository, never()).save(any(LearningRecord.class));
+		verify(sdgProgressRepository).save(result);
 	}
 }

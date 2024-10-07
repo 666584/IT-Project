@@ -21,7 +21,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          
+
           {/* Private routes */}
           <Route path="/goal/testing" element={<PrivateRoute> <Test /> </PrivateRoute>} />
           <Route path="/user/:userId" element={<PrivateRoute> <Profile /> </PrivateRoute>} />
@@ -32,6 +32,8 @@ function App() {
             <Route path="/games" element={<PrivateRoute> <Games /> </PrivateRoute>} />
             <Route exact path="/goal/:title" element={<PrivateRoute> <Goal /> </PrivateRoute>} />
           </Route>
+
+          <Route path="/moduleTest" element={<Test />} />
         </Routes>
       </div>
     </Router>

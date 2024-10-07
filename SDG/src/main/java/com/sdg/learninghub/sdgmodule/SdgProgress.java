@@ -35,13 +35,13 @@ public class SdgProgress {
 	@JoinColumn(name = "goal_id")
 	private Sdg goal; 
 	 
-	private boolean overview;
+	private boolean overview = true;
 	
-	private boolean targets;
+	private boolean targets = false;
+	 
+	private boolean progress = false;
 	
-	private boolean progress;
-	
-	private boolean completed;
+	private boolean completed = false;
 	
 	public boolean checkAllCompleted() {
 		if(completed) {
@@ -56,17 +56,18 @@ public class SdgProgress {
 	
 	public boolean markAsCompleted(String task) {		
 		if("overview".equalsIgnoreCase(task)) {
-			if(overview == true) {
+			if(overview) {
 				return false;
 			}
 			this.overview = true;
+			System.out.println("here we goo");
 		} else if ("targets".equalsIgnoreCase(task)) {
-			if(targets == true) {
+			if(targets) {
 				return false;
 			}
 	        this.targets = true;
 	    } else if ("progress".equalsIgnoreCase(task)) {
-	    	if(progress == true) {
+	    	if(progress) {
 				return false;
 			}
 	        this.progress = true;
