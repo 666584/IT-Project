@@ -58,6 +58,7 @@ public class SdgProgressService {
 		}else {
 			progress = existedProgress.get();
 		}
+		
 		sdgProgressRepository.save(progress);
 		return progress;
 	}

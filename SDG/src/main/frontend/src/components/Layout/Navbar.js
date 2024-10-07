@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import SearchBar from './SearchBar';
 import { useNavigate } from 'react-router-dom';
 import AuthAPI from '../../AuthAPI';

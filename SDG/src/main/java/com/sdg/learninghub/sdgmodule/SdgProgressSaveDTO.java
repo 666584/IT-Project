@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class SdgProgressDTO {
+public class SdgProgressSaveDTO {
 
     @JsonProperty("accessToken")
     private String accessToken;

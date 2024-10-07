@@ -33,7 +33,7 @@ function App() {
             <Route exact path="/dashboard/:userId" element={<PrivateRoute> <Dashboard /> </PrivateRoute>} />
             <Route path="/module" element={<PrivateRoute> <Module /> </PrivateRoute>} />
             <Route path="/games" element={<PrivateRoute> <Games /> </PrivateRoute>} />
-            <Route exact path="/goal/:title" element={<PrivateRoute> <Goal /> </PrivateRoute>} />
+            <Route path="/goal/:title/:userId" element={<PrivateRoute> <Goal /> </PrivateRoute>} />
           </Route>
 
           <Route path="/moduleTest" element={<Test />} />

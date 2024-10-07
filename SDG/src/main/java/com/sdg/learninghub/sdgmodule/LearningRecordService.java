@@ -39,9 +39,11 @@ public class LearningRecordService {
 	public void updateLearningRecord(LearningRecord record, boolean allTaskCompleted) {
 		record.increaseCurrPoint(POINT);
 		record.increaseTotalSDGProgress(POINT);
+		
 		if(allTaskCompleted) {
 			record.increaseNumCompletedSDG(1);
 		}
+		
 		learningRecordRepository.save(record);	
 	}
 }
