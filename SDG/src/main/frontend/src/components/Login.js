@@ -23,7 +23,8 @@ const Login = () => {
         const res = await AuthAPI.auth({ accessToken });            
         navigate(`/dashboard/${res.data}`); 
       } catch (error) {
-          setMessage('Invalid credentials');
+        const message = error.response?.data;
+        alert(message);
       }
   };
 
@@ -65,8 +66,6 @@ const Login = () => {
           <p className="divider">or continue with</p>
           <div className="social-login">
             <button className="social-button google">G</button>
-            <button className="social-button github">GH</button>
-            <button className="social-button facebook">F</button>
           </div>
           <p className="signup-text">
             Don't have an account yet? <Link to="/register">Sign up for free</Link>
