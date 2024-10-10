@@ -16,10 +16,7 @@ const Goal = () => {
         targetsValue: 0,
         progressValue: 0,
     });
-
-    console.log("title" + title);
-    console.log("userId"+ userId);
-    
+   
     useEffect(() => {
         const fetchProgressData = async () => {
             try {

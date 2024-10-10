@@ -49,7 +49,7 @@ function Sidebar() {
           </button>
         </li>
         <li>
-          <button className="sidebar-button" onClick={() => navigate('/')}>
+          <button className="sidebar-button" onClick={() => navigate('/social')}>
             <img src={socialIcon} alt="Social" />
             <span>Social</span>
           </button>

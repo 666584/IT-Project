@@ -6,6 +6,7 @@ import Module from './components/Module';
 import Games from './components/Games.js';
 import Goal from './components/Goal.js';
 import Profile from './components/Profile.js';
+import Social from './components/Social.js';
 import Layout from './components/Layout/Layout.js';
 import Register from './components/RegisterComponent';
 import Dashboard from './components/Dashboard.js';
@@ -24,6 +25,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/google/callback" element={<GoogleLoginProcess />} />
+          <Route path="/social" element={<Social />} />
 
           {/* Private routes */}
           <Route path="/goal/testing" element={<PrivateRoute> <Test /> </PrivateRoute>} />
@@ -34,6 +36,7 @@ function App() {
             <Route path="/module" element={<PrivateRoute> <Module /> </PrivateRoute>} />
             <Route path="/games" element={<PrivateRoute> <Games /> </PrivateRoute>} />
             <Route path="/goal/:title/:userId" element={<PrivateRoute> <Goal /> </PrivateRoute>} />
+            <Route path="/social" element={<PrivateRoute> <Social /> </PrivateRoute>} />
           </Route>
 
           <Route path="/moduleTest" element={<Test />} />
