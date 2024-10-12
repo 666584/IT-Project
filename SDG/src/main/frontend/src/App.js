@@ -2,17 +2,17 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import Login from './components/Login';
-import Module from './components/Module';
+import Module from './components/Module.js';
 import Games from './components/Games.js';
 import Goal from './components/Goal.js';
 import Profile from './components/Profile.js';
 import Social from './components/Social.js';
 import Layout from './components/Layout/Layout.js';
-import Register from './components/RegisterComponent';
+import Register from './components/RegisterComponent.js';
 import Dashboard from './components/Dashboard.js';
-import Test from './components/ModuleComponent';
-import GoogleLoginProcess from './components/GoogleLogin.js'
-import PrivateRoute from './PrivateRoute';
+import Test from './components/ModuleComponent.js';
+import GoogleLoginProcess from './components/GoogleLogin.js';
+import PrivateRoute from './PrivateRoute.js';
 
 import './App.css';
 
@@ -29,7 +29,7 @@ function App() {
 
           {/* Private routes */}
           <Route path="/goal/testing" element={<PrivateRoute> <Test /> </PrivateRoute>} />
-          <Route path="/user/:userId" element={<PrivateRoute> <Profile /> </PrivateRoute>} />
+          <Route path="/profile/:userId" element={<PrivateRoute> <Profile /> </PrivateRoute>} />
           
           <Route element={<Layout />}>
             <Route exact path="/dashboard/:userId" element={<PrivateRoute> <Dashboard /> </PrivateRoute>} />

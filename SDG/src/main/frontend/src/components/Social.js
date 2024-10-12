@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Navbar from './Layout/Navbar';
+import Navbar from './Layout/Navbar.js';
 import './Social.css';
 import { Helmet } from 'react-helmet';
 const Social = () => {

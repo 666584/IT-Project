@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import GoalAPI from '../GoalAPI';
+import GoalAPI from './services/GoalAPI.js';
 
 const ModuleComponent = () => {
 	const navigate = useNavigate();

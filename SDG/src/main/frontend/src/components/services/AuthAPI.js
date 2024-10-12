@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 const API_BASE_URL = "http://localhost:8080/api/auth";
 
 class AuthAPI {
@@ -20,4 +19,5 @@ class AuthAPI {
     }
 }
 
-export default new AuthAPI();
+const Auth = new AuthAPI();
+export default Auth;

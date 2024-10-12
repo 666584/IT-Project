@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import Navbar from './Layout/Navbar';
+import Navbar from './Layout/Navbar.js';
 
 const DashboardComponent = () => {
     const [searchTerm, setSearchTerm] = useState('');

@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import './Login.css'; // Link to the CSS file for styling
 import illustration from '../assets/illustration.png'; // Import the illustration image
 import { useNavigate, Link } from 'react-router-dom';
-import AuthAPI from '../AuthAPI';
+import AuthAPI from './services/AuthAPI.js';
 import { Helmet } from 'react-helmet';
-import GoogleLogin from './GoogleLogin'
+import GoogleLogin from './GoogleLogin.js';
 
 const Login = () => {
   const [email, setEmail] = useState('');

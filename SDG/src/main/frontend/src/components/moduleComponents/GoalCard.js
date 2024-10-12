@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './GoalCard.css';
 import playbutton from '../../assets/play-circle.svg';
 import { useNavigate } from 'react-router-dom';
-import AuthAPI from '../../AuthAPI';
+import AuthAPI from '../services/AuthAPI.js';
 
 function GoalCard({ key, title, goal, color, icon }) {
   const navigate = useNavigate();

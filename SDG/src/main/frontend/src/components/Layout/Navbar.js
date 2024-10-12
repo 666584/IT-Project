@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import SearchBar from './SearchBar';
+import SearchBar from './SearchBar.js';
 import { useNavigate } from 'react-router-dom';
-import AuthAPI from '../../AuthAPI';
+import AuthAPI from '../services/AuthAPI.js';
 
 function Navbar({searchTerm, setSearchTerm}) {
     const navigate = useNavigate();
@@ -12,7 +12,7 @@ function Navbar({searchTerm, setSearchTerm}) {
         const accessToken = localStorage.getItem('accessToken');                  
         try {
             const response = await AuthAPI.auth({ accessToken });            
-            navigate(`/user/${response.data}`);    
+            navigate(`/profile/${response.data}`);    
         }catch (error) {
             setMessage('Invalid credentials');
         }

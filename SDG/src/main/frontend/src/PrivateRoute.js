@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, Link, Navigate } from 'react-router-dom';
-import AuthAPI from './AuthAPI';
+import AuthAPI from './components/services/AuthAPI.js';
 
 const PrivateRoute = ({ children  }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(null);

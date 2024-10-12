@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Navbar from './Layout/Navbar';
+import Navbar from './Layout/Navbar.js';
 import { Helmet } from 'react-helmet';
 import { useParams } from 'react-router-dom';
-import './Goal.scss';
+import './Goal.css';
 
 const Goal = () => {
     const [searchTerm, setSearchTerm] = useState('');

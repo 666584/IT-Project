@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 const API_BASE_URL = "http://localhost:8080/api/goal";
 
 class GoalAPI {	
@@ -9,4 +8,5 @@ class GoalAPI {
 	}
 }
 
-export default new GoalAPI();
+const Goal = new GoalAPI();
+export default Goal;

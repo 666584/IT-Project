@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import React, { useEffect } from 'react';
-import AuthAPI from '../AuthAPI';
+import AuthAPI from './services/AuthAPI.js';
 import axios from "axios";
 
 const GoogleLogin = () => {

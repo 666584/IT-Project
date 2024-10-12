@@ -5,7 +5,7 @@ import socialIcon from '../../assets/people.svg';
 import gameIcon from '../../assets/gameboy.svg';
 import moduleIcon from '../../assets/category.svg';
 import { useNavigate } from 'react-router-dom';
-import AuthAPI from '../../AuthAPI.js'
+import AuthAPI from '../services/AuthAPI.js'
 
 function Sidebar() {
   const navigate = useNavigate();
