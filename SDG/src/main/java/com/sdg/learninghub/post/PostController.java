@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -37,14 +36,6 @@ public class PostController {
     public String savePost(@ModelAttribute("post") Post post) {
         postService.save(post);
         return "redirect:/post/";
-    }
-
-    @RequestMapping("/edit/{id}")
-    public ModelAndView showEditPostPage(@PathVariable(name = "id") int id) {
-        ModelAndView mav = new ModelAndView("edit_post");
-        Post post = postService.get(id);
-        mav.addObject("post", post);
-        return mav;
     }
 
     @RequestMapping("/delete/{id}")
