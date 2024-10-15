@@ -1,0 +1,80 @@
+/* General Styles */
+.dashboard-container {
+    display: flex;
+    font-family: Arial, sans-serif;
+    background-color: #F9F9F9;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 768px) {
+    .dashboard-container {
+      flex-direction: column;
+    }
+  
+    .main-content {
+      padding: 1rem;
+    }
+  }
+  
+  /* General Styles for the App */
+  .points-progress-wrapper {
+    display: flex;
+    gap: 2rem;
+    align-items: stretch;
+    margin-bottom: 2rem;
+  }
+  
+  /* Ensure a clean reset */
+  body, h1, p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Container for stats, coupons, and articles */
+  .sections-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    align-items: flex-start;
+    padding: 1rem 0;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .sections-container {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+  
+  
+  /* Buttons */
+  .view-all-button,
+  .see-more-button,
+  .claim-voucher {
+    background: none; /* No initial background */
+    color: black;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .view-all-button:hover,
+  .see-more-button:hover,
+  .claim-voucher:hover {
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+  }
+  

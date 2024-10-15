@@ -2,16 +2,17 @@
   width: 180px;
   background-color: #020E0F;
   color: white;
-  padding: 20px 10px;
-  height: 95vh; 
+  padding: 20px 10px; /* Reduced padding: top and bottom 20px, left and right 10px */
+  height: 90vh; /* Reduced height */
   border-radius: 30px; /* Rounded corners */
   margin: 20px; /* Adds space around the sidebar */
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: sticky;
-  top: 0;
+  justify-content: center; /* Center items vertically */
+  align-items: center; /* Center items horizontally */
+  position: sticky; /* Make sidebar sticky */
+  top: 0; /* Stick to the top of the viewport */
+  overflow-y: auto; /* Enable scrolling if content exceeds height */
 }
 
 .allIcons {
@@ -20,11 +21,11 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; /* Ensures icons are horizontally centered */
 }
 
 .allIcons li {
-  margin: 10px 0; /* Space between items */
+  margin: 10px 0; /* Reduced space between the items */
 }
 
 .sidebar-button {
@@ -34,10 +35,10 @@
   color: inherit;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  padding: 8px 12px;
+  justify-content: flex-start; /* Aligns icon and text to the left */
+  padding: 8px 12px; /* Reduced padding inside buttons */
   cursor: pointer;
-  border-radius: 50px; /* Rounded rectangle for the buttons */
+  border-radius: 50px; /* Rounded button */
   transition: background-color 0.3s;
 }
 
@@ -48,17 +49,14 @@
 .sidebar-button img {
   width: 30px;
   height: 30px;
-  margin-right: 10px; /* Space between icon and text */
+  margin-right: 10px; /* Space between the icon and text */
 }
 
 .sidebar-button span {
-  font-size: 16px; /* Adjust font size */
+  font-size: 16px;
 }
 
-.sidebar-button:focus {
-  outline: none;
-}
-
+/* Ensures that the sidebar doesn't touch the edge of the website */
 .sidebar-container {
   padding-left: 20px; /* Add space to the left of the sidebar */
   padding-top: 20px; /* Add space to the top of the sidebar */

@@ -22,7 +22,14 @@
     min-width: 250px; /* Set a minimum width to prevent cards from becoming too narrow */
   }
   
-  
+  .header {
+    margin-top: 45px;
+    margin-left: 25px;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
   @media (max-width: 800px) {
     .goals-grid {
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

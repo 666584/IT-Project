@@ -13,7 +13,7 @@ function GoalCard({ key, title, goal, color, icon }) {
       const accessToken = localStorage.getItem('accessToken');                  
       try {
           const response = await AuthAPI.auth({ accessToken });         
-          navigate(`/goal/${title}/${response.data}`);    
+          navigate(`/${response.data}/goal/${title}`);    
       }catch (error) {
           setMessage('Invalid credentials');
       }

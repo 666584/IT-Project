@@ -27,6 +27,7 @@ function Module() {
         </Helmet>
         <div className="main-content">
           <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} ></Navbar>
+          <div className="header">Sustainable Development Goals</div>
         <div className="goals-grid">
           {filteredGoals.map((goal) => (
             <GoalCard
