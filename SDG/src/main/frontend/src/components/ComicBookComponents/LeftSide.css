@@ -1,0 +1,73 @@
+.leftside-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  max-width: 300px;
+}
+
+.quality-image {
+  width: 100%;
+  max-width: 250px;
+  margin-bottom: 20px;
+}
+
+.text-section {
+  width: 100%;
+  max-width: 250px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.text-section h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.text-section p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Horizontal line between sections */
+.separator {
+  width: 100%;
+  max-width: 250px;
+  border-bottom: 2px solid black;
+  margin: 20px 0;
+  border-radius: 8px;
+}
+
+.did-you-know {
+  width: 100%;
+  max-width: 250px;
+  text-align: left;
+}
+
+.did-you-know h4 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.did-you-know p {
+  font-size: 16px;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .leftside-container {
+    padding: 10px;
+  }
+
+  .quality-image,
+  .text-section,
+  .separator,
+  .did-you-know {
+    max-width: 90%;
+  }
+}

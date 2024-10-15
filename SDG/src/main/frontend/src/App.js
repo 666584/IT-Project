@@ -10,6 +10,7 @@ import Social from './components/Social.js';
 import Layout from './components/Layout/Layout.js';
 import Register from './components/RegisterComponent.js';
 import Dashboard from './components/Dashboard.js';
+import Comic from './components/Comic.js';
 import Test from './components/ModuleComponent.js';
 import GoogleLoginProcess from './components/GoogleLogin.js';
 import PrivateRoute from './PrivateRoute.js';
@@ -26,7 +27,8 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/google/callback" element={<GoogleLoginProcess />} />
           <Route path="/social" element={<Social />} />
-
+          <Route path="/comic" element={<Comic />} />
+          
           {/* Private routes */}
           <Route path="/goal/testing" element={<PrivateRoute> <Test /> </PrivateRoute>} />
           <Route path="/profile/:userId" element={<PrivateRoute> <Profile /> </PrivateRoute>} />
@@ -36,7 +38,7 @@ function App() {
             <Route path="/module" element={<PrivateRoute> <Module /> </PrivateRoute>} />
             <Route path="/games" element={<PrivateRoute> <Games /> </PrivateRoute>} />
             <Route path="/:userId/goal/:title" element={<PrivateRoute> <Goal /> </PrivateRoute>} />
-            <Route path="/goal/:title/:task" element={<PrivateRoute> <Test /> </PrivateRoute>} />
+            <Route path="/goal/:title/:task" element={<PrivateRoute> <Comic /> </PrivateRoute>} />
             <Route path="/social" element={<PrivateRoute> <Social /> </PrivateRoute>} />
           </Route>
         </Routes>
