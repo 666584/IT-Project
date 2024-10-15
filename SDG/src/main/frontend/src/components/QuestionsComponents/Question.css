@@ -1,0 +1,48 @@
+/* Question Section Styles */
+.question-section {
+    margin-bottom: 20px;
+  }
+  
+  .question-section h2 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Options Styles */
+  .options {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .option {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: border 0.3s ease;
+    border-radius: 8px;
+    background-color: white;
+  }
+  
+  .option:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .option.selected {
+    border-color: black;
+  }
+  
+  .option.correct {
+    border-color: green;
+  }
+  
+  /* Green tick image */
+  .tick {
+    width: 20px;
+    height: 20px;
+  }
+  

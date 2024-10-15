@@ -11,6 +11,7 @@ import Layout from './components/Layout/Layout.js';
 import Register from './components/RegisterComponent.js';
 import Dashboard from './components/Dashboard.js';
 import Comic from './components/Comic.js';
+import Questions from './components/Questions.js';
 import Test from './components/ModuleComponent.js';
 import GoogleLoginProcess from './components/GoogleLogin.js';
 import PrivateRoute from './PrivateRoute.js';
@@ -27,7 +28,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/google/callback" element={<GoogleLoginProcess />} />
           <Route path="/social" element={<Social />} />
-          <Route path="/comic" element={<Comic />} />
+          <Route path="/questions" element={<Questions />} />
           
           {/* Private routes */}
           <Route path="/goal/testing" element={<PrivateRoute> <Test /> </PrivateRoute>} />

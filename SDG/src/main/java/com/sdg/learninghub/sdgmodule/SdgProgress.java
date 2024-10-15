@@ -35,7 +35,7 @@ public class SdgProgress {
 	@JoinColumn(name = "goal_id")
 	private Sdg goal; 
 	 
-	private boolean overview = true;
+	private boolean overview = false;
 	
 	private boolean targets = false;
 	 
