@@ -51,13 +51,13 @@ const Dashboard = () => {
         </Helmet>
         <div className="main-content">
             <div className="points-progress-wrapper">
-                <PointsSection currPoint={record.currPoint} spentPoints={record.spentPoints} />
+                <PointsSection currPoints={record.currPoint} spentPoints={record.spentPoints} />
                 <ProgressSection totalSDGProgress={record.totalSDGProgress}/>
             </div>
 
             <div className="sections-container">
                 <StatsSection numCompletedSDG={record.numCompletedSDG} numReward={record.numReward}/>
-                <CouponsSection />
+                <CouponsSection currPoints={record.currPoint} userId={params.userId}/>
                 <ArticlesSection />
             </div>
 

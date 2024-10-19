@@ -46,4 +46,17 @@ public class LearningRecordService {
 		
 		learningRecordRepository.save(record);	
 	}
+	
+	public void redeemCoupon(Long userId) {
+		Optional<LearningRecord> records = learningRecordRepository.findByUser_Userid(userId);
+		if (records.isPresent()) {
+			LearningRecord record = records.get();
+			record.decreaseCurrPoint(75);
+			record.increaseSpentPoints(75);
+			learningRecordRepository.save(record);	
+		} else {
+			throw new IllegalArgumentException("Cannot find learning record.");
+		}
+
+	}
 }

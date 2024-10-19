@@ -1,18 +1,39 @@
 import React, { useState } from 'react';
 import './CouponsSection.css'; // Add styles if needed
+import DashboardAPI from '../services/DashboardAPI.js';
 
-const CouponsSection = () => {
+const CouponsSection = ({currPoints, userId}) => {
   // State to handle whether the popup is open
   const [isPopupOpen, setPopupOpen] = useState(false);
-
+  const requiredPoints = 75;
+  const message = currPoints >= requiredPoints 
+        ? `You have enough points! (${currPoints} points available)` 
+        : `${requiredPoints} points required`;
+  
+  const couponRedeem = async () => {
+    try {
+        const response = await DashboardAPI.coupon({userId});
+        if (!response.data) {
+            throw new Error('Failed to update points');
+        }
+    }catch (error) {
+        console.log(error.message);
+    }
+};
   // Function to handle coupon click
   const handleCouponClick = () => {
-    setPopupOpen(true);
+    if (currPoints < 75) {
+      alert("You need at least 75 points to get this coupon.");
+    } else {
+      couponRedeem();
+      setPopupOpen(true);
+    }
   };
 
   // Function to close the popup
   const handleClosePopup = () => {
     setPopupOpen(false);
+    window.location.reload();
   };
 
   return (
@@ -32,8 +53,8 @@ const CouponsSection = () => {
             />
             <div className="coupon-details">
               <p className="coupon-title">10% off Starbucks</p>
-              <p className="points-required">75 points required</p>
-              <button className="claim-button">Claim Voucher</button>
+              <p className="points-required">{message}</p>
+              <button className="claim-button" >Claim Voucher</button>
             </div>
           </div>
           <div className="coupon-dashed-border"></div>
@@ -49,7 +70,7 @@ const CouponsSection = () => {
             />
             <div className="coupon-details">
               <p className="coupon-title">10% off Starbucks</p>
-              <p className="points-required">75 points required</p>
+              <p className="points-required">{message}</p>
               <button className="claim-button">Claim Voucher</button>
             </div>
           </div>

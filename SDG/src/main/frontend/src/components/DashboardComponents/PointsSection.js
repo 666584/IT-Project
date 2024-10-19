@@ -2,11 +2,11 @@
 import React from "react";
 import './PointsSection.css';
 
-const PointsSection = ({currPoint, spentPoints}) => {
+const PointsSection = ({currPoints, spentPoints}) => {
   return (
     <div className="points-section">
       <div className="points-card">
-        <h1 className="points-number">{currPoint}</h1>
+        <h1 className="points-number">{currPoints}</h1>
         <p className="points-text">Current Points</p>
       </div>
       <div className="points-image">
