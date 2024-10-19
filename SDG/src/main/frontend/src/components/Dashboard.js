@@ -8,7 +8,6 @@ import EventsSection from './DashboardComponents/EventsSection';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import Navbar from './Layout/Navbar.js';
 import "./Dashboard.css";
 
 const Dashboard = () => {

@@ -10,6 +10,7 @@ import com.sdg.learninghub.member.MemberEntity;
 @Repository
 public interface AuthRepository extends JpaRepository<Auth, Long>{
 	Boolean existsByUser(MemberEntity user);
+	Auth findByUser(MemberEntity user);
 	Optional<Auth> findByRefreshToken(String refreshToken);
 	Optional<Auth> findByAccessToken(String accessToken);
 }

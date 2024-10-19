@@ -20,7 +20,7 @@ public class SdgProgressService {
 	private final SdgRepository sdgRepository;
 	private final LearningRecordService learningRecordService;
 	
-	public void saveProgress(String accessToken, String goalTitle, String task) {
+	public boolean saveProgress(String accessToken, String goalTitle, String task) {
 		Optional<Auth> auths = authRepository.findByAccessToken(accessToken);
 		
 		if(auths.isEmpty()) {
@@ -38,14 +38,17 @@ public class SdgProgressService {
 		MemberEntity member = authUser.getUser();
 		SdgProgress progress = saveSdgProgress(member, goal);
 		LearningRecord record = learningRecordService.saveLearningRecord(member);
-
 		if(progress.markAsCompleted(task)) {
+			System.out.println("saved: " + progress.isTargets());
 			sdgProgressRepository.save(progress);
 			boolean allTaskCompleted = progress.checkAllCompleted();
 			learningRecordService.updateLearningRecord(record, allTaskCompleted);			
+			return true;
+		} else {
+			return false;
 		}
 	
-	}
+	}		
 	
 	public SdgProgress saveSdgProgress(MemberEntity user, Sdg goal) {
 		Optional<SdgProgress> existedProgress = sdgProgressRepository.findByMemberUseridAndGoalId(user.getUserid(), goal.getId());
@@ -55,7 +58,7 @@ public class SdgProgressService {
 			progress = new SdgProgress();
 			progress.setMember(user);
 			progress.setGoal(goal);
-		}else {
+		} else {
 			progress = existedProgress.get();
 		}
 		

@@ -9,7 +9,7 @@ const DashboardComponent = () => {
     const [record, setRecord] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const params  = useParams();
+    const params = useParams();
 
     useEffect(() => {
     const fetchUserData = async () => {

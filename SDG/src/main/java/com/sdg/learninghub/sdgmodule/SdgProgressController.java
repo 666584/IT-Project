@@ -32,8 +32,11 @@ public class SdgProgressController {
 		String accessToken = sdgProgressInputDTO.getAccessToken();
 		String goalTitle = sdgProgressInputDTO.getGoalTitle();
 		String goalTask = sdgProgressInputDTO.getGoalTask();
-		sdgProgressService.saveProgress(accessToken, goalTitle, goalTask);
-		
+		System.out.println("goalTask = "+ goalTask);
+		boolean isFirstCompleted = sdgProgressService.saveProgress(accessToken, goalTitle, goalTask);
+		if (isFirstCompleted) {
+			return ResponseEntity.ok("Completed task for the first time.");
+		}
 		return ResponseEntity.ok("Progress saved.");
 	}
 	

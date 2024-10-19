@@ -5,6 +5,8 @@ import ProgressBar from './QuestionsComponents/ProgressBar'; // Import ProgressB
 import { useNavigate } from 'react-router-dom';
 import './Questions.css';
 import AuthAPI from './services/AuthAPI.js';
+import GoalAPI from './services/GoalAPI.js';
+import { useParams } from 'react-router-dom';
 
 const Questions = () => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -12,7 +14,10 @@ const Questions = () => {
     const [isCorrect, setIsCorrect] = useState(null);
     const [showError, setShowError] = useState(false);  // Track if the user tried to move forward without selecting the correct answer.
     const navigate = useNavigate();
-    
+    const params  = useParams();
+	const goalTitle = params.title;
+	const goalTask = params.task;
+
     const questions = [
     {
         id: 1,
@@ -74,11 +79,22 @@ const Questions = () => {
     };
 
     // Go back to dashboard
-    const handleDashboard = async () => {
+    const handleComplete = async () => {
         try {      
             const accessToken = localStorage.getItem('accessToken');         
-            const res = await AuthAPI.auth({ accessToken });            
-            navigate(`/dashboard/${res.data}`); 
+            const response = await GoalAPI.module({			
+				accessToken: accessToken,
+			    goalTitle: goalTitle,
+				goalTask: goalTask,
+			});
+            if (response.data === "Progress saved." || response.data === "Completed task for the first time.") {
+                if (response.data === "Completed task for the first time.") {
+                    alert("Congratulations! You've earned points!");
+                }
+                
+                const res = await AuthAPI.auth({ accessToken });
+                navigate(`/dashboard/${res.data}`);
+            }
         } catch (error) {
             const message = error.response?.data;
             alert(message);
@@ -94,7 +110,7 @@ const Questions = () => {
             if (currentQuestion < questions.length - 1) {
                 setCurrentQuestion(currentQuestion + 1);
             }else {
-                await handleDashboard();
+                await handleComplete();
             }
         } else {
         setShowError(true);  // Show an error if the correct answer has not been selected
@@ -127,7 +143,9 @@ const Questions = () => {
             
             <div className="button-container">
             <button onClick={handleBack}>Back</button> {/* Back button is always available */}
-            <button onClick={handleNext}>Next</button> {/* Next button remains accessible */}
+            <button onClick={handleNext}>
+                {currentQuestion < questions.length - 1 ? 'Next' : 'Finished'}
+            </button> {/* Next button remains accessible */}
             </div>
         </div>
         </div>

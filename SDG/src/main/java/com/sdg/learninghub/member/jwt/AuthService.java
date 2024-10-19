@@ -45,13 +45,14 @@ public class AuthService {
                 new UsernamePasswordAuthenticationToken(new SecurityMemberDetailsDTO(user), user.getPassword()));
     	System.out.println("got accessToken"+accessToken);
     	
-    	/**if (this.authRepository.existsByUser(user)) {
+    	if (this.authRepository.existsByUser(user)) {
         	System.out.println("user already exists.");
-    		user.getAuth().updateAccessToken(accessToken);
-        	user.getAuth().updateRefreshToken(refreshToken);
-        	
-            return user.getAuth();
-        }*/
+        	Auth auth = authRepository.findByUser(user);
+        	auth.updateAccessToken(accessToken);
+        	auth.updateRefreshToken(refreshToken);
+        	authRepository.save(auth);
+            return auth;
+        }
         Auth auth = create(user, "Bearer", accessToken, refreshToken);
         return auth;
     }
