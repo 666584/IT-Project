@@ -36,7 +36,7 @@ public class LearningRecordServiceTests {
         learningRecord = new LearningRecord();
         
         user = new MemberEntity();
-        user.setId(1L);
+        user.setUserid(1L);
     }
 	
     @Test
@@ -63,7 +63,7 @@ public class LearningRecordServiceTests {
 	
 	@Test
 	public void testSaveLearningReocrd_NewRecord() {
-		when(learningRecordRepository.findByUserId(user.getId()))
+		when(learningRecordRepository.findByUser_Userid(user.getUserid()))
         .thenReturn(Optional.empty());
 		
 		LearningRecord result = learningRecordService.saveLearningRecord(user);
@@ -76,7 +76,7 @@ public class LearningRecordServiceTests {
 	
 	@Test
 	public void testSaveLearningReocrd_ExistingRecord() {
-		when(learningRecordRepository.findByUserId(user.getId()))
+		when(learningRecordRepository.findByUser_Userid(user.getUserid()))
         .thenReturn(Optional.of(learningRecord));
 		
 		LearningRecord result = learningRecordService.saveLearningRecord(user);

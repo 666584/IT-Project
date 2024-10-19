@@ -48,7 +48,7 @@ public class SdgProgressService {
 	}
 	
 	public SdgProgress saveSdgProgress(MemberEntity user, Sdg goal) {
-		Optional<SdgProgress> existedProgress = sdgProgressRepository.findByMemberIdAndGoalId(user.getId(), goal.getId());
+		Optional<SdgProgress> existedProgress = sdgProgressRepository.findByMemberUseridAndGoalId(user.getUserid(), goal.getId());
 		SdgProgress progress;
 		
 		if(existedProgress.isEmpty()) {

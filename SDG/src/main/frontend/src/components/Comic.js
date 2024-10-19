@@ -9,7 +9,7 @@ function Comic() {
   const navigate = useNavigate();
   
   const handleClick = () =>{
-    navigate("/");
+    navigate("/questions");
   }
   return (
     <div className="app">

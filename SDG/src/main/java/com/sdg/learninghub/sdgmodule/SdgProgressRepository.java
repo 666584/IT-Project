@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SdgProgressRepository extends JpaRepository<SdgProgress, Long>{
-	List<SdgProgress> findByMemberId(Long memberId);
-	Optional<SdgProgress> findByMemberIdAndGoalId(Long memberId, Long goalId);
+	
+	List<SdgProgress> findByMemberUserid(Long memberId);
+	
+	Optional<SdgProgress> findByMemberUseridAndGoalId(Long memberId, Long goalId);
 }

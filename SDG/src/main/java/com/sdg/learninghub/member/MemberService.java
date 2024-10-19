@@ -6,6 +6,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.sdg.learninghub.member.mapper.MemberMapper;
+
 import jakarta.persistence.EntityNotFoundException;
 //import com.sdg.learninghub.DataNotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +15,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Service
 public class MemberService {
-	private final MemberRepository memberRepository;
+	private final MemberMapper memberMapper;
 	private final PasswordEncoder passwordEncoder;
 	
 	/**
@@ -32,11 +34,11 @@ public class MemberService {
 		memberEntity.setUsername(username);
 		memberEntity.setEmail(email);
 		memberEntity.setPassword(passwordEncoder.encode(password));
-		memberEntity.setFirstName(firstName);
-		memberEntity.setLastName(lastName);
+		memberEntity.setFirstname(firstName);
+		memberEntity.setLastname(lastName);
 		memberEntity.setRole(MemberRole.USER);
 		memberEntity.setProvider(Provider.LOCAL);
-		this.memberRepository.save(memberEntity);
+		this.memberMapper.addMember(memberEntity);
 		return memberEntity;
 	}
 	
@@ -47,16 +49,16 @@ public class MemberService {
 		memberEntity.setUsername(username);
 		memberEntity.setEmail(email);
 		memberEntity.setPassword(null);
-		memberEntity.setFirstName(firstName);
-		memberEntity.setLastName(lastName);
+		memberEntity.setFirstname(firstName);
+		memberEntity.setLastname(lastName);
 		memberEntity.setRole(MemberRole.USER);
 		memberEntity.setProvider(Provider.GOOGLE);
-		this.memberRepository.save(memberEntity);
+		this.memberMapper.addMember(memberEntity);
 		return memberEntity;
 	}
 	
 	public MemberEntity getMember(Long id) {
-		Optional<MemberEntity> member = this.memberRepository.findById(id);
+		Optional<MemberEntity> member = this.memberMapper.findById(id);
 		if (member.isPresent()) {
 			return member.get();
 		} else {
@@ -65,7 +67,7 @@ public class MemberService {
 	}
 	
 	public MemberEntity getMemberByEmail(String email) {
-		Optional<MemberEntity> member = this.memberRepository.findByEmail(email);
+		Optional<MemberEntity> member = this.memberMapper.findByEmail(email);
 		if (member.isPresent()) {
 			return member.get();
 		} else {

@@ -26,7 +26,7 @@ public class LearningRecord {
 	private Long id;	
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "user_id")
+	@JoinColumn(name = "userid")
 	private MemberEntity user;
 	
 	@Column

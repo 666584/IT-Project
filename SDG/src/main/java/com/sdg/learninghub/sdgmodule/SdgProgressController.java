@@ -52,10 +52,10 @@ public class SdgProgressController {
 	
 	@GetMapping("/goal/{title}/{userId}")
 	public ResponseEntity<?> progressData(@PathVariable(name = "title") String title, 
-			@PathVariable(name = "userId") Long userId) {	
-		System.out.println("userId" + userId);
+			@PathVariable(name = "userId") Long userid) {	
+		System.out.println("userid" + userid);
 		System.out.println("title" + title);
-		MemberEntity member = memberService.getMember(userId);
+		MemberEntity member = memberService.getMember(userid);
 		
 		if(member == null) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Member not found.");

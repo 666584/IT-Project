@@ -28,7 +28,7 @@ public class SdgProgress {
 	private Long id;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "user_id")
+	@JoinColumn(name = "userid")
 	private MemberEntity member;
 	 
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)

@@ -1,6 +1,5 @@
 package com.sdg.learninghub.member;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sdg.learninghub.member.jwt.Auth;
 
 import jakarta.persistence.CascadeType;
@@ -24,8 +23,7 @@ public class MemberEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="user_id")
-	private Long id;
+	private Long userid;
 	
 	@Column(unique = true, length = 45)
 	private String username;
@@ -33,14 +31,14 @@ public class MemberEntity {
 	@Column
 	private String password;
 	
-	@Column(unique = true, nullable = false, length = 50)
+	@Column(unique = true, length = 50)
 	private String email;
 	
-	@Column(nullable = false, length = 45)
-	private String firstName;
+	@Column(length = 45)
+	private String firstname;
 	
-	@Column(nullable = false, length = 45)
-	private String lastName;
+	@Column(length = 45)
+	private String lastname;
 	
 	@Enumerated(EnumType.STRING)
 	private MemberRole role;
@@ -48,7 +46,7 @@ public class MemberEntity {
 	@Enumerated(EnumType.STRING)
 	private Provider provider;
 	
-	@OneToOne(mappedBy = "user", cascade = CascadeType.REMOVE)
+	@OneToOne(mappedBy = "user", cascade = CascadeType.PERSIST )
     private Auth auth;
 	
 	public MemberEntity update(Provider provider) {

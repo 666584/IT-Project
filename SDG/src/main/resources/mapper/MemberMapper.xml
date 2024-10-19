@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sdg.learninghub.member.mapper.MemberMapper">
+  
+  <select id="findById" parameterType="long" resultType="com.sdg.learninghub.member.MemberEntity">
+    SELECT * FROM users WHERE userid = #{userid}
+  </select>
+  
+  <select id="findByEmail" parameterType="string" resultType="com.sdg.learninghub.member.MemberEntity">
+    SELECT * FROM users WHERE email = #{email}
+  </select>
+
+  <select id="findByUsername" parameterType="string" resultType="com.sdg.learninghub.member.MemberEntity">
+    SELECT * FROM users WHERE username = #{username}
+  </select>
+
+  <select id="findByEmailAndProvider" resultType="com.sdg.learninghub.member.MemberEntity">
+    SELECT * FROM users 
+    WHERE email = #{email}
+    AND provider = #{provider}
+  </select>
+
+  <insert id="addMember" parameterType="com.sdg.learninghub.member.MemberEntity">
+    INSERT INTO users (userid, username, password, email, firstname, lastname, role, provider)
+    VALUES (#{userid}, #{username}, #{password}, #{email}, #{firstname}, #{lastname}, #{role}, #{provider})
+  </insert>
+
+</mapper>

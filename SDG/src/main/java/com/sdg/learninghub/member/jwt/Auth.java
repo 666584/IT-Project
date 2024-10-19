@@ -2,6 +2,7 @@ package com.sdg.learninghub.member.jwt;
 
 import com.sdg.learninghub.member.MemberEntity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -32,7 +33,7 @@ public class Auth {
     private String refreshToken;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "userid")
     private MemberEntity user;
     
     public void updateAccessToken(String accessToken) {

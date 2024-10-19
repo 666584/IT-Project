@@ -23,7 +23,7 @@ public class LearningRecordService {
 	}
 	
 	public LearningRecord saveLearningRecord(MemberEntity user) {
-		Optional<LearningRecord> existedRecord = learningRecordRepository.findByUserId(user.getId());
+		Optional<LearningRecord> existedRecord = learningRecordRepository.findByUser_Userid(user.getUserid());
 		LearningRecord record;
 		
 		if(existedRecord.isEmpty()) {

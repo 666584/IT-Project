@@ -44,7 +44,7 @@ public class SdgProgressServiceTests {
 		MockitoAnnotations.openMocks(this);
 		
 		user = new MemberEntity();
-        user.setId(1L);
+        user.setUserid(1L);
         
         goal = new Sdg();
         goal.setId(1L);
@@ -56,7 +56,7 @@ public class SdgProgressServiceTests {
 	
 	@Test
 	public void testSaveSdgProgress_NewProgress() {
-		when(sdgProgressRepository.findByMemberIdAndGoalId(user.getId(), goal.getId()))
+		when(sdgProgressRepository.findByMemberUseridAndGoalId(user.getUserid(), goal.getId()))
         .thenReturn(Optional.empty());
 		
 		SdgProgress result = sdgProgressService.saveSdgProgress(user, goal);
@@ -71,7 +71,7 @@ public class SdgProgressServiceTests {
 	@Test
 	public void testSaveSdgProgress_ExistingProgress() {
 		
-		when(sdgProgressRepository.findByMemberIdAndGoalId(user.getId(), goal.getId()))
+		when(sdgProgressRepository.findByMemberUseridAndGoalId(user.getUserid(), goal.getId()))
         .thenReturn(Optional.of(sdgProgress));
 		
 		SdgProgress result = sdgProgressService.saveSdgProgress(user, goal);

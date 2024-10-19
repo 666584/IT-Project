@@ -4,6 +4,7 @@ import Question from './QuestionsComponents/Question';
 import ProgressBar from './QuestionsComponents/ProgressBar'; // Import ProgressBar here
 import { useNavigate } from 'react-router-dom';
 import './Questions.css';
+import AuthAPI from './services/AuthAPI.js';
 
 const Questions = () => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -72,8 +73,20 @@ const Questions = () => {
         setShowError(false);  // Reset error message when the user selects an option
     };
 
+    // Go back to dashboard
+    const handleDashboard = async () => {
+        try {      
+            const accessToken = localStorage.getItem('accessToken');         
+            const res = await AuthAPI.auth({ accessToken });            
+            navigate(`/dashboard/${res.data}`); 
+        } catch (error) {
+            const message = error.response?.data;
+            alert(message);
+        }
+    };
+
     // Go to the next question
-    const handleNext = () => {
+    const handleNext = async() => {
         if (isCorrect === true) {
             setSelectedOption(null);
             setIsCorrect(null);
@@ -81,7 +94,7 @@ const Questions = () => {
             if (currentQuestion < questions.length - 1) {
                 setCurrentQuestion(currentQuestion + 1);
             }else {
-                navigate('/');
+                await handleDashboard();
             }
         } else {
         setShowError(true);  // Show an error if the correct answer has not been selected

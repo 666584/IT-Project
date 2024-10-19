@@ -37,7 +37,7 @@ public class SecurityMemberDetailsDTO implements UserDetails{
 	}
 	
 	public Long getId() {
-    	return memberEntity.getId();
+    	return memberEntity.getUserid();
     }
     
     public String getEmail() {
@@ -54,4 +54,13 @@ public class SecurityMemberDetailsDTO implements UserDetails{
         return false;
     }
 	
+	@Override
+	public boolean isCredentialsNonExpired() {
+	    return false;
+	}
+	
+	@Override
+	public boolean isEnabled() {
+		return false;
+	}
 }

@@ -139,7 +139,7 @@ public class MemberController {
 			return null;
 		}
 		UserDTO user = new UserDTO(member.getUsername(), member.getEmail(),
-				member.getFirstName(), member.getLastName());
+				member.getFirstname(), member.getLastname());
 		return user;
 	}
 }

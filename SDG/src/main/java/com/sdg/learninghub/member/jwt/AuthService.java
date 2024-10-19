@@ -2,18 +2,19 @@ package com.sdg.learninghub.member.jwt;
 
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.sdg.learninghub.member.MemberEntity;
-import com.sdg.learninghub.member.MemberRepository;
 import com.sdg.learninghub.member.MemberRole;
 import com.sdg.learninghub.member.MemberSecurityService;
 import com.sdg.learninghub.member.Provider;
 import com.sdg.learninghub.member.SecurityMemberDetailsDTO;
 import com.sdg.learninghub.member.UserDTO;
+import com.sdg.learninghub.member.mapper.MemberMapper;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -21,25 +22,36 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class AuthService {
-    private final MemberRepository memberRepository;
+	@Autowired
+	private MemberMapper memberMapper;
+    
     private final AuthRepository authRepository;
     private final JwtTokenProvider jwtTokenProvider;
-
+    
     @Transactional
     public Auth login(String email) {
-    	Optional <MemberEntity> memberEntity = this.memberRepository.findByEmail(email);
-    	MemberEntity user = memberEntity.get();
+    	Optional<MemberEntity> users = memberMapper.findByEmail(email);
+    	MemberEntity user = null;
+    	if (users.isPresent()) {
+    		user = users.get();
+        	System.out.println("getId"+user.getUserid());
+        	System.out.println("username"+user.getUsername());
+        	System.out.println("getFirstName"+user.getFirstname());
+        	System.out.println("getLastName"+user.getLastname());
+        }
     	String accessToken = this.jwtTokenProvider.generateAccessToken(
                 new UsernamePasswordAuthenticationToken(new SecurityMemberDetailsDTO(user), user.getPassword()));
     	String refreshToken = this.jwtTokenProvider.generateRefreshToken(
                 new UsernamePasswordAuthenticationToken(new SecurityMemberDetailsDTO(user), user.getPassword()));
+    	System.out.println("got accessToken"+accessToken);
     	
-    	if (this.authRepository.existsByUser(user)) {
+    	/**if (this.authRepository.existsByUser(user)) {
         	System.out.println("user already exists.");
     		user.getAuth().updateAccessToken(accessToken);
         	user.getAuth().updateRefreshToken(refreshToken);
+        	
             return user.getAuth();
-        }
+        }*/
         Auth auth = create(user, "Bearer", accessToken, refreshToken);
         return auth;
     }
@@ -68,6 +80,7 @@ public class AuthService {
     	auth.setTokenType(tokenType);
     	auth.setAccessToken(accessToken);
     	auth.setRefreshToken(refreshToken);
+    	System.out.println("create"+auth.getUser().getEmail());
     	this.authRepository.save(auth);
 		return auth;
     }

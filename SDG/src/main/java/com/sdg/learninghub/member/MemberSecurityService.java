@@ -13,18 +13,20 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Service;
 
+import com.sdg.learninghub.member.mapper.MemberMapper;
+
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Service
 public class MemberSecurityService implements UserDetailsService{
 	
-	private final MemberRepository memberRepository;
+	private final MemberMapper memberMapper;
 	
 	@Override
 	public UserDetails loadUserByUsername(String email) throws
 UsernameNotFoundException {
-		Optional<MemberEntity> user = this.memberRepository.findByEmail(email);
+		Optional<MemberEntity> user = this.memberMapper.findByEmail(email);
 
 		// Should check the provider is LOCAL
 		if(user.isEmpty()) {

@@ -29,7 +29,7 @@ public class AuthController {
 		String accessToken = authDTO.getAccessToken();
 		MemberEntity user = authService.getUser(accessToken);
 		if(user != null) {
-			return user.getId();
+			return user.getUserid();
 		}
 		return null;
 	}
