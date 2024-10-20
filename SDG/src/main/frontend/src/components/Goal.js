@@ -17,6 +17,11 @@ const Goal = () => {
     const handleTaskClick = (task) =>{
         navigate(`/goal/${title}/${task}`);
     };
+
+    const handleRedirect = (url) => {
+        window.open(url, "_blank");
+    };
+
     useEffect(() => {
         const fetchProgressData = async () => {
         try {
@@ -86,19 +91,22 @@ const Goal = () => {
             </div>
             <div className="recent">
                 <div className="recentItem">
-                    <div className='header'>Recent Publications</div>
+                    <div className='header'>
+                        Recent Publications
+                        <button onClick={() => handleRedirect("https://sdgs.un.org/publications")}>view all</button>
+                    </div>
                     <div className='imgContain'>
                         <div className='imgContainItem'>
-                            <img src={require('../assets/image-one.png')} alt='module' />
+                            <img src={require('../assets/image-one.png')} alt='module' onClick={() => handleRedirect("https://sdgs.un.org/publications/synergy-solutions-climate-and-sdg-action-bridging-ambition-gap-future-we-want-56106")}/>
                         </div>
                         <div className='imgContainItem'>
-                            <img src={require('../assets/image-1.png')} alt='module' />
+                            <img src={require('../assets/image-1.png')} alt='module' onClick={() => handleRedirect("https://sdgs.un.org/publications/third-global-conference-strengthening-synergies-between-paris-agreement-and-2030")}/>
                         </div>
                         <div className='imgContainItem'>
-                            <img src={require('../assets/image-2.png')} alt='module' />
+                            <img src={require('../assets/image-2.png')} alt='module' onClick={() => handleRedirect("https://sdgs.un.org/publications/sustainable-development-goal-interactions-through-climate-lens-global-analysis-50402")}/>
                         </div>
                         <div className='imgContainItem'>
-                            <img src={require('../assets/image-3.png')} alt='module' />
+                            <img src={require('../assets/image-3.png')} alt='module' onClick={() => handleRedirect("https://sdgs.un.org/publications/tracking-sdg7-energy-progress-report-2022-47726")}/>
                         </div>
                     </div>
                 </div>

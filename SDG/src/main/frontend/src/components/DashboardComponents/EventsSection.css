@@ -28,6 +28,7 @@
     margin: 0;
     padding: 0;
     transition: transform 0.2s;
+    cursor: pointer; 
   }
   
   .event-card:hover {
