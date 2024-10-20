@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Post Manager</title>
+</head>
+<body>
+<div align="center">
+    <h1>Post List</h1>
+    <a href="/post/new_post">Create New Post</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Post ID</th>
+            <th>User ID</th>
+            <th>Title</th>
+            <th>Late Updated Date</th>
+            <th>Content</th>
+            <th>Posted By</th>
+            <th>Like Count</th>
+            <th>View Count</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="post : ${listPost}">
+            <td th:text="${post.postId}"></td>
+            <td th:text="${post.userId}"></td>
+            <td th:text="${post.title}"></td>
+            <td th:text="${post.lastUpdate}"></td>
+            <td th:text="${post.content}"></td>
+            <td th:text="${post.postedBy}"></td>
+            <td th:text="${post.likeCount}"></td>
+            <td th:text="${post.viewCount}"></td>
+            <td>
+                <a th:href="@{'/post/delete/' + ${post.postId}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

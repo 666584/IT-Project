@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8" />
+  <title>Create New Post</title>
+</head>
+<body>
+<div align="center">
+  <h1>Create New Post</h1>
+  <br />
+  <form action="#" th:action="@{/post/save}" th:object="${post}"
+        method="post">
+
+    <table border="0" cellpadding="10">
+      <tr>
+        <td>User Id:</td>
+        <td><input type="text" th:field="*{userId}" /></td>
+      </tr>
+      <tr>
+        <td>Post Title:</td>
+        <td><input type="text" th:field="*{title}" /></td>
+      </tr>
+      <tr>
+        <td>Content:</td>
+        <td><input type="text" th:field="*{content}" /></td>
+      </tr>
+      <tr>
+        <td>Posted By:</td>
+        <td><input type="text" th:field="*{postedBy}" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><button type="submit">Save</button> </td>
+      </tr>
+    </table>
+  </form>
+</div>
+</body>
+</html>
