@@ -14,6 +14,10 @@ class PostAPI {
     update(postData){
         return axios.post(`${API_BASE_URL}/update`, postData);
     }
+
+    listByLike(){
+        return axios.get(`${API_BASE_URL}/list`);
+    }
 }
 
 const Post = new PostAPI();

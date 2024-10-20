@@ -39,8 +39,14 @@ public class PostController {
 	}
 	
 	@GetMapping("/list/{userId}")
-	public ResponseEntity<List> ListPostByUser(@PathVariable(name = "userId") Long userId) {		
+	public ResponseEntity<List<PostDTO>> ListPostByUser(@PathVariable(name = "userId") Long userId) {		
 		List<PostDTO> postList = postService.listByUser(userId);
+		return ResponseEntity.status(HttpStatus.OK).body(postList);
+	}
+	
+	@GetMapping("/list")
+	public ResponseEntity<List<PostDTO>> ListPostByLike(){
+		List<PostDTO> postList = postService.listByLike();
 		return ResponseEntity.status(HttpStatus.OK).body(postList);
 	}
 }

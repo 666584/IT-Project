@@ -40,6 +40,22 @@ public class PostService {
     	return postList;
     }
     
+    public List<PostDTO> listByLike() {
+    	List<Post> posts = postRepository.findTop5ByOrderByLikeCountDesc();
+    	List<PostDTO> postList = new ArrayList<>();
+    	for (Post post : posts) {
+	        PostDTO postDTO = new PostDTO();
+	        postDTO.setUsername(post.getMember().getUsername());
+	        postDTO.setTitle(post.getTitle());
+	        postDTO.setPostId(post.getPostId());
+	        postDTO.setContent(post.getContent());
+	        postDTO.setDate(post.getDate());
+	        postDTO.setLikeCount(post.getLikeCount());
+	        postList.add(postDTO);
+    	}
+    	return postList;
+    }
+    
     public Long create(PostCreateDTO postCreateDTO) {
     	MemberEntity member = memberService.getMember(postCreateDTO.getUserid());
     	Post post = new Post();

@@ -54,6 +54,12 @@
     font-weight: bold;
     color: #333;
     padding: 0 1.5rem;
+    display: -webkit-box;           
+    -webkit-box-orient: vertical; 
+    -webkit-line-clamp: 2;
+    line-clamp: 2;         
+    overflow: hidden;              
+    text-overflow: ellipsis; 
   }
   
   .event-date {

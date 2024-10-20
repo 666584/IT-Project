@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './Layout/Navbar.js';
 import AuthAPI from './services/AuthAPI.js';
 import PostAPI from './services/PostAPI.js';
@@ -12,6 +12,9 @@ const Social = () => {
     const [showFields, setShowFields] = useState(false);
     const [content, setContent] = useState('');
     const [title, setTitle] = useState('');
+    const [postList, setPostList] = useState('');
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     const accessToken = localStorage.getItem('accessToken');
     const navigate = useNavigate();
 
@@ -54,6 +57,34 @@ const Social = () => {
             console.log(error);
         }
     }
+
+    useEffect(() => {
+        const fetchPostList = async () => {
+            try {
+                const response = await PostAPI.listByLike();
+                if (!response.data) {
+                    throw new Error('Failed to fetch user data');
+                }
+                setPostList(response.data);
+                console.log(response.data);
+                setLoading(false);
+            }catch (error) {
+                setError(error.message);
+                setLoading(false);
+            }
+        };
+    
+        fetchPostList();
+    }, []);
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
+    if (error) {
+        return <div>Error: {error}</div>; 
+    }
+
     return (
         <div className="socical">
             <Helmet>
@@ -106,12 +137,7 @@ const Social = () => {
                 <div className='right'>
                     <div className='top'>
                         <div className='item'>
-                            Sustainable Business Practices: Promoting fair trade and inclusive  Sustainable Business Practices
-                        </div>
-                        <div className='item'>
-                            <div className='tab'>design</div>
-                            <div className='tab'>user iterface</div>
-                            <div className='tab'>designing</div>
+                            {postList[0].title}
                         </div>
                     </div>
                     <div className='bottom'>
@@ -120,13 +146,12 @@ const Social = () => {
                                 <img src={require('../assets/s03.png')} alt='avatar' />
                             </div>
                             <div className='user'>
-                                <div className='name'>Michal Malewicz o</div>
-                                <div className='time'>2 weeks ago</div>
+                                <div className='name'>{postList[0].username}</div>
+                                <div className='time'>{postList[0].date}</div>
                             </div>
                         </div>
                         <div className='like'>
-                            <div className='num'>964,258 Views</div>
-                            <div className='num'>64,755 Likes</div>
+                            <div className='num'>{postList[0].likeCount} likes</div>
                             <div className='num'>44 comments</div>
                         </div>
                     </div>
@@ -142,12 +167,7 @@ const Social = () => {
                 <div className='right'>
                     <div className='top'>
                         <div className='item'>
-                            Sustainable Business Practices: Promoting fair trade and inclusive  Sustainable Business Practices
-                        </div>
-                        <div className='item'>
-                            <div className='tab'>design</div>
-                            <div className='tab'>user iterface</div>
-                            <div className='tab'>designing</div>
+                            {postList[1].title}
                         </div>
                     </div>
                     <div className='bottom'>
@@ -156,13 +176,12 @@ const Social = () => {
                                 <img src={require('../assets/s04.png')} alt='avatar' />
                             </div>
                             <div className='user'>
-                                <div className='name'>Michal Malewicz o</div>
-                                <div className='time'>2 weeks ago</div>
+                                <div className='name'>{postList[1].username}</div>
+                                <div className='time'>{postList[1].date}</div>
                             </div>
                         </div>
                         <div className='like'>
-                            <div className='num'>964,258 Views</div>
-                            <div className='num'>64,755 Likes</div>
+                            <div className='num'>{postList[1].likeCount} likes</div>
                             <div className='num'>44 comments</div>
                         </div>
                     </div>
