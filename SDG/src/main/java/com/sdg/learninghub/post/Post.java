@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import com.sdg.learninghub.member.MemberEntity;
@@ -21,19 +22,26 @@ public class Post {
 	@JoinColumn(name = "userid")
 	private MemberEntity member;
 
-    private String postedBy;
-
     @Column(nullable = false)
     private String title;
 
-    @Column(nullable = false)
-    private Date lastUpdate;
+    @Column(name = "date")
+    private LocalDateTime date;
 
     @Column(length = 10000)
     private String content;
 
     private int likeCount;
-
-    private int viewCount;
-
+    
+    public void updateTitle(String title) {
+    	this.title = title;
+    }
+    
+    public void updateContent(String content) {
+    	this.content = content;
+    }
+    
+    public void updateDate(LocalDateTime date) {
+    	this.date = date;
+    }
 }

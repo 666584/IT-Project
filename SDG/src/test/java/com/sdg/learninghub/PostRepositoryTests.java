@@ -15,6 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Optional;
 
@@ -39,11 +40,9 @@ public class PostRepositoryTests {
     	Post post = new Post();
         post.setPostId(2L);
         post.setMember(member);
-        post.setLastUpdate(new Date());
-        post.setPostedBy("Vivian");
+        post.setDate(LocalDateTime.now());
         post.setTitle("Zero Hunger");
         post.setContent("End hunger, achieve food security and improved nutrition and promote sustainable agriculture");
-        post.setViewCount(0);
         post.setLikeCount(0);
 
         Post savedPost = postRepository.save(post);

@@ -12,9 +12,9 @@ import Register from './components/RegisterComponent.js';
 import Dashboard from './components/Dashboard.js';
 import Comic from './components/Comic.js';
 import Questions from './components/Questions.js';
-import Test from './components/ModuleComponent.js';
 import GoogleLoginProcess from './components/GoogleLogin.js';
 import PrivateRoute from './PrivateRoute.js';
+import PostTest from './components/PostTest.js';
 
 import './App.css';
 
@@ -31,9 +31,9 @@ function App() {
           <Route path="/goal/:title/:task" element={<Comic />} />
 
           {/* Private routes */}
-          <Route path="/goal/testing" element={<PrivateRoute> <Test /> </PrivateRoute>} />
- 
           <Route element={<Layout />}>
+            <Route path="/social/post/:userId" element={<PrivateRoute> <PostTest /> </PrivateRoute>} />
+
             <Route path="/dashboard/:userId" element={<PrivateRoute> <Dashboard /> </PrivateRoute>} />
             <Route path="/profile/:userId" element={<PrivateRoute> <Profile /> </PrivateRoute>} />
             <Route path="/module" element={<PrivateRoute> <Module /> </PrivateRoute>} />

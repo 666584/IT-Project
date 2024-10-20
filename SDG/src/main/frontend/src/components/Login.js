@@ -25,7 +25,11 @@ const Login = () => {
         navigate(`/dashboard/${res.data}`); 
       } catch (error) {
         const message = error.response?.data;
-        alert(message);
+        if(message == null) {
+          console.log("Server not connected.");
+        }
+        alert("Server error. Try it again.");
+        console.log(message);
       }
   };
 

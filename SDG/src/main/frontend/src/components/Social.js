@@ -1,9 +1,59 @@
 import React, { useState } from 'react';
 import Navbar from './Layout/Navbar.js';
+import AuthAPI from './services/AuthAPI.js';
+import PostAPI from './services/PostAPI.js';
 import './Social.css';
 import { Helmet } from 'react-helmet';
+import profileIcon from '../assets/profile.svg';
+import { useNavigate } from 'react-router-dom';
+
 const Social = () => {
     const [searchTerm, setSearchTerm] = useState('');
+    const [showFields, setShowFields] = useState(false);
+    const [content, setContent] = useState('');
+    const [title, setTitle] = useState('');
+    const accessToken = localStorage.getItem('accessToken');
+    const navigate = useNavigate();
+
+    const handleContentClick = () => {
+        setShowFields(true);
+    };
+
+    const handleTitleChange = (e) => {
+        setTitle(e.target.value);
+    };
+
+    const handleCloseField = () => {
+        setShowFields(false);
+    };
+
+    const handleContentChange = (e) => {
+        setContent(e.target.value);
+    };
+
+    const handleCreatePost = async () => {
+        try {
+            const res = await AuthAPI.auth({ accessToken });
+            const userid = res.data;
+            if(content != null && title != null && userid != null){
+                const postData = {
+                    title,
+                    userid,
+                    content,
+                    date: new Date().toISOString(),
+                };
+                const response = await PostAPI.create(postData);
+                if(response.data != null){
+                    alert("Post saved.");
+                    navigate(`/social/post/${userid}`);
+                } else {
+                    alert("Post wasn't saved. Try it again.");
+                }
+            }
+        }catch (error) {
+            console.log(error);
+        }
+    }
     return (
         <div className="socical">
             <Helmet>
@@ -14,26 +64,44 @@ const Social = () => {
             </div>
             <div className='navSearch'>
                 <div className='item'>
-                    <img src={require('../assets/s03.png')} alt='module' />
+                    <img src={profileIcon} alt='profile' />
                 </div>
                 <div className='item'>
                     <input
                         className='inputBox'
                         type="text"
                         placeholder="Let's share what going on your mind..."
-                        value=''
+                        value={content}
+                        onClick={handleContentClick}
+                        onChange={handleContentChange}
                     />
+                    {showFields && (
+                        <div>
+                            <input
+                                className='inputBox'
+                                type="text"
+                                placeholder="Title"
+                                value={title}
+                                onChange={handleTitleChange}
+                            />
+                            <div>
+                                <button onClick={handleCloseField}>
+                                    X
+                                </button>
+                            </div>
+                        </div>
+                    )}
                 </div>
-                <div className='item'>
+                <button className='item' onClick={handleCreatePost}>
                     Create Post
-                </div>
+                </button>
             </div>
             <div className='List'>
             <div className="heart">
-                    <img src={require('../assets/s06.png')} alt='module' />
+                    <img src={require('../assets/s06.png')} alt='heart' />
                 </div>
                 <div className='left'>
-                    <img src={require('../assets/s01.png')} alt='module' />
+                    <img src={require('../assets/s01.png')} alt='left' />
                 </div>
                 <div className='right'>
                     <div className='top'>
@@ -49,7 +117,7 @@ const Social = () => {
                     <div className='bottom'>
                         <div className='userInfo'>
                             <div className='avatar'>
-                                <img src={require('../assets/s03.png')} alt='module' />
+                                <img src={require('../assets/s03.png')} alt='avatar' />
                             </div>
                             <div className='user'>
                                 <div className='name'>Michal Malewicz o</div>
@@ -66,10 +134,10 @@ const Social = () => {
             </div>
             <div className='List'>
                 <div className="heart">
-                    <img src={require('../assets/s05.png')} alt='module' />
+                    <img src={require('../assets/s05.png')} alt='heart' />
                 </div>
                 <div className='left'>
-                    <img src={require('../assets/s02.png')} alt='module' />
+                    <img src={require('../assets/s02.png')} alt='left' />
                 </div>
                 <div className='right'>
                     <div className='top'>
@@ -85,7 +153,7 @@ const Social = () => {
                     <div className='bottom'>
                         <div className='userInfo'>
                             <div className='avatar'>
-                                <img src={require('../assets/s04.png')} alt='module' />
+                                <img src={require('../assets/s04.png')} alt='avatar' />
                             </div>
                             <div className='user'>
                                 <div className='name'>Michal Malewicz o</div>

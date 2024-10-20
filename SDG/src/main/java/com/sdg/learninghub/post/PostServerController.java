@@ -44,16 +44,6 @@ public class PostServerController {
         return "redirect:/post/";
     }
 
-    @GetMapping("/{postId}")
-    public ResponseEntity<?> getPostById(@PathVariable Long postId){
-        try{
-            Post post = postService.getPostByID(postId);
-            return ResponseEntity.ok(post);
-        } catch (EntityNotFoundException e){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
-        }
-    }
-
     @RequestMapping("/{postId}/like")
     public ResponseEntity<?> likePost(@PathVariable Long postId){
         try{
