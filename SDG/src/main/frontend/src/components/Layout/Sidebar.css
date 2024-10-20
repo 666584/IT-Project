@@ -1,5 +1,5 @@
 .sidebar {
-  width: 180px;
+  width: 250px;
   background-color: #020E0F;
   color: white;
   padding: 20px 10px;
@@ -28,7 +28,8 @@
 }
 
 .sidebar-button {
-  width: 160px;
+  width: 200px;
+  height: 8vh; 
   background-color: #1B2627;
   border: none;
   color: inherit;
@@ -46,13 +47,14 @@
 }
 
 .sidebar-button img {
-  width: 30px;
+  width: 25px;
   height: 30px;
-  margin-right: 10px; /* Space between icon and text */
+  margin-left: 10px;
+  margin-right: 25px; /* Space between icon and text */
 }
 
 .sidebar-button span {
-  font-size: 16px; /* Adjust font size */
+  font-size: 20px; /* Adjust font size */
 }
 
 .sidebar-button:focus {
@@ -62,6 +64,14 @@
 .sidebar-container {
   padding-left: 20px; /* Add space to the left of the sidebar */
   padding-top: 20px; /* Add space to the top of the sidebar */
+}
+
+.sidebar-profile{
+  background-color: transparent;
+}
+.sidebar-profile img{
+  width: 200px;
+  height: 200px;
 }
 
 /* Responsive adjustments for smaller screens */

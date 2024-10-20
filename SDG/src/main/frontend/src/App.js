@@ -32,14 +32,13 @@ function App() {
 
           {/* Private routes */}
           <Route path="/goal/testing" element={<PrivateRoute> <Test /> </PrivateRoute>} />
-          <Route path="/profile/:userId" element={<PrivateRoute> <Profile /> </PrivateRoute>} />
-          
+ 
           <Route element={<Layout />}>
-            <Route exact path="/dashboard/:userId" element={<PrivateRoute> <Dashboard /> </PrivateRoute>} />
+            <Route path="/dashboard/:userId" element={<PrivateRoute> <Dashboard /> </PrivateRoute>} />
+            <Route path="/profile/:userId" element={<PrivateRoute> <Profile /> </PrivateRoute>} />
             <Route path="/module" element={<PrivateRoute> <Module /> </PrivateRoute>} />
             <Route path="/games" element={<PrivateRoute> <Games /> </PrivateRoute>} />
             <Route path="/:userId/goal/:title" element={<PrivateRoute> <Goal /> </PrivateRoute>} />
-            <Route path="/social" element={<PrivateRoute> <Social /> </PrivateRoute>} />
             <Route path="/social" element={<PrivateRoute> <Social /> </PrivateRoute>} />
           </Route>
         </Routes>
