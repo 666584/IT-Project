@@ -1,0 +1,86 @@
+.leftside-container {
+    position: relative; /* Set relative positioning for the container */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 300px;
+    height: 100vh; /* Full height */
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  
+  .quality-image {
+    width: 100%;
+    max-width: 250px;
+    margin-bottom: 20px;
+  }
+  
+  .text-section {
+    width: 100%;
+    max-width: 250px;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  
+  .separator {
+    width: 100%;
+    max-width: 250px;
+    border-bottom: 2px solid black;
+    margin: 20px 0;
+  }
+  
+  .did-you-know {
+    width: 100%;
+    max-width: 250px;
+    text-align: left;
+  }
+  
+  .did-you-know h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .did-you-know p {
+    font-size: 16px;
+    color: #666;
+  }
+  
+  /* Style for the progress bar */
+  .progress-bar {
+    position: absolute;
+    right: -3.5vh; /* Move the progress bar out to the right edge */
+    top: 50%; /* Center it vertically on the edge */
+    transform: translateY(-50%); /* Vertically align to the center */
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 8vh; /* Reduced gap between progress steps */
+  }
+  
+  .progress-step {
+    width: 50px;
+    height: 50px;
+    background-color: #ddd;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+  }
+  
+  .progress-step.active {
+    background-color: black;
+    color: white;
+  }
+  

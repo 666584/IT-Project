@@ -1,0 +1,25 @@
+<!-- login.html-->
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div class="container">
+    <h1>login</h1>
+    <form th:action="@{/user/login}" method="post">
+        <div class="form-group">
+            <label th:for="email">email</label>
+            <input type="email" name="email" class="form-control" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+            <label th:for="password">password</label>
+            <input type="password" class="form-control" name="password" placeholder="Enter Password">
+        </div>
+        <button type="submit" class="btn btn-primary">login</button>
+        <button type="button" class="btn btn-primary" onClick="location.href='http://localhost:8080/user/signup'">sign up</button>
+    </form>
+	<br/>
+	<a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>
+</div>
+</body>
+</html>

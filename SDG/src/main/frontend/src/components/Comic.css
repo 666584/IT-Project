@@ -1,0 +1,57 @@
+.app {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+  }
+  
+  .content-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto; /* Set to auto to allow scrolling */
+  }
+  
+  .left-column {
+    flex: 0 0 300px; /* Fix width for the left side */
+    background-color: #ffffff;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    position: sticky; /* Sticky position applied here */
+    top: 0; /* Stick to the top when scrolling */
+  }
+  
+  .right-column {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  /* Media Query for mobile devices */
+  @media (max-width: 768px) {
+    .content-container {
+      flex-direction: column;
+    }
+  
+    .left-column {
+      flex: none;
+      width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+      position: relative; /* Remove sticky for mobile view */
+    }
+  
+    .right-column {
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: auto;
+      overflow-y: auto;
+    }
+  }
+  
