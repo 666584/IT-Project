@@ -27,7 +27,6 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/google/callback" element={<GoogleLoginProcess />} />
-          <Route path="/social" element={<Social />} />
           <Route path="/goal/:title/:task/quizzes" element={<Questions />} />
           <Route path="/goal/:title/:task" element={<Comic />} />
 
@@ -40,7 +39,7 @@ function App() {
             <Route path="/module" element={<PrivateRoute> <Module /> </PrivateRoute>} />
             <Route path="/games" element={<PrivateRoute> <Games /> </PrivateRoute>} />
             <Route path="/:userId/goal/:title" element={<PrivateRoute> <Goal /> </PrivateRoute>} />
-            
+            <Route path="/social" element={<PrivateRoute> <Social /> </PrivateRoute>} />
             <Route path="/social" element={<PrivateRoute> <Social /> </PrivateRoute>} />
           </Route>
         </Routes>
