@@ -1,29 +1,31 @@
 import React, { useState } from 'react';
-import './CouponsSection.css'; // Add styles if needed
+import './CouponsSection.css';
 import DashboardAPI from '../services/DashboardAPI.js';
 
-const CouponsSection = ({currPoints, userId}) => {
+const CouponsSection = ({ currPoints, userId }) => {
   // State to handle whether the popup is open
   const [isPopupOpen, setPopupOpen] = useState(false);
   const requiredPoints = 75;
-  const message = currPoints >= requiredPoints 
-        ? `You have enough points! (${currPoints} points available)` 
-        : `${requiredPoints} points required`;
-  
+  const message =
+    currPoints >= requiredPoints
+      ? `You have enough points! (${currPoints} points available)`
+      : `${requiredPoints} points required`;
+
   const couponRedeem = async () => {
     try {
-        const response = await DashboardAPI.coupon({userId});
-        if (!response.data) {
-            throw new Error('Failed to update points');
-        }
-    }catch (error) {
-        console.log(error.message);
+      const response = await DashboardAPI.coupon({ userId });
+      if (!response.data) {
+        throw new Error('Failed to update points');
+      }
+    } catch (error) {
+      console.log(error.message);
     }
-};
+  };
+
   // Function to handle coupon click
   const handleCouponClick = () => {
     if (currPoints < 75) {
-      alert("You need at least 75 points to get this coupon.");
+      alert('You need at least 75 points to get this coupon.');
     } else {
       couponRedeem();
       setPopupOpen(true);
@@ -43,7 +45,7 @@ const CouponsSection = ({currPoints, userId}) => {
         <button className="view-all-button">View all</button>
       </div>
       <div className="coupon-list">
-        {/* Each coupon is now a clickable button */}
+        {/* First Coupon Card */}
         <div className="coupon-card" onClick={handleCouponClick}>
           <div className="coupon-content">
             <img
@@ -54,13 +56,13 @@ const CouponsSection = ({currPoints, userId}) => {
             <div className="coupon-details">
               <p className="coupon-title">10% off Starbucks</p>
               <p className="points-required">{message}</p>
-              <button className="claim-button" >Claim Voucher</button>
+              {/* Changed button to span */}
+              <span className="claim-text">Claim Voucher</span>
             </div>
           </div>
-          <div className="coupon-dashed-border"></div>
         </div>
 
-        {/* Repeat for more coupon cards */}
+        {/* Second Coupon Card */}
         <div className="coupon-card" onClick={handleCouponClick}>
           <div className="coupon-content">
             <img
@@ -69,12 +71,43 @@ const CouponsSection = ({currPoints, userId}) => {
               className="coupon-logo"
             />
             <div className="coupon-details">
-              <p className="coupon-title">10% off Starbucks</p>
+              <p className="coupon-title">15% off Starbucks</p>
               <p className="points-required">{message}</p>
-              <button className="claim-button">Claim Voucher</button>
+              <span className="claim-text">Claim Voucher</span>
             </div>
           </div>
-          <div className="coupon-dashed-border"></div>
+        </div>
+
+        {/* Third Coupon Card */}
+        <div className="coupon-card" onClick={handleCouponClick}>
+          <div className="coupon-content">
+            <img
+              src={require('./Images/starbuck.png')}
+              alt="Starbucks Logo"
+              className="coupon-logo"
+            />
+            <div className="coupon-details">
+              <p className="coupon-title">20% off Starbucks</p>
+              <p className="points-required">{message}</p>
+              <span className="claim-text">Claim Voucher</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Fourth Coupon Card */}
+        <div className="coupon-card" onClick={handleCouponClick}>
+          <div className="coupon-content">
+            <img
+              src={require('./Images/starbuck.png')}
+              alt="Starbucks Logo"
+              className="coupon-logo"
+            />
+            <div className="coupon-details">
+              <p className="coupon-title">25% off Starbucks</p>
+              <p className="points-required">{message}</p>
+              <span className="claim-text">Claim Voucher</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -82,8 +115,14 @@ const CouponsSection = ({currPoints, userId}) => {
       {isPopupOpen && (
         <div className="popup-overlay">
           <div className="popup">
-            <button className="close-button" onClick={handleClosePopup}>X</button>
-            <img src={require('./Images/redeemed.png')} alt="Redeemed" className="redeemed-image" />
+            <button className="close-button" onClick={handleClosePopup}>
+              X
+            </button>
+            <img
+              src={require('./Images/redeemed.png')}
+              alt="Redeemed"
+              className="redeemed-image"
+            />
             <p>Well done. Your voucher is redeemed.</p>
           </div>
         </div>

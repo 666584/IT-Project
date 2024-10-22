@@ -2,6 +2,7 @@
 .coupons-section {
   margin-bottom: 2rem;
 }
+
 .section-header {
   display: flex;
   justify-content: space-between;
@@ -13,95 +14,82 @@
 .coupon-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* Two coupons per row */
-  grid-gap: 0.5rem; /* Space between coupon cards */
-  justify-content: space-between; /* Ensures coupons stretch to take up space */
-  padding: 0; /* Removes any padding */
-  margin: 0; /* Removes any margin */
+  grid-gap: 1rem;
+  padding: 0;
+  margin: 0;
 }
 
 /* Coupon Card Styling */
 .coupon-card {
   display: flex;
-  justify-content: space-between;
-  align-items: stretch; /* Ensure elements inside take full height */
+  align-items: center;
   background-color: #ffffff;
   border-radius: 15px;
-  padding: 1rem;
+  padding: 0.5rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  width: 100%; /* Makes sure cards stretch to fit the grid cell */
-  max-width: 25vh; /* Optional: control max width */
-  position: relative;
-  cursor: pointer; /* Change the cursor to a pointer when hovering */
-  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Add hover animation */
+  width: 90%;
+  max-width: 30vh;
+  min-width: 20vh;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  justify-self: center;
+  min-height: 8vh;
 }
 
 /* Coupon Content */
 .coupon-content {
   display: flex;
   align-items: center;
-  flex-grow: 1; /* Allows this section to grow and fill space */
+  flex-grow: 1;
 }
 
 /* Coupon Logo */
 .coupon-logo {
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
 }
 
 /* Coupon Details */
 .coupon-details {
   display: flex;
-  flex-direction: column; /* Stack the texts vertically */
-  align-items: flex-start; /* Align all items to the left */
-  padding-left: 5px; /* Padding to align text better */
+  flex-direction: column;
+  align-items: flex-start;
 }
+
 .coupon-title {
-  font-size: 14px;
+  font-size: 11px;
   font-weight: bold;
-  margin: 0; /* Remove any extra margin */
-  padding: 0; /* Remove padding to reduce spacing */
-  text-align: left; /* Left-align the text */
+  margin: 0;
+  padding: 0;
+  text-align: left;
 }
+
 .points-required {
   color: #e74c3c;
-  font-size: 12px;
+  font-size: 9px;
   margin: 0;
-  padding-top: 4px;
+  padding-top: 2px;
 }
-.claim-button {
-  font-size: 12px;
+
+/* Claim Text Styling */
+.claim-text {
+  font-size: 9px;
   color: #ccc;
-  background: none;
-  border: none;
-  cursor: not-allowed;
-  margin-top: 8px;
-  transition: color 0.3s ease; /* Smooth color transition */
+  margin-top: 4px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect for the claim text */
+.claim-text:hover {
+  color: black;
 }
 
 /* Hover effect for the coupon */
 .coupon-card:hover {
-  transform: translateY(-5px); /* Slight hover lift */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Enhance shadow effect */
-}
-
-.coupon-card:hover .claim-button {
-  color: black; /* Change "Claim Voucher" text to black on hover */
-}
-
-/* Dashed Border for the Coupon */
-.coupon-dashed-border {
-  border-left: 2px dashed #ccc; /* Default dashed line color */
-  align-self: stretch; /* Makes the dashed line take the full height of the coupon */
-  margin-left: 10px;
-  margin-right: 5px;
-  transition: border-color 0.3s ease, margin-left 0.3s ease;
-}
-
-/* Hover effect for the dashed border */
-.coupon-card:hover .coupon-dashed-border {
-  margin-left: 0; /* Move the dashed line a bit to the left on hover */
-  border-left: 2px dashed black; /* Change dashed line color to black */
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Responsive styles */
@@ -110,11 +98,10 @@
     grid-template-columns: 1fr; /* One coupon per row on small screens */
   }
   .coupon-card {
-    width: 100%; /* Makes coupon cards full-width on small screens */
+    width: 100%;
+    max-width: none;
   }
 }
-
-/* General coupon section styles omitted for brevity */
 
 /* Popup Overlay */
 .popup-overlay {
@@ -123,7 +110,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Dark transparent background */
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
