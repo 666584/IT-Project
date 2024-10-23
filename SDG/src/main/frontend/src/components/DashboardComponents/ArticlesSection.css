@@ -7,7 +7,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
-    color: #333;
+    color: black;
   }
   
   .articles-container {
@@ -45,4 +45,7 @@
     margin: 0;
     font-size: 14px;
   }
-  
+
+.articlen{
+  font-weight: bold;
+}

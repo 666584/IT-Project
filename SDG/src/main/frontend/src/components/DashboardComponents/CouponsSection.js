@@ -41,7 +41,7 @@ const CouponsSection = ({ currPoints, userId }) => {
   return (
     <div className="coupons-section">
       <div className="section-header">
-        <h3>Coupons</h3>
+        <h3 className='couponn'>Coupons</h3>
         <button className="view-all-button">View all</button>
       </div>
       <div className="coupon-list">

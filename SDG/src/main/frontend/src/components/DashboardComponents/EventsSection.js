@@ -37,7 +37,7 @@ const EventsSection = () => {
   return (
     <div className="events-section">
       <div className="section-header">
-        <h3>Upcoming Events</h3>
+        <h3 className="upcomingn">Upcoming Events</h3>
         <button className="view-all-button" onClick={() => handleRedirect("https://sdgs.un.org/events")}>View all</button>
       </div>
       <div className="event-list">

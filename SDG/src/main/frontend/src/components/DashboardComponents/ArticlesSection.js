@@ -6,7 +6,7 @@ const ArticlesSection = () => {
   return (
     <div className="articles-section">
       <div className="section-header">
-        <h3>Articles</h3>
+        <h3 className="articlen">Articles</h3>
         <button className="see-more-button">See more</button>
       </div>
       <div className="articles-container">
