@@ -3,7 +3,7 @@ import './ProgressBar.css';
 
 const ProgressBar = () => {
   return (
-    <div className="progress-bar">
+    <div className="progress-bar-quiz">
       <div className="progress-step active">1</div>
       <div className="progress-step">2</div>
       <div className="progress-step">3</div>

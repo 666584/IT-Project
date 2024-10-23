@@ -17,6 +17,7 @@ const LeftSide = () => {
         <p>Without additional measures, 84 million youth will be out of school by 2030.</p>
       </div>
       <ProgressBar /> {/* ProgressBar component added here */}
+      
     </div>
   );
 };

@@ -7,14 +7,16 @@
     border-radius: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    width: 30vh;
+    width: 20vh;
   }
   
   .stat-card {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
+    flex:1;
+    gap: 0.7rem;
     padding: 1rem;
     text-align: center;
   }
@@ -38,6 +40,6 @@
   .stat-text {
     font-size: 16px;
     font-weight: bold;
-    margin-top: 0.5rem;
+
   }
   

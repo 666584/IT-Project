@@ -18,8 +18,8 @@ const ProgressSection = ({totalSDGProgress}) => {
         <h1 className="progress-number">{totalSDGProgress}/2550</h1>
         <p className="progress-text">Total SDG Progress</p>
         <div className="progress-bar">
-          <div className="progress-fill" style={{ width: 15 }}>
-            <span className="progress-percentage">12%</span>
+          <div className="progress-fill" style={{ width: `${100}%` }}>
+            <span className="progress-percentage">{100}%</span>
           </div>
         </div>
       </div>

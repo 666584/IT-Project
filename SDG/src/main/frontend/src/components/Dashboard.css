@@ -42,8 +42,9 @@
     display: flex;
     justify-content: space-between;
     gap: 2rem;
-    align-items: flex-start;
+    align-items: stretch;
     padding: 1rem 0;
+  
   }
   
   /* Responsive Styles */

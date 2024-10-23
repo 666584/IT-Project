@@ -53,7 +53,7 @@
   }
   
   /* Style for the progress bar */
-  .progress-bar {
+  .progress-bar-quiz {
     position: absolute;
     right: -3.5vh; /* Move the progress bar out to the right edge */
     top: 50%; /* Center it vertically on the edge */
