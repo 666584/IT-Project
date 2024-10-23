@@ -16,7 +16,7 @@ const ArticlesSection = () => {
         </div>
         <div className="article-card">
           <span className="article-number-2">3</span>
-          <p>Zimbabwe faces worsening food crisis due to El Niño droughts...</p>
+          <p>Zimbabwe faces worsening food crisis due to...</p>
         </div>
       </div>
     </div>

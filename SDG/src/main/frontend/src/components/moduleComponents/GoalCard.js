@@ -22,10 +22,15 @@ function GoalCard({ key, title, goal, color, icon }) {
   return (
     <div className="goal-card" style={{ backgroundColor: color }}>
       <div className="goal-icon">{icon}</div>
+      
+      <button className="play-button" onClick={handleClick}>
+      
+      <div>
       <h3>{title}</h3>
       <p>{goal}</p>
-      <button className="play-button" onClick={handleClick}>
-        <img src={playbutton} alt="Play" />
+      
+      </div>
+      <img src={playbutton} alt="Play" />
       </button>
     </div>
   );

@@ -1,6 +1,7 @@
 /* General Styles for Coupon Section */
 .coupons-section {
-  margin-bottom: 2rem;
+
+  flex:1;
 }
 
 .section-header {
@@ -14,8 +15,10 @@
 .coupon-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* Two coupons per row */
-  grid-gap: 1rem;
+  row-gap: 1rem;
+  column-gap: 1rem;
   padding: 0;
+  
   margin: 0;
 }
 
@@ -27,7 +30,7 @@
   border-radius: 15px;
   padding: 0.5rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  width: 90%;
+  width: 100%;
   max-width: 30vh;
   min-width: 20vh;
   cursor: pointer;
