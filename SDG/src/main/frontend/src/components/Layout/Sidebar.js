@@ -5,8 +5,10 @@ import homeIcon from '../../assets/home-2.svg';
 import socialIcon from '../../assets/people.svg';
 import gameIcon from '../../assets/gameboy.svg';
 import moduleIcon from '../../assets/category.svg';
+import logoutIcon from'../../assets/logout.png'
 import { useNavigate } from 'react-router-dom';
 import AuthAPI from '../services/AuthAPI.js'
+
 
 function Sidebar() {
   const navigate = useNavigate();
@@ -73,12 +75,14 @@ function Sidebar() {
         </li>
         <li>
           <button className="sidebar-button" onClick={handleLogout}>
-            <img src={socialIcon} alt="Social" />
-            <span>logout</span>
+            <img src={logoutIcon} alt="Logout" />
+            <span>Logout</span>
           </button>
         </li>
+
       </ul>
     </div>
+    
   );
 }
 
