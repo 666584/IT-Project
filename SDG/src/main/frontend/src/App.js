@@ -8,7 +8,7 @@ import Games from './components/Games.js';
 import Goal from './components/Goal.js';
 import Social from './components/Social.js';
 import Layout from './components/Layout/Layout.js';
-import Register from './components/RegisterComponent.js';
+import SignUp from './components/SignUp.js';
 import Dashboard from './components/Dashboard.js';
 import Comic from './components/Comic.js';
 import Questions from './components/Questions.js';
@@ -25,7 +25,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/google/callback" element={<GoogleLoginProcess />} />
           <Route path="/goal/:title/:task/quizzes" element={<Questions />} />
           <Route path="/goal/:title/:task" element={<Comic />} />

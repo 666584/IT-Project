@@ -1,0 +1,46 @@
+.vouchersSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    gap: 1.5rem;
+  }
+  
+  /* For larger screens */
+  @media (min-width: 768px) {
+    .vouchersSection {
+      flex-direction: row; /* Aligns items in a row */
+      justify-content: space-between; /* Adds space between elements */
+      align-items: center; /* Vertically centers elements */
+      padding: 4rem;
+    }
+  
+    .text {
+      order: 2; /* Ensures the text appears on the right */
+      max-width: 40%;
+      text-align: left;
+      margin-left: 2rem; /* Adds space between the image and text */
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* Vertically centers the text */
+    }
+  
+    .couponImage {
+      order: 1; /* Places the image to the left of the text */
+      max-width: 60%; /* Increases image size */
+      height: auto;
+    }
+  }
+  
+  /* For mobile screens */
+  .text {
+    max-width: auto;
+    font-size: 1.8rem;
+    text-align: right;
+  }
+  
+  .couponImage {
+    max-width: 40%;
+    height: auto;
+  }
+  

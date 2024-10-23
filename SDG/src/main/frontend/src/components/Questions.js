@@ -142,8 +142,8 @@ const Questions = () => {
             {showError && <p className="error">Please select the correct answer before proceeding!</p>} {/* Error message */}
             
             <div className="button-container">
-            <button onClick={handleBack}>Back</button> {/* Back button is always available */}
-            <button onClick={handleNext}>
+            <button className="question-button" onClick={handleBack}>Back</button> {/* Back button is always available */}
+            <button className="question-button" onClick={handleNext}>
                 {currentQuestion < questions.length - 1 ? 'Next' : 'Finished'}
             </button> {/* Next button remains accessible */}
             </div>

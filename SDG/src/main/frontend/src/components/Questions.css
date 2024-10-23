@@ -1,14 +1,10 @@
-/* General Styles */
-body {
+   /* Ensure the quiz-container does not overlap with the left side */
+  .quiz-container {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     background-color: #F4F3F3;
-  }
-  
-  /* Ensure the quiz-container does not overlap with the left side */
-  .quiz-container {
     display: flex;
     justify-content: center; /* Centers the content horizontally */
     align-items: center;     /* Centers the content vertically if needed */
@@ -32,7 +28,7 @@ body {
   }
   
   
-  button {
+  .question-button {
     background-color: #333;
     color: white;
     padding: 10px 20px;
@@ -43,12 +39,12 @@ body {
     transition: background-color 0.3s ease;
   }
   
-  button:disabled {
+  .question-button:disabled {
     background-color: #bbb;
     cursor: not-allowed;
   }
   
-  button:hover:not(:disabled) {
+  .question-button:hover:not(:disabled) {
     background-color: #555;
   }
   
@@ -78,7 +74,7 @@ body {
       margin-top: 20px;
     }
   
-    button {
+    .question-button {
       width: 100%;
       text-align: center;
     }
