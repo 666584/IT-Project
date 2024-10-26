@@ -1,0 +1,43 @@
+.comicSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    gap: 1.5rem;
+  }
+  
+  /* For larger screens */
+  @media (min-width: 768px) {
+    .comicSection {
+      flex-direction: row; /* Aligns items in a row */
+      justify-content: space-between; /* Adds space between elements */
+      align-items: center; /* Vertically centers elements */
+      padding: 4rem;
+    }
+  
+    .text {
+      order: 1; /* Ensures the text appears first on the left */
+      max-width: 40%; /* Restricts text width */
+      text-align: left;
+      margin-right: 2rem; /* Adds space between the text and the image */
+    }
+  
+    .comicImage {
+      order: 2; /* Places the image to the right of the text */
+      max-width: 50%; /* Restricts image width */
+    }
+  }
+  
+  /* For mobile screens */
+  .text {
+    max-width: auto;
+    font-size: 1.8rem;
+    text-align: left;
+  }
+  
+  .comicImage {
+    max-width: 40%;
+    height: auto;
+    border-radius: 30px;
+  }
+  

@@ -1,0 +1,103 @@
+.footer {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    padding: 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  /* Top Section with Logo and Navigation Links */
+  .topSection {
+    display: flex;
+    justify-content: space-between; /* Aligns logo to left and links to right */
+    align-items: center;
+  }
+  
+  .unContainer {
+    display: flex;
+    align-items: center;
+    gap: 0rem;
+  }
+  
+  .footerLogo {
+    height: 90px; /* Adjust height to match text */
+  }
+  
+  .unText {
+    font-size: 2.4rem;
+    font-weight: bold;
+    line-height: 1;
+    margin: 0;
+  }
+  
+  .navLinks {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 1.6rem; /* Larger font for links */
+  }
+  
+  .navLinks a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .navLinks a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Join Section with Text and Social Icons */
+  .joinSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Aligns content to the left */
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    width: 100%; /* Takes full width of the footer */
+  }
+  
+  .joinText {
+    font-size: 7rem; /* Bigger font for "Join the conversation" */
+    font-weight: bold;
+    margin: 0; /* Removes default margin */
+  }
+  
+  
+  .socialIcons {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+  }
+  
+  .icon {
+    height: 4rem; /* Icon height */
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .icon:hover {
+    transform: scale(1.1); /* Slightly enlarges on hover */
+  }
+  
+  @media (max-width: 768px) {
+    .topSection {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .navLinks {
+      justify-content: center;
+      margin-top: 1rem;
+    }
+  
+    .joinText {
+      font-size: 2.5rem; /* Smaller font for mobile */
+    }
+  
+    .joinSection {
+      flex-direction: column;
+    }
+  }
+  
+
+  

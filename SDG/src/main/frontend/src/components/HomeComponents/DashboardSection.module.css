@@ -1,0 +1,43 @@
+.dashboardSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    gap: 1.5rem;
+  }
+  
+  /* For larger screens */
+  @media (min-width: 768px) {
+    .dashboardSection {
+      flex-direction: row; /* Aligns items in a row */
+      justify-content: space-between; /* Adds space between elements */
+      align-items: center; /* Vertically centers elements */
+      padding: 4rem;
+    }
+  
+    .dashboardImage {
+      order: 1; /* Ensures the image appears first on the left */
+      max-width: 50%; /* Restricts image width */
+    }
+  
+    .text {
+      max-width: 40%; /* Restricts text width */
+      order: 2; /* Places the text to the right of the image */
+      text-align: left;
+      margin-left: 2rem; /* Adds space between the image and text */
+    }
+  }
+  
+  /* For mobile screens */
+  .dashboardImage {
+    max-width: 45%;
+    height: auto;
+    border-radius: 30px;
+  }
+  
+  .text {
+    text-align: right;
+    max-width: auto;
+    font-size: 1.8rem;
+  }
+

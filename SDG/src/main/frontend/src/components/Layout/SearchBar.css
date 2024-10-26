@@ -1,0 +1,32 @@
+.search-bar {
+  height: 50px;
+  position: relative;
+  border-radius: 12px;
+  border: 3 px;
+  background-color: #D9D9D9;
+  width: 95%;
+}
+
+.search-bar input {
+  position: absolute;
+  border-radius: 12px;
+  height: 50px;
+  font-size: 16px;
+  outline: none;
+  float: left;
+  background-color: #D9D9D9;
+  margin-left: 2px;
+}
+.search-btn{
+  position: absolute;
+  background-image: url('../../assets/search.png');
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  background-repeat: no-repeat;
+  float: right;
+  background-color: transparent;
+  border: none;
+  margin-top: 5px;
+  margin-left: 95.5%;
+}

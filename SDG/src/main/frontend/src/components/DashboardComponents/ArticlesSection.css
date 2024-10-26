@@ -1,0 +1,51 @@
+.articles-section {
+    width: 25rem;
+  }
+  
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    color: black;
+  }
+  
+  .articles-container {
+    background-color: #020E0F;
+    padding: 1rem;
+    border-radius: 15px;
+  }
+  
+  .article-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .article-number-1 {
+    background-color: #DEA83A;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 5px;
+  }
+  
+  .article-number-2 {
+    background-color: #4CA146;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 5px;
+  }
+  
+  .article-card p {
+    color: white;
+    margin: 0;
+    font-size: 14px;
+  }
+
+.articlen{
+  font-weight: bold;
+}

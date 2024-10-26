@@ -1,0 +1,16 @@
+.illustration {
+    flex: 1;
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    align-items: center;     /* Center the image vertically */
+    padding: 0;              /* Remove padding */
+    margin: 0;               /* Remove margin */
+  }
+  
+  .signup-img {
+    max-width: 100%;
+    width: 45rem;                /* Adjust image size */
+    height: auto;
+    overflow: hidden;
+  }
+  

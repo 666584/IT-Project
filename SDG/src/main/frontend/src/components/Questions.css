@@ -1,0 +1,83 @@
+   /* Ensure the quiz-container does not overlap with the left side */
+  .quiz-container {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #F4F3F3;
+    display: flex;
+    justify-content: center; /* Centers the content horizontally */
+    align-items: center;     /* Centers the content vertically if needed */
+    padding: 20px;
+    min-height: 100vh;
+    margin-left: 300px; /* Add margin to make space for the fixed left side */
+  }
+  
+  /* Center the right side and remove background color */
+  .right-side {
+    width: 70%; /* Set a percentage width to center the content */
+    padding: 20px;
+    background-color: transparent; /* Remove the white background */
+    box-shadow: none; /* Remove any shadow if present */
+    text-align: left; /* Ensure left-aligned text */
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: space-between; /* Align "Back" and "Next" buttons */
+  }
+  
+  
+  .question-button {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .question-button:disabled {
+    background-color: #bbb;
+    cursor: not-allowed;
+  }
+  
+  .question-button:hover:not(:disabled) {
+    background-color: #555;
+  }
+  
+  /* Error Message Styling */
+  .error {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .quiz-container {
+      flex-direction: column;
+      padding: 10px;
+    }
+  
+    .left-side, .right-side {
+      width: 100%;
+      padding: 10px;
+    }
+  
+    .right-side {
+      margin-top: 20px;
+    }
+  
+    .question-button {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  
+  

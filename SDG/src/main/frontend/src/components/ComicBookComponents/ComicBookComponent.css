@@ -1,0 +1,24 @@
+.comic-book-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flip-book {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 0px;
+}
+
+.comic-page img {
+  width: 100%;
+  height: 700px;
+}
+
+.back-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  border: none;
+  cursor: pointer;
+}

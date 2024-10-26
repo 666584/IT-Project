@@ -1,0 +1,80 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #fff;
+  }
+  
+  /* Container for logo and text */
+  .logoContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Space between logo and text */
+  }
+  
+  .logo {
+    height: 60px; /* Controls the logo height */
+  }
+  
+  .logoText {
+    font-size: 1.4rem; /* Adjusts font size */
+    font-weight: bold;
+    line-height: 1.2; /* Matches the logo height */
+    color: #333;
+  }
+  
+  .buttons {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  /* Log In Button - Animated Outline Style */
+  .login {
+    font-size: 1.4rem;
+    background-color: transparent;
+    color: #333; /* Black text */
+    border: 2px solid #333; /* Black border */
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out; /* Smooth transition */
+  }
+  
+  .login:hover {
+    background-color: #000000; /* Turns black on hover */
+    color: #fff; /* White text on hover */
+    opacity: 0.9;
+  }
+  
+  /* Sign Up Button - Animated Filled Style */
+  .signup {
+    font-size: 1.4rem;
+    background-color: #000;
+    color: #fff;
+    border: 2px solid #000; /* Black border */
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out; /* Smooth transition */
+  }
+  
+  .signup:hover {
+    background-color: transparent; /* Turns transparent on hover */
+    color: #000; /* Black text on hover */
+    border: 2px solid #000; /* Keeps black border */
+    opacity: 0.9;
+  }
+  
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+    }
+  
+    .logoContainer {
+      margin-bottom: 1rem; /* Adds spacing between logo and buttons on mobile */
+    }
+  }
+  

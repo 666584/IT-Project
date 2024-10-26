@@ -1,0 +1,24 @@
+.app-container {
+    display: flex;
+    align-items: center;         /* Vertically centers the content */
+    justify-content: space-between; /* Spreads elements to left and right */
+    min-height: 100vh;           /* Full viewport height */
+    padding: 0 10rem;             /* Adds padding to both left and right */
+    gap: 20px;                   /* Space between form and image */
+    background-color: white;
+  }
+  
+  .signup-form {
+    flex: 1;
+    max-width: 400px;
+  }
+  
+  .illustration {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;   /* Align image to the right */
+    align-items: center;
+  }
+  
+
+  

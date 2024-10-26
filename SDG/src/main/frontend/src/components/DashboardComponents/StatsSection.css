@@ -1,0 +1,45 @@
+.stats-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 25vh;
+    height: 100%;
+  }
+  
+  .stat-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex:1;
+    gap: 0.7rem;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .modules-complete {
+    background: #FFFFFF;
+    color: #000000;
+  }
+  
+  .rewards-earned {
+    background: #000000;
+    color: #FFFFFF;
+  }
+  
+  .stat-number {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .stat-text {
+    font-size: 16px;
+    font-weight: bold;
+
+  }
+  

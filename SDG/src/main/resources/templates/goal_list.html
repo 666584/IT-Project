@@ -1,0 +1,15 @@
+<table>
+	<thead>
+		<tr>
+			<th> SDG Goal </th>
+			<th> SDG Goal Content </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="goal : ${goalList}">	
+			<td th:text = "${goal.title}"></td>
+			<td th:text = "${goal.content}"></td>
+		</tr>
+	</tbody>	
+</table>	
+		
