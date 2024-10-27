@@ -24,11 +24,7 @@
 }
 
 /* Image Styles - Restricting Sizes */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
+
 
 /* Utility Classes for Spacing */
 .mt-1 { margin-top: 0.5rem; }
