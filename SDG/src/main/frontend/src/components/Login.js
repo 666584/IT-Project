@@ -5,7 +5,7 @@ import "./Login.css";
 
 function Login() {
   return (
-    <div className="app-container">
+    <div className="app-container-login">
       <LoginForm />
       <Illustration />
     </div>

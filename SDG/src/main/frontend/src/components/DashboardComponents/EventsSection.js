@@ -5,7 +5,7 @@ import './EventsSection.css';
 const EventsSection = () => {
   const events = [
     { 
-      title: "2025 UN Ocean Conference", 
+      title: "2025 UN Ocean Conference in Melbourne, Australia", 
       date: "9 - 13 June 2025", 
       image: require("./Images/event1.png"),
       url: "https://sdgs.un.org/conferences/ocean2025"  

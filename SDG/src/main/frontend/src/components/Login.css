@@ -1,4 +1,4 @@
-.app-container {
+.app-container-login {
     display: flex;
     align-items: center;         /* Vertically centers the content */
     justify-content: space-between; /* Spreads elements to left and right */
