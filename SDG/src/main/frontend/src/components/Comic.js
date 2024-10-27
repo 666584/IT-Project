@@ -7,13 +7,18 @@ import { useParams } from 'react-router-dom';
 
 function Comic() {
   const navigate = useNavigate();
-  const params  = useParams();
+  const params = useParams();
   
-  const handleClick = () =>{
+  const handleNextClick = () => {
     const title = params.title;
     const task = params.task;
     navigate(`/goal/${title}/${task}/quizzes`);
-  }
+  };
+
+  const handleBackClick = () => {
+    navigate(-1); // Go back to the previous page
+  };
+
   return (
     <div className="app">
       <div className="content-container">
@@ -22,7 +27,8 @@ function Comic() {
         </div>
         <div className="right-column">
           <ComicBookComponent />
-          <button onClick={handleClick}>NEXT</button>
+          <button className="back-button" onClick={handleBackClick}>BACK</button>
+          <button className="next-button" onClick={handleNextClick}>NEXT</button>
         </div>
       </div>
     </div>

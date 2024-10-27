@@ -15,6 +15,7 @@ import Questions from './components/Questions.js';
 import GoogleLoginProcess from './components/GoogleLogin.js';
 import PrivateRoute from './PrivateRoute.js';
 import PostTest from './components/PostTest.js';
+import Gamesmodule from './components/games-module.js';
 
 import './App.css';
 
@@ -29,6 +30,8 @@ function App() {
           <Route path="/google/callback" element={<GoogleLoginProcess />} />
           <Route path="/goal/:title/:task/quizzes" element={<Questions />} />
           <Route path="/goal/:title/:task" element={<Comic />} />
+          <Route path="/gamespage" element={<Gamesmodule />} />
+
 
           {/* Private routes */}
           <Route element={<Layout />}>
