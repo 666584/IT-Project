@@ -35,5 +35,5 @@
 }
 
 .hidden {
-    display: none; /* Element will be completely removed from the layout */
+    display: none;
 }
