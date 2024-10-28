@@ -21,14 +21,14 @@ Before cloning and attempting to run this code, you will need:
 
 0. clone this repo to your device.
 
-###Frontend
+### Frontend
 1. run `npm install` on SDG/src/main/frontend, assuming you have node installed on your device.
 2. Create a new firebase project in the [Firebase Console](https://console.firebase.google.com/) and activate Authentication, Firestore (w/ rules optionally), and Storage. To troubleshoot, please view Firebase's own documentation.
 3. Run `touch .env` to generate a environment file
 4. go to your Firebase project's settings, copy the project keys, and paste them into the .env file you created
 5. Run `npm start` to develop on localhost:3000
 
-###Backend
+### Backend
 1. Open IntelliJ IDEA or Eclipse and go to Import Project, assuming you have OpenJDK 17 and lombok installed.
 2. Make a environment file.
 3. Select Run on Intellij, or in Eclipse, select Run As > Spring Boot App.
