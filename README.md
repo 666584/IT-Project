@@ -114,13 +114,12 @@ These files contain React components that are integrated into the page files. Ea
 In the backend, the architecture is organized around several key components:
 
 Member: This module manages user-related functionalities, including user registration, authentication, and profile management.
-<details>
 Member.JWT: This component handles JSON Web Tokens for secure authentication, ensuring that user sessions are managed effectively and safely.
 
 Member.Auth: This part is responsible for the authentication logic, verifying user credentials and managing access controls within the application.
 
 Member.Mapper: This is responsible for mapping database operations related to the member entity, facilitating interactions with the database using MyBatis.
-</details>
+
 SDG: This module focuses on Sustainable Development Goals (SDGs), managing the data related to each goal, including their details and metrics.
 
 Post: This component manages user-generated content, allowing users to create, read, update, and delete posts related to the SDGs or community discussions.
