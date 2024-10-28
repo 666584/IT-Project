@@ -20,10 +20,10 @@ Before cloning and attempting to run this code, you will need:
 
 ## Getting Started
 
-0. clone this repo to your device.
+0. Clone this repo to your device.
 
 ### Frontend
-1. run `npm install` on SDG/src/main/frontend, assuming you have node installed on your device.
+1. Run `npm install` on SDG/src/main/frontend, assuming you have node installed on your device.
 2. Create a new firebase project in the [Firebase Console](https://console.firebase.google.com/) and activate Authentication, Firestore (w/ rules optionally), and Storage. To troubleshoot, please view Firebase's own documentation.
 3. Run `touch .env` to generate a environment file
 4. go to your Firebase project's settings, copy the project keys, and paste them into the .env file you created
