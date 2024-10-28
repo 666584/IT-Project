@@ -6,7 +6,7 @@ const ProgressSection = ({ totalSDGProgress }) => {
 
   useEffect(() => {
     if (totalSDGProgress === 0) {
-      setPercentage(1);
+      setPercentage(0);
     } else {
       const result = (totalSDGProgress / 2550) * 100;
       setPercentage(Math.round(result));

@@ -38,7 +38,7 @@ function App() {
             <Route path="/profile/:userId" element={<PrivateRoute> <Profile /> </PrivateRoute>} />
             
             <Route path="/games" element={<PrivateRoute> <Games /> </PrivateRoute>} />
-            <Route path="/dashboard/:userId" element={<PrivateRoute> <Dashboard /> </PrivateRoute>} />
+            <Route path="/dashboard" element={<PrivateRoute> <Dashboard /> </PrivateRoute>} />
             <Route path="/module" element={<PrivateRoute> <Module /> </PrivateRoute>} />
             <Route path="/games/info" element={<PrivateRoute> <GameInfo /> </PrivateRoute>} />
             <Route path="/:userId/goal/:title" element={<PrivateRoute> <Goal /> </PrivateRoute>} />

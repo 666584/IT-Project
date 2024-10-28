@@ -25,17 +25,6 @@ function Sidebar() {
     }
 };
 
-  const handleDashboardClick = async (e) => {
-      e.preventDefault();
-      const accessToken = localStorage.getItem('accessToken');                  
-      try {
-          const response = await AuthAPI.auth({ accessToken });            
-          navigate(`/dashboard/${response.data}`);    
-      }catch (error) {
-          setMessage('Invalid credentials');
-      }
-  };
-
   const handleLogout = () => {    
     localStorage.clear();
     navigate('/');
@@ -50,7 +39,7 @@ function Sidebar() {
           </button>
         </li>
         <li>
-          <button className="sidebar-button" onClick={handleDashboardClick}>
+          <button className="sidebar-button" onClick={() => navigate('/dashboard')}>
             <img src={homeIcon} alt="Dashboard" />
             <span>Dashboard</span>
           </button>

@@ -23,7 +23,7 @@ const GoogleLogin = () => {
             localStorage.setItem('refreshToken', refreshToken);       
             
             const res = await AuthAPI.auth({accessToken});            
-            navigate(`/dashboard/${res.data}`); 
+            navigate('/dashboard'); 
         } catch (error) {
             console.log(error);
         }

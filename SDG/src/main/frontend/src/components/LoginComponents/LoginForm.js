@@ -33,13 +33,11 @@ function LoginForm() {
       localStorage.clear();    
 
       const response = await AuthAPI.login({ email, password });           
-      const { tokenType, accessToken, refreshToken } = response.data;        
-      
+      const { tokenType, accessToken, refreshToken } = response.data;              
       localStorage.setItem('tokenType', tokenType);
       localStorage.setItem('accessToken', accessToken);
-      localStorage.setItem('refreshToken', refreshToken);       
-      const res = await AuthAPI.auth({ accessToken });            
-      navigate(`/dashboard/${res.data}`); 
+      localStorage.setItem('refreshToken', refreshToken);      
+      navigate('/dashboard'); 
     } catch (error) {
       const message = error.response?.data;
       

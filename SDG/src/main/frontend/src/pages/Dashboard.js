@@ -6,27 +6,27 @@ import CouponsSection from '../components/DashboardComponents/CouponsSection.js'
 import ArticlesSection from '../components/DashboardComponents/ArticlesSection.js';
 import EventsSection from '../components/DashboardComponents/EventsSection.js';
 import DashboadAPI from '../services/DashboardAPI.js';
-import { useParams } from 'react-router-dom';
+import AuthAPI from '../services/AuthAPI.js';
 import { Helmet } from 'react-helmet';
 import "./Dashboard.css";
 
 const Dashboard = () => {
-    const [searchTerm, setSearchTerm] = useState('');
     const [record, setRecord] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const params  = useParams();
+    const accessToken = localStorage.getItem("accessToken");
+    const [userId, setUserId] = useState(null);
     
     useEffect(() => {
         const fetchUserData = async () => {
-            console.log(params.userId);
-            const userId = params.userId;
+            const response = await AuthAPI.auth({accessToken});
+            setUserId(response.data);
             try {
-                const response = await DashboadAPI.userData(userId);
-                if (!response.data) {
+                const res = await DashboadAPI.userData(response.data);
+                if (!res.data) {
                     throw new Error('Failed to fetch user data');
                 }
-                setRecord(response.data);
+                setRecord(res.data);
                 setLoading(false);
             }catch (error) {
                 setError(error.message);
@@ -57,7 +57,7 @@ const Dashboard = () => {
 
             <div className="sections-container">
                 <StatsSection numCompletedSDG={record.numCompletedSDG} numReward={record.numReward}/>
-                <CouponsSection currPoints={record.currPoint} userId={params.userId}/>
+                <CouponsSection currPoints={record.currPoint} userId={userId}/>
                 <ArticlesSection />
             </div>
 
