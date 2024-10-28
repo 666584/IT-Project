@@ -57,16 +57,19 @@ You can create your own database (MYSQL) on Google Cloud, and put the url link o
 <details>
   <summary>User and Profile</summary>
   
-  * Sign up using either email & password or Google sign-in
-  * Account Session Protection: logged out after 1 hour of inactivity
+    * Sign up using either email & password or Google sign-in
+    * Account Session Protection: logged out after 1 hour of inactivity
 </details>
 <details>
   <summary>Dashboard</summary>
-  
-  * SDG Module Progress: The dashboard tracks the user's progress in studying the SDG (Sustainable   Development Goals) modules. This feature helps users easily monitor how much of the module they’ve completed and what remains, keeping them on track toward their learning goals.
-  * Earned Points:Users can view the total points they've accumulated through their activities. For example, they can see how close they are to earning rewards, with points being a key measure of their engagement and progress on the platform.
-  * Redeemable Coupons: The dashboard shows coupons that users can redeem once they have earned 75 points or more. Users can easily see which coupons they are eligible for and redeem them using their accumulated points, encouraging further interaction and reward redemption.
-  * Related Events: The dashboard also highlights any related events, such as upcoming workshops or challenges tied to the SDG modules or reward opportunities. This helps keep users informed and engaged with relevant content and activities.
+
+    * SDG Module Progress: The dashboard tracks the user's progress in studying the SDG (Sustainable   Development Goals) modules. This feature helps users easily monitor how much of the module they’ve completed and what remains, keeping them on track toward their learning goals.
+
+    * Earned Points:Users can view the total points they've accumulated through their activities. For example, they can see how close they are to earning rewards, with points being a key measure of their engagement and progress on the platform.
+
+    * Redeemable Coupons: The dashboard shows coupons that users can redeem once they have earned 75 points or more. Users can easily see which coupons they are eligible for and redeem them using their accumulated points, encouraging further interaction and reward redemption.
+
+    *  Related Events: The dashboard also highlights any related events, such as upcoming workshops or challenges tied to the SDG modules or reward opportunities. This helps keep users informed and engaged with relevant content and activities.
 </details>
 <details>
   <summary>Module</summary>
