@@ -63,23 +63,23 @@ You can create your own database (MYSQL) on Google Cloud, and put the url link o
 <details>
   <summary>Dashboard</summary>
   
-* SDG Module Progress: The dashboard tracks the user's progress in studying the SDG (Sustainable   Development Goals) modules. This feature helps users easily monitor how much of the module they’ve completed and what remains, keeping them on track toward their learning goals.
-* Earned Points:Users can view the total points they've accumulated through their activities. For example, they can see how close they are to earning rewards, with points being a key measure of their engagement and progress on the platform.
-* Redeemable Coupons: The dashboard shows coupons that users can redeem once they have earned 75 points or more. Users can easily see which coupons they are eligible for and redeem them using their accumulated points, encouraging further interaction and reward redemption.
-* Related Events: The dashboard also highlights any related events, such as upcoming workshops or challenges tied to the SDG modules or reward opportunities. This helps keep users informed and engaged with relevant content and activities.
+  * SDG Module Progress: The dashboard tracks the user's progress in studying the SDG (Sustainable   Development Goals) modules. This feature helps users easily monitor how much of the module they’ve completed and what remains, keeping them on track toward their learning goals.
+  * Earned Points:Users can view the total points they've accumulated through their activities. For example, they can see how close they are to earning rewards, with points being a key measure of their engagement and progress on the platform.
+  * Redeemable Coupons: The dashboard shows coupons that users can redeem once they have earned 75 points or more. Users can easily see which coupons they are eligible for and redeem them using their accumulated points, encouraging further interaction and reward redemption.
+  * Related Events: The dashboard also highlights any related events, such as upcoming workshops or challenges tied to the SDG modules or reward opportunities. This helps keep users informed and engaged with relevant content and activities.
 </details>
 <details>
   <summary>Module</summary>
-In the module, users can learn about each of the SDG (Sustainable Development Goals). Every goal is presented as a separate topic that users can explore.
-* Sections for Each Goal: When users select a goal, they can study various sections, such as the overview and targets, giving them a deep understanding of that specific SDG.
-* Comic-Style Format: Each section is designed in a comic-book style, making the learning experience more engaging and enjoyable for users.
-* Quizzes After Each Section: After completing the comic-style content for each section, users can take a quiz. Upon finishing the quiz, they earn 50 points, adding a reward-based element to their learning.
+  In the module, users can learn about each of the SDG (Sustainable Development Goals). Every goal is presented as a separate topic that users can explore.
+  * Sections for Each Goal: When users select a goal, they can study various sections, such as the overview and targets, giving them a deep understanding of that specific SDG.
+  * Comic-Style Format: Each section is designed in a comic-book style, making the learning experience more engaging and enjoyable for users.
+  * Quizzes After Each Section: After completing the comic-style content for each section, users can take a quiz. Upon finishing the quiz, they earn 50 points, adding a reward-based element to their learning.
 </details>
 <details>
   <summary>Special Pages</summary>
-*Game Page: On the Game page, users can enjoy different games based on the SDG topics they've learned. Each game is tailored to a specific SDG goal, allowing users to reinforce their knowledge through interactive gameplay.
-* Social Page: The Social page allows users to view posts from other users and create their own posts. This feature fosters community interaction and sharing of experiences related to SDGs. Users can engage with others by liking their posts, creating a social and supportive environment within the platform.
-* Home Page: The Home page provides a general introduction to our website, offering users an overview of the platform’s features and purpose. This section serves as a starting point for exploring all the available content.
+  * Game Page: On the Game page, users can enjoy different games based on the SDG topics they've learned. Each game is tailored to a specific SDG goal, allowing users to reinforce their knowledge through interactive gameplay.
+  * Social Page: The Social page allows users to view posts from other users and create their own posts. This feature fosters community interaction and sharing of experiences related to SDGs. Users can engage with others by liking their posts, creating a social and supportive environment within the platform.
+  * Home Page: The Home page provides a general introduction to our website, offering users an overview of the platform’s features and purpose. This section serves as a starting point for exploring all the available content.
 </details>
 <br/>
 
