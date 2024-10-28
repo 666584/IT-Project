@@ -1,8 +1,9 @@
 <h1 align="center">
-  SDG website
+    <img src="Logo.png" width="150px"/><br/>
+  SDG Learninghub
 </h1>
 
-[SDG Website] is an interactive platform where you can explore **Sustainable Development Goals** through engaging games, contribute to community discussions, and access a dedicated learning space. 
+[SDG Learninghub] is an interactive platform where you can explore **Sustainable Development Goals** through engaging games, contribute to community discussions, and access a dedicated learning space. 
 
 <hr/>
 
