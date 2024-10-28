@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './Footer.module.css';
-import footerLogo from './Icons/United-Nations-Symbol.jpg';
-import facebookIcon from './Icons/facebook.png';
-import youtubeIcon from './Icons/youtube.png';
-import twitterIcon from './Icons/twiter.png';
-import flickrIcon from './Icons/Flickr.png';
+import footerLogo from '../../assets/HomeAssets/United-Nations-Symbol.jpg';
+import facebookIcon from '../../assets/HomeAssets/facebook.png';
+import youtubeIcon from '../../assets/HomeAssets/youtube.png';
+import twitterIcon from '../../assets/HomeAssets/twiter.png';
+import flickrIcon from '../../assets/HomeAssets/Flickr.png';
 
 function Footer() {
   return (

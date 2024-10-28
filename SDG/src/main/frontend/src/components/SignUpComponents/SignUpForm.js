@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import AuthAPI from '../services/AuthAPI.js';
+import AuthAPI from '../../services/AuthAPI.js';
 import InputField from "./InputField";
 import PasswordField from "./PasswordField";
 import GoogleButton from "./GoogleButton";
@@ -27,7 +27,7 @@ function SignUpForm() {
         }
     } catch (error) {
         setMessage('Registration failed');
-        console.log(error);
+        console.log(message);
     }
   };
 

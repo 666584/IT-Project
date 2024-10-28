@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import DashboardAPI from '../../services/DashboardAPI.js';
+import StarbucksImg from '../../assets/DashboardAssets/Images/starbuck.png'
+import RedeemedImg from '../../assets/DashboardAssets/Images/redeemed.png'
 import './CouponsSection.css';
-import DashboardAPI from '../services/DashboardAPI.js';
 
 const CouponsSection = ({ currPoints, userId }) => {
   // State to handle whether the popup is open
@@ -49,7 +51,7 @@ const CouponsSection = ({ currPoints, userId }) => {
         <div className="coupon-card" onClick={handleCouponClick}>
           <div className="coupon-content">
             <img
-              src={require('./Images/starbuck.png')}
+              src={StarbucksImg}
               alt="Starbucks Logo"
               className="coupon-logo"
             />
@@ -66,7 +68,7 @@ const CouponsSection = ({ currPoints, userId }) => {
         <div className="coupon-card" onClick={handleCouponClick}>
           <div className="coupon-content">
             <img
-              src={require('./Images/starbuck.png')}
+              src={StarbucksImg}
               alt="Starbucks Logo"
               className="coupon-logo"
             />
@@ -82,7 +84,7 @@ const CouponsSection = ({ currPoints, userId }) => {
         <div className="coupon-card" onClick={handleCouponClick}>
           <div className="coupon-content">
             <img
-              src={require('./Images/starbuck.png')}
+              src={StarbucksImg}
               alt="Starbucks Logo"
               className="coupon-logo"
             />
@@ -98,7 +100,7 @@ const CouponsSection = ({ currPoints, userId }) => {
         <div className="coupon-card" onClick={handleCouponClick}>
           <div className="coupon-content">
             <img
-              src={require('./Images/starbuck.png')}
+              src={StarbucksImg}
               alt="Starbucks Logo"
               className="coupon-logo"
             />
@@ -119,7 +121,7 @@ const CouponsSection = ({ currPoints, userId }) => {
               X
             </button>
             <img
-              src={require('./Images/redeemed.png')}
+              src={RedeemedImg}
               alt="Redeemed"
               className="redeemed-image"
             />

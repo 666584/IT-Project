@@ -36,7 +36,7 @@ const ProgressSection = ({ totalSDGProgress }) => {
         </div>
       </div>
       <div className="progress-image">
-        <img src={require('./Images/Progress.png')} alt="Progress illustration" />
+        <img src={require('../../assets/DashboardAssets/Images/Progress.png')} alt="Progress illustration" />
       </div>
     </div>
   );

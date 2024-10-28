@@ -20,7 +20,7 @@
 }
 .search-btn{
   position: absolute;
-  background-image: url('../../assets/search.png');
+  background-image: url('../../assets/LayoutAssets/search.png');
   background-size: cover;
   width: 30px;
   height: 30px;

@@ -5,7 +5,7 @@ function GoogleButton() {
   return (
     <button className="google-btn">
       <img
-        src={require("./image/Google.png")}
+        src={require("../../assets/SignUpAssets/image/Google.png")}
         alt="Google Icon"
         className="google-icon"
       />

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import HideImg from '../../assets/LoginAssets/image/hide.png';
 import "./PasswordField.css";
 
 function PasswordField({ label, onChange }) {
@@ -19,7 +20,7 @@ function PasswordField({ label, onChange }) {
           onClick={() => setVisible(!visible)}
         >
           <img
-            src={require("./image/hide.png")}
+            src={HideImg}
             alt="Toggle visibility"
           />
         </button>

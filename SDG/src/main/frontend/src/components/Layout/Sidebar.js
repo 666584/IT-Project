@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import './Sidebar.css';
-import profileIcon from '../../assets/profile.svg';
-import homeIcon from '../../assets/home-2.svg';
-import socialIcon from '../../assets/people.svg';
-import gameIcon from '../../assets/gameboy.svg';
-import moduleIcon from '../../assets/category.svg';
-import logoutIcon from'../../assets/logout.png'
+import profileIcon from '../../assets/image/profile.svg';
+import homeIcon from '../../assets/LayoutAssets/home.svg';
+import socialIcon from '../../assets/LayoutAssets/people.svg';
+import gameIcon from '../../assets/LayoutAssets/gameboy.svg';
+import moduleIcon from '../../assets/LayoutAssets/module.svg';
+import logoutIcon from'../../assets/LayoutAssets/logout.png'
 import { useNavigate } from 'react-router-dom';
-import AuthAPI from '../services/AuthAPI.js'
+import AuthAPI from '../../services/AuthAPI.js'
 
 
 function Sidebar() {

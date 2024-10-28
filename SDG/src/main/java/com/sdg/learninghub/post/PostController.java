@@ -21,8 +21,8 @@ public class PostController {
 	private final PostService postService;
 	
 	@PostMapping("/create")
-	public ResponseEntity<Long> CreatePost(@RequestBody PostCreateDTO postCreateDTO){
-		Long postId = postService.create(postCreateDTO);
+	public ResponseEntity<Long> CreatePost(@RequestBody PostDTO postDTO){
+		Long postId = postService.create(postDTO);
 		if(postId == null) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 		}
@@ -38,8 +38,14 @@ public class PostController {
 		return ResponseEntity.status(HttpStatus.OK).body(postId);
 	}
 	
+	@PostMapping("/delete")
+	public ResponseEntity<String> DeletePost(@RequestBody PostDTO postDTO){
+		postService.delete(postDTO.getPostId());
+		return ResponseEntity.status(HttpStatus.OK).body("Successfully deleted.");
+	}
+	
 	@GetMapping("/list/{userId}")
-	public ResponseEntity<List<PostDTO>> ListPostByUser(@PathVariable(name = "userId") Long userId) {		
+	public ResponseEntity<List<PostDTO>> ListPostByUser(@PathVariable Long userId) {		
 		List<PostDTO> postList = postService.listByUser(userId);
 		return ResponseEntity.status(HttpStatus.OK).body(postList);
 	}

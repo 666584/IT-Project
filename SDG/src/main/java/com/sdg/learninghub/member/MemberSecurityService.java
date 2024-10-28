@@ -1,6 +1,5 @@
 package com.sdg.learninghub.member;
 
-import java.util.Collections;
 import java.util.Optional;
 import java.util.List;
 import java.util.ArrayList;
@@ -28,7 +27,6 @@ public class MemberSecurityService implements UserDetailsService{
 UsernameNotFoundException {
 		Optional<MemberEntity> user = this.memberMapper.findByEmail(email);
 
-		// Should check the provider is LOCAL
 		if(user.isEmpty()) {
 			throw new UsernameNotFoundException("USER_NOT_FOUND");
 		}

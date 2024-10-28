@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './DashboardSection.module.css';
-import dashboardImage from './Icons/Student-Dashboard.png';
+import dashboardImage from '../../assets/HomeAssets/Student-Dashboard.png';
 
 function DashboardSection() {
   return (

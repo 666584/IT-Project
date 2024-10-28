@@ -6,7 +6,7 @@ const LeftSide = () => {
   return (
     <div className="leftside-container">
       <img
-        src={require("./images/image 401.png")}
+        src={require("../../assets/ComicBookAssets/images/image 401.png")}
         alt="Quality Education"
         className="quality-image"
       />

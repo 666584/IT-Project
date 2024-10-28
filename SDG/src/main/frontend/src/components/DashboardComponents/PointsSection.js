@@ -10,7 +10,7 @@ const PointsSection = ({currPoints, spentPoints}) => {
         <p className="points-text">Current Points</p>
       </div>
       <div className="points-image">
-        <img src={require("./Images/Points.png")} alt="Points illustration" />
+        <img src={require("../../assets/DashboardAssets/Images/Points.png")} alt="Points illustration" />
       </div>
       <div className="points-card">
         <h1 className="points-number">{spentPoints}</h1>

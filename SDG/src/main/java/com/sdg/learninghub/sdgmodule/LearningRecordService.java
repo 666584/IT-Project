@@ -53,6 +53,7 @@ public class LearningRecordService {
 			LearningRecord record = records.get();
 			record.decreaseCurrPoint(75);
 			record.increaseSpentPoints(75);
+			record.increaseNumReward();
 			learningRecordRepository.save(record);	
 		} else {
 			throw new IllegalArgumentException("Cannot find learning record.");

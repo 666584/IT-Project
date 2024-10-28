@@ -1,5 +1,5 @@
 import React from 'react';
-import greenTick from './images/tick.png'; // Update path based on your project structure
+import greenTick from '../../assets/QuestionsAssets/images/tick.png';
 import './Question.css';
 
 const Question = ({ question, selectedOption, handleOptionClick, isCorrect }) => {

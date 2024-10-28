@@ -41,7 +41,7 @@ public class SdgProgressController {
 	}
 	
 	@GetMapping("/dashboard/{userId}")
-	public ResponseEntity<LearningRecordDTO> recordData(@PathVariable(name = "userId") Long userId) {		
+	public ResponseEntity<LearningRecordDTO> recordData(@PathVariable Long userId) {		
 		MemberEntity member = memberService.getMember(userId);
 		
 		if(member == null) {
@@ -54,7 +54,7 @@ public class SdgProgressController {
 	}
 	
 	@GetMapping("/goal/{title}/{userId}")
-	public ResponseEntity<?> progressData(@PathVariable(name = "title") String title, 
+	public ResponseEntity<?> progressData(@PathVariable String title, 
 			@PathVariable(name = "userId") Long userid) {	
 		System.out.println("userid" + userid);
 		System.out.println("title" + title);

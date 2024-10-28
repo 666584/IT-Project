@@ -19,7 +19,7 @@ function PasswordField({ label, onChange }) {
           onClick={() => setVisible(!visible)}
         >
           <img
-            src={require("./image/hide.png")}
+            src={require("../../assets/SignUpAssets/image/hide.png")}
             alt="Toggle visibility"
           />
         </button>

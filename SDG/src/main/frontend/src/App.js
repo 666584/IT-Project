@@ -1,21 +1,21 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './components/Home';
-import Login from './components/Login';
-import Module from './components/Module.js';
-import GameInfo from './components/GameInfo.js';
-import Games from './components/Games.js';
-import Goal from './components/Goal.js';
-import Social from './components/Social.js';
+import Home from './pages/Home.js';
+import Login from './pages/Login.js';
+import Module from './pages/Module.js';
+import GameInfo from './pages/GameInfo.js';
+import Goal from './pages/Goal.js';
+import Social from './pages/Social.js';
 import Layout from './components/Layout/Layout.js';
-import SignUp from './components/SignUp.js';
-import Dashboard from './components/Dashboard.js';
-import Comic from './components/Comic.js';
-import Questions from './components/Questions.js';
-import GoogleLoginProcess from './components/GoogleLogin.js';
+import SignUp from './pages/SignUp.js';
+import Dashboard from './pages/Dashboard.js';
+import Comic from './pages/Comic.js';
+import Questions from './pages/Questions.js';
+import GoogleLoginProcess from './pages/GoogleLogin.js';
 import PrivateRoute from './PrivateRoute.js';
-import PostTest from './components/PostTest.js';
-import Gamesmodule from './components/games-module.js';
+import PostTest from './pages/PostTest.js';
+import Profile from './pages/Profile.js';
+import Games from './pages/Games.js';
 
 import './App.css';
 
@@ -30,13 +30,13 @@ function App() {
           <Route path="/google/callback" element={<GoogleLoginProcess />} />
           <Route path="/goal/:title/:task/quizzes" element={<Questions />} />
           <Route path="/goal/:title/:task" element={<Comic />} />
-          <Route path="/gamespage" element={<Gamesmodule />} />
 
 
           {/* Private routes */}
           <Route element={<Layout />}>
             <Route path="/social/post/:userId" element={<PrivateRoute> <PostTest /> </PrivateRoute>} />
-
+            <Route path="/profile/:userId" element={<PrivateRoute> <Profile /> </PrivateRoute>} />
+            
             <Route path="/games" element={<PrivateRoute> <Games /> </PrivateRoute>} />
             <Route path="/dashboard/:userId" element={<PrivateRoute> <Dashboard /> </PrivateRoute>} />
             <Route path="/module" element={<PrivateRoute> <Module /> </PrivateRoute>} />

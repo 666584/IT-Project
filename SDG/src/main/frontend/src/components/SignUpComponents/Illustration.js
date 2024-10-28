@@ -5,7 +5,7 @@ function Illustration() {
   return (
     <div className="illustration">
       <img
-        src={require("./image/SignIN.png")}
+        src={require("../../assets/SignUpAssets/image/SignIN.png")}
         alt="Sign Up Illustration"
         className="signup-img"
       />

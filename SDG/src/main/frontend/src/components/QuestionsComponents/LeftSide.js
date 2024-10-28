@@ -1,12 +1,12 @@
 import React from 'react';
-import quizImage from './images/quiz.png'; // Update path based on your project structure
+import QuizImg from '../../assets/QuestionsAssets/images/quiz.png'; // Update path based on your project structure
 import ProgressBar from './ProgressBar'; // Import the ProgressBar component
 import './LeftSide.css';
 
 const LeftSide = () => {
   return (
     <div className="leftside-container">
-      <img src={quizImage} alt="Quiz" className="quality-image" />
+      <img src={QuizImg} alt="Quiz" className="quality-image" />
       <div className="text-section">
         <h2>Quality Education</h2>
         <p>Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all.</p>

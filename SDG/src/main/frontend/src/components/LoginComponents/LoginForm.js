@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import EmailField from "./EmailField.js";
 import PasswordField from "./PasswordField.js";
 import GoogleButton from "./GoogleButton.js";
-import AuthAPI from '../services/AuthAPI.js';
+import AuthAPI from '../../services/AuthAPI.js';
 import "./LoginForm.css";
 
 function LoginForm() {

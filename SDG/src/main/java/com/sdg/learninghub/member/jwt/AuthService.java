@@ -4,16 +4,10 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.sdg.learninghub.member.MemberEntity;
-import com.sdg.learninghub.member.MemberRole;
-import com.sdg.learninghub.member.MemberSecurityService;
-import com.sdg.learninghub.member.Provider;
 import com.sdg.learninghub.member.SecurityMemberDetailsDTO;
-import com.sdg.learninghub.member.UserDTO;
 import com.sdg.learninghub.member.mapper.MemberMapper;
 
 import jakarta.transaction.Transactional;

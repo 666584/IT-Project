@@ -1,4 +1,5 @@
 import React from "react";
+import GoogleImg from '../../assets/LoginAssets/image/Google.png';
 import "./GoogleButton.css";
 
 function GoogleButton() {
@@ -14,7 +15,7 @@ function GoogleButton() {
   return (
     <button className="google-btn" onClick = { handleGoogleLogin }>
       <img
-        src={require("./image/Google.png")}
+        src={GoogleImg}
         alt="Google Icon"
         className="google-icon"
       />

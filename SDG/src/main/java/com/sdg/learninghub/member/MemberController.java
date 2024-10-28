@@ -7,9 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 import com.sdg.learninghub.member.jwt.Auth;
 import com.sdg.learninghub.member.jwt.AuthDTO;
@@ -21,12 +19,9 @@ import java.util.Map;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.oauth2.core.user.OAuth2User;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -133,7 +128,7 @@ public class MemberController {
 	}
 	
 	@GetMapping("/user/{userId}")
-	public UserDTO UserData(@PathVariable(name = "userId") Long userId) {
+	public UserDTO UserData(@PathVariable Long userId) {
 		MemberEntity member = memberService.getMember(userId);
 		if(member == null) {
 			return null;

@@ -21,25 +21,25 @@ const ComicBookComponent = () => {
       >
         <div className="comic-page">
           <img
-            src={require("./comicbook/comic1.png")}
+            src={require("../../assets/ComicBookAssets/comicbook/comic1.png")}
             alt="Comic Page 1"
           />
         </div>
         <div className="comic-page">
           <img
-            src={require("./comicbook/comic2.png")}
+            src={require("../../assets/ComicBookAssets/comicbook/comic2.png")}
             alt="Comic Page 2"
           />
         </div>
         <div className="comic-page">
           <img
-            src={require("./comicbook/comic3.png")}
+            src={require("../../assets/ComicBookAssets/comicbook/comic3.png")}
             alt="Comic Page 3"
           />
         </div>
         <div className="comic-page">
           <img
-            src={require("./comicbook/comic4.png")}
+            src={require("../../assets/ComicBookAssets/comicbook/comic4.png")}
             alt="Comic Page 4"
           />
         </div>

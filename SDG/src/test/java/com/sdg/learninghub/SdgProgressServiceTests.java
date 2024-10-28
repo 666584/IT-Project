@@ -2,9 +2,6 @@ package com.sdg.learninghub;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -18,7 +15,6 @@ import org.mockito.MockitoAnnotations;
 
 import com.sdg.learninghub.member.MemberEntity;
 import com.sdg.learninghub.sdg.Sdg;
-import com.sdg.learninghub.sdgmodule.LearningRecord;
 import com.sdg.learninghub.sdgmodule.LearningRecordRepository;
 import com.sdg.learninghub.sdgmodule.SdgProgress;
 import com.sdg.learninghub.sdgmodule.SdgProgressRepository;

@@ -75,7 +75,7 @@ public class LearningRecord {
 		numCompletedSDG += value;
 	}
 	
-	public void increaseNumReward(int value) {
-		numReward += value;
+	public void increaseNumReward() {
+		numReward += 1;
 	}
 }

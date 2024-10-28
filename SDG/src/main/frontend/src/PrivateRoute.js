@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, Link, Navigate } from 'react-router-dom';
-import AuthAPI from './components/services/AuthAPI.js';
+import { Navigate } from 'react-router-dom';
+import AuthAPI from './services/AuthAPI.js';
 
 const PrivateRoute = ({ children  }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(null);
@@ -22,7 +22,7 @@ const PrivateRoute = ({ children  }) => {
             } catch(error) {
                 setMessage('Error on token verification.');
                 setIsAuthenticated(false);
-                console.log("Error on token verification.");
+                console.log(message);
             }
         };
         checkAuth();

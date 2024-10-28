@@ -1,7 +1,6 @@
 package com.sdg.learninghub.post;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -16,5 +15,6 @@ public class PostDTO {
 	private String content;
 	private LocalDateTime date;
     private int likeCount;
+    private Long userid;
     
 }

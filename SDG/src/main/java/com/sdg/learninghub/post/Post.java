@@ -5,7 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.Date;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 
 import com.sdg.learninghub.member.MemberEntity;
 
@@ -43,5 +44,9 @@ public class Post {
     
     public void updateDate(LocalDateTime date) {
     	this.date = date;
+    }
+    
+    public ZonedDateTime changeTimeZone() {
+    	return this.date.atZone(ZoneId.of("Australia/Sydney"));
     }
 }

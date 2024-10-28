@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './VouchersSection.module.css';
-import couponImage from './Icons/coupon.png';
+import couponImage from '../../assets/HomeAssets/coupon.png';
 
 function VouchersSection() {
   return (

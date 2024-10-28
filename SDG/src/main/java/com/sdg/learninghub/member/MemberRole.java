@@ -1,4 +1,5 @@
 package com.sdg.learninghub.member;
+
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 

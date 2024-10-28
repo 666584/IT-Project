@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './ComicSection.module.css';
-import comicImage from './Icons/comic.png';
+import comicImage from '../../assets/HomeAssets/comic.png';
 
 function ComicSection() {
   return (

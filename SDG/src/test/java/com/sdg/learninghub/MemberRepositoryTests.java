@@ -3,8 +3,6 @@ package com.sdg.learninghub;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.fail;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
@@ -34,7 +32,7 @@ public class MemberRepositoryTests {
 	private MemberEntity memberEntity;
 	
 	@BeforeEach
-	public void setUp() { // 모든 테스트 전에 실행됨
+	public void setUp() {
         memberEntity = new MemberEntity();
         memberEntity.setEmail("test@gmail.com");
         memberEntity.setPassword("1234");

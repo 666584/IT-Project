@@ -7,25 +7,25 @@ const EventsSection = () => {
     { 
       title: "2025 UN Ocean Conference in Melbourne, Australia", 
       date: "9 - 13 June 2025", 
-      image: require("./Images/event1.png"),
+      image: require("../../assets/DashboardAssets/Images/event1.png"),
       url: "https://sdgs.un.org/conferences/ocean2025"  
     },
     { 
       title: "10th Multi-stakeholder Forum on Science, Technology and Innovation for the Sustainable Development Goals", 
       date: "7 - 8 May 2025", 
-      image: require("./Images/event2.png"),
+      image: require("../../assets/DashboardAssets/Images/event2.png"),
       url: "https://sdgs.un.org/tfm/STIForum2025"
     },
     { 
       title: "International Workshop “Strengthening National Capacities for Enhancing Micro-, Small and Medium-sized Enterprises’ (MSMEs) Resilience for accelerating the implementation of the 2030 Agenda and SDGs in developing countries", 
       date: "11 - 13 Nov 2024", 
-      image: require("./Images/event3.png"),
+      image: require("../../assets/DashboardAssets/Images/event3.png"),
       url: "https://sdgs.un.org/events/international-workshop-strengthening-national-capacities-enhancing-micro-small-and-medium" 
     },
     { 
       title: "Asia-Pacific GSDR launch and workshop (New Delhi, India)", 
       date: "22 - 24 Oct 2024", 
-      image: require("./Images/event4.png"),
+      image: require("../../assets/DashboardAssets/Images/event4.png"),
       url: "https://sdgs.un.org/gsdr/newdelhiworkshop"
     }
   ];

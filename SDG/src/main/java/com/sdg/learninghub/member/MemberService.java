@@ -1,15 +1,11 @@
 package com.sdg.learninghub.member;
 
 import java.util.Optional;
-
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.sdg.learninghub.member.mapper.MemberMapper;
-
 import jakarta.persistence.EntityNotFoundException;
-//import com.sdg.learninghub.DataNotFoundException;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor

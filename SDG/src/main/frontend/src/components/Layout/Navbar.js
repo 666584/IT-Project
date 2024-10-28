@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import SearchBar from './SearchBar.js';
 import { useNavigate } from 'react-router-dom';
-import AuthAPI from '../services/AuthAPI.js';
+import AuthAPI from '../../services/AuthAPI.js';
 import './Navbar.css';
 
 function Navbar({searchTerm, setSearchTerm}) {
@@ -23,9 +23,6 @@ function Navbar({searchTerm, setSearchTerm}) {
         <div className="search">
             <div className="searchItem">
                 <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-                <button className="icon">
-                    <img src={require('../../assets/setting.png')} alt='module' />
-                </button>
             </div>
         </div>
     );

@@ -1,7 +1,6 @@
 package com.sdg.learninghub;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
 import org.mybatis.spring.annotation.MapperScan;
@@ -13,7 +12,6 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.sdg.learninghub.member.MemberSecurityService;
-import com.sdg.learninghub.member.MemberService;
 
 @SpringBootTest
 @MapperScan(value="com.sdg.learninghub.member.mapper")

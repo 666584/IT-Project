@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './GoalCard.css';
-import playbutton from '../../assets/play-circle.svg';
+import playbutton from '../../assets/GoalAssets/playbutton.svg';
 import { useNavigate } from 'react-router-dom';
-import AuthAPI from '../services/AuthAPI.js';
+import AuthAPI from '../../services/AuthAPI.js';
 
 function GoalCard({ title, goal, color, icon }) {
   const navigate = useNavigate();
@@ -12,10 +12,11 @@ function GoalCard({ title, goal, color, icon }) {
     e.preventDefault();
     const accessToken = localStorage.getItem('accessToken');                  
     try {
-        const response = await AuthAPI.auth({ accessToken });         
-        navigate(`/${response.data}/goal/${title}`);    
+      const response = await AuthAPI.auth({ accessToken });         
+      navigate(`/${response.data}/goal/${title}`);    
     } catch (error) {
-        setMessage('Invalid credentials');
+      setMessage('Invalid credentials');
+      console.log(message);
     }
   };
 

@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import com.sdg.learninghub.member.MemberEntity;
 import com.sdg.learninghub.member.MemberService;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,7 +28,7 @@ public class PostService {
     	List<Post> posts = postRepository.findByUserid(userId);
     	List<PostDTO> postList = new ArrayList<>();
     	for (Post post : posts) {
-	        PostDTO postDTO = new PostDTO();
+    		PostDTO postDTO = new PostDTO();
 	        postDTO.setUsername(post.getMember().getUsername());
 	        postDTO.setTitle(post.getTitle());
 	        postDTO.setPostId(post.getPostId());
@@ -44,7 +44,7 @@ public class PostService {
     	List<Post> posts = postRepository.findTop5ByOrderByLikeCountDesc();
     	List<PostDTO> postList = new ArrayList<>();
     	for (Post post : posts) {
-	        PostDTO postDTO = new PostDTO();
+    		PostDTO postDTO = new PostDTO();
 	        postDTO.setUsername(post.getMember().getUsername());
 	        postDTO.setTitle(post.getTitle());
 	        postDTO.setPostId(post.getPostId());
@@ -56,13 +56,13 @@ public class PostService {
     	return postList;
     }
     
-    public Long create(PostCreateDTO postCreateDTO) {
-    	MemberEntity member = memberService.getMember(postCreateDTO.getUserid());
+    public Long create(PostDTO postDTO) {
+    	MemberEntity member = memberService.getMember(postDTO.getUserid());
     	Post post = new Post();
     	post.setMember(member);
-    	post.setContent(postCreateDTO.getContent());
-    	post.setTitle(postCreateDTO.getTitle());
-    	post.setDate(postCreateDTO.getDate());
+    	post.setContent(postDTO.getContent());
+    	post.setTitle(postDTO.getTitle());
+    	post.setDate(LocalDateTime.now());
     	save(post);
     	return post.getPostId();
     }
@@ -72,7 +72,7 @@ public class PostService {
     	Post post = postRepository.findByPostId(postDTO.getPostId());
     	post.updateContent(postDTO.getContent());
     	post.updateTitle(postDTO.getTitle());
-    	post.updateDate(postDTO.getDate());
+    	post.updateDate(LocalDateTime.now());
     	postRepository.save(post);
     	return post.getPostId();
     }
@@ -95,7 +95,7 @@ public class PostService {
         }
     }
 
-    public void delete(Long id) {
-        postRepository.deleteById(id);
+    public void delete(Long postId) {
+        postRepository.deleteById(postId);
     }
 }

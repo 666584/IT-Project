@@ -2,7 +2,6 @@ package com.sdg.learninghub.member.jwt;
 
 import com.sdg.learninghub.member.MemberEntity;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
