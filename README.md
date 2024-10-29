@@ -80,7 +80,6 @@ In the module, users can learn about each of the SDG (Sustainable Development Go
 <details>
   <summary>Special Pages</summary>
   
-  * Game Page: On the Game page, users can enjoy different games based on the SDG topics they've learned. Each game is tailored to a specific SDG goal, allowing users to reinforce their knowledge through interactive gameplay.
   * Social Page: The Social page allows users to view posts from other users and create their own posts. This feature fosters community interaction and sharing of experiences related to SDGs. Users can engage with others by liking their posts, creating a social and supportive environment within the platform.
   * Home Page: The Home page provides a general introduction to our website, offering users an overview of the platform’s features and purpose. This section serves as a starting point for exploring all the available content.
 </details>
