@@ -1,15 +1,155 @@
-
-.container {
-width: 50%,
-margin: 0 auto,
-textAlign: center,
-padding: 20px,
-backgroundColor: #f4f4f4,
-borderRadius: 8px,
-}
-.profileBox {
-    background-color: #fff;
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1f1f1f;
+    color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.header-background {
+    background-color: #1C2728;
+    padding: 10px;
+    width: 100%; /* Set to 80% to add 10% padding on both sides */
+    margin: 0 auto; /* Center the header within the card */
+    text-align: center;
+    border-radius: 18px; 
+}
+
+.profile-header h2 {
+    color: #fff;
+    margin: 0;
+}
+
+.profile-content {
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    justify-content: space-between;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.profile-fields {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.profile-fields label {
+    flex: 1;
+    font-weight: bold;
+    color: #fff;
+}
+
+.profile-fields span, 
+.profile-fields input {
+    flex: 2;
+    background-color: #2c2c2c;
+    color: #fff;
+    padding: 8px;
+    margin-right: 10px;
+    border-radius: 6px;
+    border: 1px solid #3a3a3a;
+}
+
+.profile-fields input {
+    outline: none;
+}
+
+.edit-btn {
+    padding: 6px 10px;
+    border: none;
+    background-color: #4caf50;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.profile-image-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-left: 20px;
+}
+
+.profile-image {
+    width: 12rem;
+    height: 12rem;
+    border-radius: 12px;
+    border: 2px solid #fff;
+}
+
+.edit-img-btn {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.edit-img-btn img {
+    width: 26px;
+    height: 26px;
+}
+
+.profile-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    background-color: #1f1f1f;
+    width: 100%;
+    padding: 10px;
+    border-radius: 18px;
+}
+
+.sdg-logo {
+    width: 30px;
+    height: auto;
+    margin-right: 5px;
+}
+
+.profile-footer span {
+    color: #fff;
+}
+
+.save-btn {
+    padding: 10px 15px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.auth-font{
+    font-weight: 300;
+    margin-right: 5px;
+    font-size: 1.5rem;
+}
+
+.sdghub-font{
+    font-weight: 600;
+    font-size: 1.5rem;
 }

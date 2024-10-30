@@ -98,7 +98,7 @@ const Goal = () => {
                 <div className="recentItem">
                     <div className='header'>
                         Recent Publications
-                        <button onClick={() => handleRedirect("https://sdgs.un.org/publications")}>view all</button>
+                        <button className='viewall-btn-module' onClick={() => handleRedirect("https://sdgs.un.org/publications")}>view all</button>
                     </div>
                     <div className='imgContain'>
                         <div className='imgContainItem'>

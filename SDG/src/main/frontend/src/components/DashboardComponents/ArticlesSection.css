@@ -49,3 +49,12 @@
 .articlen{
   font-weight: bold;
 }
+
+/* ArticlesSection.css */
+
+.article-link {
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+
+

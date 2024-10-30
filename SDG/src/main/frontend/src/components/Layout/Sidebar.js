@@ -50,12 +50,7 @@ function Sidebar() {
             <span>Modules</span>
           </button>
         </li>
-        <li>
-          <button className="sidebar-button" onClick={() => navigate('/games')}>
-            <img src={gameIcon} alt="Games" />
-            <span>Games</span>
-          </button>
-        </li>
+        
         <li>
           <button className="sidebar-button" onClick={() => navigate('/social')}>
             <img src={socialIcon} alt="Social" />

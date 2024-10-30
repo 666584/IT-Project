@@ -31,8 +31,14 @@
   position: relative; /* Allow positioning within the right column */
 }
 
-/* Common Button Styling */
-button {
+
+
+.next-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px; /* Align to the right */
+  background-color: black;
+  color: white;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
@@ -41,20 +47,18 @@ button {
   transition: background-color 0.3s, color 0.3s; /* Smooth color transition */
 }
 
-.next-button {
-  position: absolute;
-  bottom: 20px;
-  right: 20px; /* Align to the right */
-  background-color: black;
-  color: white;
-}
-
 .back-button {
   position: absolute;
   bottom: 20px;
   left: 20px; /* Align to the left */
   background-color: black;
   color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: 2px solid black;
+  border-radius: 25px; /* Rounded border */
+  transition: background-color 0.3s, color 0.3s; /* Smooth color transition */
 }
 
 .next-button:hover,

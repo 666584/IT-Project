@@ -64,6 +64,7 @@
     justify-content: space-around;
     align-items: center;
     gap: 8vh; /* Reduced gap between progress steps */
+    display: none;
   }
   
   .progress-step {

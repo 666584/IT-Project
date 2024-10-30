@@ -14,8 +14,7 @@ const ProgressSection = ({ totalSDGProgress }) => {
   }, [totalSDGProgress]);
 
   // Determine progress bar color based on percentage
-  const progressBarColor = percentage > 55 ? '#FFFFFF' : '#222222';
-  const progressTextColor = percentage > 55 ? '#222222' : '#FFFFFF';
+  const progressTextColor = percentage > 48 ? '#FFFFFF' : '#222222';
 
   return (
     <div className="progress-section">
@@ -27,7 +26,6 @@ const ProgressSection = ({ totalSDGProgress }) => {
             className="progress-fill"
             style={{
               width: `${percentage}%`,
-              background: progressBarColor,
               color: progressTextColor,
             }}
           >
