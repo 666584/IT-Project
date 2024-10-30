@@ -15,7 +15,7 @@ import GoogleLoginProcess from './pages/GoogleLogin.js';
 import PrivateRoute from './PrivateRoute.js';
 import PostTest from './pages/PostTest.js';
 import Profile from './pages/Profile.js';
-import Games from './pages/Games.js';
+
 
 import './App.css';
 
@@ -37,7 +37,6 @@ function App() {
             <Route path="/social/post/:userId" element={<PrivateRoute> <PostTest /> </PrivateRoute>} />
             <Route path="/profile/:userId" element={<PrivateRoute> <Profile /> </PrivateRoute>} />
             
-            <Route path="/games" element={<PrivateRoute> <Games /> </PrivateRoute>} />
             <Route path="/dashboard" element={<PrivateRoute> <Dashboard /> </PrivateRoute>} />
             <Route path="/module" element={<PrivateRoute> <Module /> </PrivateRoute>} />
             <Route path="/games/info" element={<PrivateRoute> <GameInfo /> </PrivateRoute>} />

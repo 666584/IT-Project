@@ -118,13 +118,13 @@ const Social = () => {
                     {showFields && (
                         <div>
                             <input
-                                className='inputBox'
+                                className='inputBox2'
                                 type="text"
                                 placeholder="Title"
                                 value={title}
                                 onChange={handleTitleChange}
                             />
-                            <div>
+                            <div className='x-btn'>
                                 <button onClick={handleCloseField}>
                                     X
                                 </button>

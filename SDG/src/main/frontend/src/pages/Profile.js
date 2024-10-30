@@ -13,7 +13,7 @@ function Profile() {
         console.log(params.userId);
         const userId = params.userId;
         try {
-            const response = await axios.get(`https://localhost:443/api/auth/user/${userId}`);
+            const response = await axios.get(`http://localhost:8080/api/auth/user/${userId}`);
             if (!response.data) {
                 throw new Error('Failed to fetch user data');
             }

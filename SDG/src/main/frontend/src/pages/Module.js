@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Layout/Navbar.js';
-import GoalCard from '../components/ModuleComponents/GoalCard.js';
+import GoalCard from '../components/moduleComponents/GoalCard.js';
 import './Module.css';
 import { Helmet } from 'react-helmet';
 
