@@ -1,0 +1,15 @@
+
+.container {
+width: 50%,
+margin: 0 auto,
+textAlign: center,
+padding: 20px,
+backgroundColor: #f4f4f4,
+borderRadius: 8px,
+}
+.profileBox {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}

@@ -13,7 +13,7 @@ function Profile() {
         console.log(params.userId);
         const userId = params.userId;
         try {
-            const response = await axios.get(`http://localhost:8080/api/auth/user/${userId}`);
+            const response = await axios.get(`https://localhost:443/api/auth/user/${userId}`);
             if (!response.data) {
                 throw new Error('Failed to fetch user data');
             }
@@ -37,32 +37,15 @@ function Profile() {
   }
 
   return (
-    <div style={styles.container}>
+    <div className="container">
       <h1>Profile Page</h1>
-      <div style={styles.profileBox}>
-        <p><strong>Username:</strong> {user.username}</p>
+      <div className="profileBox">
+        <p><strong>Username:</strong>  <button onClick={() => handleEdit(post)}>Edit</button>{user.username}</p>
         <p><strong>Email:</strong> {user.email}</p>      
         <h2>{user.firstName} {user.lastName}</h2>
       </div>
     </div>
   );
 }
-
-const styles = {
-  container: {
-    width: '50%',
-    margin: '0 auto',
-    textAlign: 'center',
-    padding: '20px',
-    backgroundColor: '#f4f4f4',
-    borderRadius: '8px',
-  },
-  profileBox: {
-    backgroundColor: '#fff',
-    padding: '20px',
-    borderRadius: '8px',
-    boxShadow: '0 0 10px rgba(0,0,0,0.1)',
-  }
-};
 
 export default Profile;
