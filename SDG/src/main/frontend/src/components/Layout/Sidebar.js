@@ -7,7 +7,7 @@ import moduleIcon from '../../assets/LayoutAssets/module.svg';
 import logoutIcon from'../../assets/LayoutAssets/logout.png'
 import { useNavigate } from 'react-router-dom';
 import AuthAPI from '../../services/AuthAPI.js'
-
+import Tooltip from '../Tooltip.js';
 
 function Sidebar() {
   const navigate = useNavigate();
@@ -21,6 +21,7 @@ function Sidebar() {
         navigate(`/profile/${response.data}`);    
     }catch (error) {
         setMessage('Invalid credentials');
+        console.log(message);
     }
 };
 
@@ -33,9 +34,11 @@ function Sidebar() {
     <div className="sidebar">
       <ul className="allIcons">
         <li>
-          <button className="sidebar-profile"onClick={handleProfileClick}>
-            <img src={profileIcon} alt="Profile" />
-          </button>
+          <Tooltip text="Profile">
+            <button className="sidebar-profile"onClick={handleProfileClick}>
+              <img src={profileIcon} alt="Profile" />
+            </button>
+          </Tooltip>
         </li>
         <li>
           <button className="sidebar-button" onClick={() => navigate('/dashboard')}>

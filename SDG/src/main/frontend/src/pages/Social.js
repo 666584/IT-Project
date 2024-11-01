@@ -12,6 +12,7 @@ import avatar1 from '../assets/SocialAssets/avatar1.png';
 import avatar2 from '../assets/SocialAssets/avatar2.png';
 import ReactTimeAgo from 'react-time-ago';
 import Popup from'../components/Popup.js';
+import Tooltip from '../components/Tooltip.js';
 import './Social.css';
 
 const Social = () => {
@@ -38,11 +39,16 @@ const Social = () => {
     };
 
     const handleCloseField = () => {
+        setPlaceholder("Let's share what going on your mind...");
         setShowFields(false);
     };
 
     const handleContentChange = (e) => {
         setContent(e.target.value);
+    };
+
+    const handleMyPost = () => {
+        navigate(`/social/post`);
     };
 
     const handleCreatePost = async () => {
@@ -65,7 +71,7 @@ const Social = () => {
                 if(response.data != null){
                     setPopupMessage("Your post has been successfully created!");
                     setIsPopupVisible(true);
-                    navigate(`/social/post/${userid}`);
+                    navigate(`/social/post`);
                 } else {
                     setPopupMessage("Oops! Something went wrong. Please try saving your post again.");
                     setIsPopupVisible(true);
@@ -122,8 +128,10 @@ const Social = () => {
             />
             <div className="socical">
                 <div className='navSearch'>
-                    <div className='item'>
-                        <img src={profileIcon} alt='profile' />
+                    <div className='item'>           
+                        <Tooltip text="Click here to edit your post.">
+                            <img className='my-post' src={profileIcon} alt='profile' onClick ={handleMyPost} />
+                        </Tooltip>
                     </div>
                     <div className='item'>
                         <input

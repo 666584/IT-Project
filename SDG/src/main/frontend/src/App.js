@@ -12,7 +12,7 @@ import Comic from './pages/Comic.js';
 import Questions from './pages/Questions.js';
 import GoogleLoginProcess from './pages/GoogleLogin.js';
 import PrivateRoute from './PrivateRoute.js';
-import PostTest from './pages/PostTest.js';
+import PostTest from './pages/MyPost.js';
 import Profile from './pages/Profile.js';
 
 
@@ -33,7 +33,7 @@ function App() {
 
           {/* Private routes */}
           <Route element={<Layout />}>
-            <Route path="/social/post/:userId" element={<PrivateRoute> <PostTest /> </PrivateRoute>} />
+            <Route path="/social/post" element={<PrivateRoute> <PostTest /> </PrivateRoute>} />
             <Route path="/profile/:userId" element={<PrivateRoute> <Profile /> </PrivateRoute>} />
             
             <Route path="/dashboard" element={<PrivateRoute> <Dashboard /> </PrivateRoute>} />

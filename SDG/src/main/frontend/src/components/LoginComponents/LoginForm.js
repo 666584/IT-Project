@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import EmailField from "./EmailField.js";
 import PasswordField from "./PasswordField.js";
 import GoogleButton from "./GoogleButton.js";
 import AuthAPI from '../../services/AuthAPI.js';
+import Popup from '../Popup.js';
 import "./LoginForm.css";
 
 function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const [popupMessage, setPopupMessage] = useState('');
   const navigate = useNavigate();
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -17,15 +20,18 @@ function LoginForm() {
     e.preventDefault();
 
     if (!email) {
-      alert("Please enter your email.");
+      setPopupMessage("Please enter your email.");
+      setIsPopupVisible(true);
       return;
     }
     if (!emailRegex.test(email)) {
-      alert("Please enter a valid email address.");
+      setPopupMessage("Please enter a valid email address.");
+      setIsPopupVisible(true);
       return;
     }
     if (!password) {
-      alert("Please enter your password.");
+      setPopupMessage("Please enter your password.");
+      setIsPopupVisible(true);
       return;
     }
 
@@ -45,13 +51,19 @@ function LoginForm() {
         console.log("Server not connected.");
       }
       
-      alert(message);
+      setPopupMessage(message);
+      setIsPopupVisible(true);
       console.log(message);
     }
   };
 
   return (
     <div className="signup-form">
+      <Popup                
+        message={popupMessage} 
+        isVisible={isPopupVisible} 
+        onClose={() => setIsPopupVisible(false)} 
+      />
       <h2 className="welcome">Welcome Back!!!</h2>
       <h1 className="sign">Log IN</h1>
       <div className="all-input">

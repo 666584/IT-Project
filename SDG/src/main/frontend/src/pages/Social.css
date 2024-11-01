@@ -55,12 +55,10 @@
             &:nth-child(1) {
                 width: 60px;
                 height: 60px;
-                background-color: white;
                 margin-right: 30px;
                 border-radius: 50%;
                 display: flex;
                 justify-content: center;
-                align-items: center;
             }
 
             &:nth-child(2) {
@@ -182,5 +180,8 @@
         margin: 40px 0;
         color: #fff;
         font-size: 20px;
+    }
+    .my-post {
+        cursor: pointer;
     }
 }
