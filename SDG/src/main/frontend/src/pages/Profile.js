@@ -5,7 +5,7 @@ import './Profile.css';
 import editIcon from '../assets/ProfilePage/edit.png';
 import sdgLogo from '../assets/ProfilePage/sdg-logo.png';
 import profileImage from '../assets/ProfilePage/profile.svg';
-
+import AuthAPI from '../services/AuthAPI.js';
 function UserProfile() {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -18,12 +18,12 @@ function UserProfile() {
         const fetchUserData = async () => {
             const userId = params.userId;
             try {
-                const response = await axios.get(`http://localhost:8080/api/auth/user/${userId}`);
+                const response = await AuthAPI.userInfo(userId);
                 if (!response.data) {
                     throw new Error('Failed to fetch user data');
                 }
                 setUser(response.data);
-                setNewData(response.data); // Set initial data for editing
+                setNewData(response.data);
                 setLoading(false);
             } catch (error) {
                 setError(error.message);
@@ -44,18 +44,19 @@ function UserProfile() {
     };
 
     const handleSaveClick = async () => {
-        try {
-            // Add your API update logic here
-            await axios.put(`http://localhost:8080/api/auth/user/${params.userId}`, newData);
-            setUser(newData);
-            setIsEditing(false);
-        } catch (error) {
-            setError('Failed to update user data');
+      setNewData({ ...newData, email: user.email });   
+      try {
+        const res = await AuthAPI.update(newData);            
+        if(res.data){
+          window.location.reload();
+          setIsEditing(false); 
         }
+      } catch (error) {
+        setError('Failed to update user data');
+      }
     };
 
     const handleEditProfilePicture = () => {
-        // Add logic for changing profile picture
         alert('Change profile picture functionality coming soon!');
     };
 
@@ -69,6 +70,9 @@ function UserProfile() {
                     <div className="header-background">
                         <h2>PROFILE ID CARD</h2>
                     </div>
+                    <button className="edit-btn" onClick={handleEditClick}>
+                        <img src={editIcon} alt="Edit Profile" />
+                    </button>
                 </div>
                 <div className="profile-content">
                     <div className="profile-info">
@@ -84,51 +88,37 @@ function UserProfile() {
                             ) : (
                                 <span>{user.username}</span>
                             )}
-                            <button className="edit-btn" onClick={handleEditClick}>Edit</button>
                         </div>
                         <div className="profile-fields">
-                            <label>Full Name:</label>
+                            <label>First Name:</label>
                             {isEditing ? (
                                 <input
                                     type="text"
-                                    name="fullName"
-                                    value={newData.fullName}
+                                    name="firstname"
+                                    value={newData.firstname}
                                     onChange={handleInputChange}
                                 />
                             ) : (
-                                // <span>{user.fullName}</span> Users Name
-                                <span>Aryan Saini</span>
+                              <span>{user.firstname}</span>
                             )}
-                            <button className="edit-btn" onClick={handleEditClick}>Edit</button>
+                        </div>
+                        <div className="profile-fields">
+                            <label>Last Name:</label>
+                            {isEditing ? (
+                                <input
+                                    type="text"
+                                    name="lastname"
+                                    value={newData.lastname}
+                                    onChange={handleInputChange}
+                                />
+                            ) : (
+                                <span>{user.lastname}</span>
+                            )}
+
                         </div>
                         <div className="profile-fields">
                             <label>Email:</label>
-                            {isEditing ? (
-                                <input
-                                    type="email"
-                                    name="email"
-                                    value={newData.email}
-                                    onChange={handleInputChange}
-                                />
-                            ) : (
-                                <span>{user.email}</span>
-                            )}
-                            <button className="edit-btn" onClick={handleEditClick}>Edit</button>
-                        </div>
-                        <div className="profile-fields">
-                            <label>ID Type:</label>
-                            {isEditing ? (
-                                <input
-                                    type="text"
-                                    name="idType"
-                                    value={newData.idType}
-                                    onChange={handleInputChange}
-                                />
-                            ) : (<span>User</span>
-
-                                // <span>{user.idType}</span> The id type remains User
-                            )}
-                            <button className="edit-btn" onClick={handleEditClick}>Edit</button>
+                              <span>{user.email}</span>
                         </div>
                     </div>
                     <div className="profile-image-section">

@@ -90,8 +90,7 @@ const Questions = () => {
                 if (response.data === "Completed task for the first time.") {
                     setShowPopup(true);
                 } else {
-                    const res = await AuthAPI.auth({ accessToken });
-                    navigate(`/dashboard/${res.data}`);
+                    navigate(`/dashboard`);
                 }
             }
         } catch (error) {

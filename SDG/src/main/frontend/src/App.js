@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home.js';
 import Login from './pages/Login.js';
 import Module from './pages/Module.js';
-import GameInfo from './pages/GameInfo.js';
 import Goal from './pages/Goal.js';
 import Social from './pages/Social.js';
 import Layout from './components/Layout/Layout.js';
@@ -39,8 +38,7 @@ function App() {
             
             <Route path="/dashboard" element={<PrivateRoute> <Dashboard /> </PrivateRoute>} />
             <Route path="/module" element={<PrivateRoute> <Module /> </PrivateRoute>} />
-            <Route path="/games/info" element={<PrivateRoute> <GameInfo /> </PrivateRoute>} />
-            <Route path="/:userId/goal/:title" element={<PrivateRoute> <Goal /> </PrivateRoute>} />
+            <Route path="/goal/:title" element={<PrivateRoute> <Goal /> </PrivateRoute>} />
             <Route path="/social" element={<PrivateRoute> <Social /> </PrivateRoute>} />
           </Route>
         </Routes>

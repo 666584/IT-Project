@@ -70,4 +70,13 @@ public class MemberService {
 			return null;
 		}
 	}
+	
+    public void updateMember(UserDTO userDTO) {
+        MemberEntity memberEntity = getMemberByEmail(userDTO.getEmail());
+        memberEntity.setUsername(userDTO.getUsername());
+        memberEntity.setFirstname(userDTO.getFirstname());
+        memberEntity.setLastname(userDTO.getLastname());
+
+        memberMapper.updateMember(memberEntity);
+    }
 }

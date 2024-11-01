@@ -20,4 +20,6 @@ public interface MemberMapper {
     Optional<MemberEntity> findByEmailAndProvider(@Param("email") String email, @Param("provider") Provider provider);
     
     int addMember(MemberEntity member);
+    
+    int updateMember(MemberEntity member);
 }

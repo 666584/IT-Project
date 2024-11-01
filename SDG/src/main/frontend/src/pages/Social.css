@@ -80,10 +80,12 @@
                 align-items: center;
                 font-weight: 700;
                 font-size: 24px;
+                cursor: pointer;
             }
 
             .x-btn{
                 margin-top: 1%;
+                cursor: pointer;
             }
         }
 

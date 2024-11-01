@@ -133,9 +133,19 @@ public class MemberController {
 		if(member == null) {
 			return null;
 		}
-		UserDTO user = new UserDTO(member.getUsername(), member.getEmail(),
-				member.getFirstname(), member.getLastname());
+		UserDTO user = new UserDTO();
+		user.setUsername(member.getUsername());
+		user.setEmail(member.getEmail());
+		user.setFirstname(member.getFirstname());
+		user.setLastname(member.getLastname());
 		return user;
+	}
+	
+	@PostMapping("/user/update")
+	public ResponseEntity<String> updateUser(@RequestBody UserDTO userDTO) {
+		System.out.println(userDTO.getFirstname());
+		memberService.updateMember(userDTO);
+		return ResponseEntity.status(HttpStatus.OK).body("User Updated.");
 	}
 }
 

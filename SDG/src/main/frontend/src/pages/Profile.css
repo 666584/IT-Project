@@ -153,3 +153,22 @@
     font-weight: 600;
     font-size: 1.5rem;
 }
+
+.edit-btn {
+    margin-left: auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.edit-btn img {
+    width: 24px;
+    height: 24px;
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space-between; 
+}

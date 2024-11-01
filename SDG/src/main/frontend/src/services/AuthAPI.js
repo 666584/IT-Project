@@ -1,5 +1,5 @@
 import axios from 'axios';
-const API_BASE_URL = `http://localhost:8080/api/auth`;
+const API_BASE_URL = `https://localhost:443/api/auth`;
 
 class AuthAPI {
     register(user) {
@@ -16,6 +16,14 @@ class AuthAPI {
 
     googleLogin(accessToken) {
         return axios.post(`${API_BASE_URL}/googleLogin`, accessToken);
+    }
+
+    userInfo(userId){
+        return axios.get(`${API_BASE_URL}/user/${userId}`);
+    }
+    
+    update(userData){
+        return axios.post(`${API_BASE_URL}/user/update`, userData);
     }
 }
 

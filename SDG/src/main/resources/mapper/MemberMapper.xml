@@ -26,5 +26,12 @@
     INSERT INTO users (userid, username, password, email, firstname, lastname, role, provider)
     VALUES (#{userid}, #{username}, #{password}, #{email}, #{firstname}, #{lastname}, #{role}, #{provider})
   </insert>
-
+  
+  <update id="updateMember" parameterType="com.sdg.learninghub.member.MemberEntity">
+    UPDATE users
+        SET username = #{username}, 
+        	firstname = #{firstname}, 
+            lastname = #{lastname} 
+        WHERE userid = #{userid}
+  </update>
 </mapper>

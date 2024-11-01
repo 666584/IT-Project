@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import GoalAPI from '../services/GoalAPI.js';
+import AuthAPI from '../services/AuthAPI.js';
 import GoalImg from '../assets/GoalAssets/goalImg.png';
 import PubImg1 from  '../assets/GoalAssets/pub1.png';
 import PubImg2 from  '../assets/GoalAssets/pub2.png';
@@ -13,7 +14,7 @@ import './Goal.css';
 
 const Goal = () => {
     const [searchTerm, setSearchTerm] = useState('');
-    const { title, userId } = useParams();
+    const { title } = useParams();
     const [progress, setProgress] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -30,7 +31,9 @@ const Goal = () => {
     useEffect(() => {
         const fetchProgressData = async () => {
         try {
-            const response = await GoalAPI.goal(title, userId);
+            const accessToken = localStorage.getItem("accessToken");
+            const res = await AuthAPI.auth({accessToken});
+            const response = await GoalAPI.goal(title, res.data);
             if (!response.data) {
                 throw new Error('Failed to fetch user data');
             }
