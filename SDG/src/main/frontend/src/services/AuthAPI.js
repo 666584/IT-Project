@@ -1,5 +1,5 @@
 import axios from 'axios';
-const API_BASE_URL = `https://localhost:443/api/auth`;
+const API_BASE_URL = `https://13.239.112.43/api/auth`;
 
 class AuthAPI {
     register(user) {
