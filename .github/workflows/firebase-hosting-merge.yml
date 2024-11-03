@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install and Build Frontend
-      - run: |
+        run: |
           cd SDG/src/main/frontend
           npm install
           npm run build
