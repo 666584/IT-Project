@@ -12,6 +12,8 @@ jobs:
           cd SDG/src/main/frontend
           npm install
           npm run build
+      - env:
+          CI: false
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
