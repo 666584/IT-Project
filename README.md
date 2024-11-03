@@ -14,7 +14,7 @@ Before cloning and attempting to run this code, you will need:
 - Node (npm)
 - Spring tool Suite 4
 - Firebase CLI (Optional, for deployment only)
-- Google Cloud VM or AWS EC2
+- AWS EC2 or Google Cloud VM
 
 <br/>
 
@@ -88,7 +88,7 @@ In the module, users can learn about each of the SDG (Sustainable Development Go
 ## Tech Stack
 
 - Frontend: React (deployed on Firebase)
-- Backend: Spring Boot with Google Cloud (MySQL database connection)
+- Backend: Spring Boot with AWS EC2 (Server) and RDS (MySQL database connection)
 - Testing: Jest and Junit
 - CI: Github Actions (used for automated testing and deployment)
 
@@ -181,6 +181,6 @@ SDG Learning Hub is licensed under the terms of the BSD Zero Clause License (0BS
 
 ## Links
 
-- [Website](https://sdglearninghub.firebaseapp.com/) (Server is currently stopped.)
+- [Website](https://sdglearninghub.web.app)
 - [Documentation: Confluence](https://global-sustainability-goals.atlassian.net/wiki/spaces/~712020187b06aabf8f4374afa5eff383235b56/pages)
 - [Source Code](https://github.com/666584/IT-Project)
