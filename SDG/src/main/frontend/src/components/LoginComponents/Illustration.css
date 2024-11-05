@@ -1,0 +1,17 @@
+.illustration {
+    flex: 1;
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    align-items: center;     /* Center the image vertically */
+    padding: 0;              /* Remove padding */
+    margin: 0;               /* Remove margin */
+  }
+  
+  .illustration-img {
+    max-width: 100%;
+    width: 500px;           /* Adjust size as needed */
+    height: auto;
+    padding: 0;             /* Remove padding from the image */
+    margin: 0;              /* Remove margin from the image */
+  }
+  

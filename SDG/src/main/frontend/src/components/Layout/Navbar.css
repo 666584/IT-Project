@@ -1,0 +1,40 @@
+.search {
+    display: flex;
+    border: none;
+    color: transparent;
+    .searchItem {
+        &:first-child {
+            flex: 1;
+        }
+        &:last-child {
+            display: flex;
+            justify-content: space-between;         
+        }      
+    }
+    .icon {
+        float: right;
+        cursor: pointer;
+        border: none;
+        background-color: white;
+        margin-left: 1rem;
+        margin-bottom: 5px;
+        display: none; /* Element will be completely removed from the layout */
+        
+
+        img {
+            height: 40px;
+            width: 40px;
+            border: none; 
+            margin-bottom: 10px;  
+                
+        }
+       
+            
+        
+    }
+}
+
+.hidden {
+    display: none;
+    
+}

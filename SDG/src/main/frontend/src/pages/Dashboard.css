@@ -1,0 +1,74 @@
+/* General Styles */
+.dashboard-container {
+    display: flex;
+    font-family: Arial, sans-serif;
+    background-color: white;
+  }
+  
+  .main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 768px) {
+    .dashboard-container {
+      flex-direction: column;
+    }
+  
+    .main-content {
+      padding: 1rem;
+    }
+  }
+  
+  /* General Styles for the App */
+  .points-progress-wrapper {
+    display: flex;
+    gap: 2rem;
+    align-items: stretch;
+    margin-bottom: 2rem;
+  }
+  
+  /* Container for stats, coupons, and articles */
+  .sections-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    align-items: stretch;
+    padding: 1rem 0;
+  
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .sections-container {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+  
+  
+  /* Buttons */
+  .view-all-button,
+  .see-more-button,
+  .claim-voucher {
+    background: none; /* No initial background */
+    color: black;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .view-all-button:hover,
+  .see-more-button:hover,
+  .claim-voucher:hover {
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+  }
+  

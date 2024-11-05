@@ -1,0 +1,48 @@
+.app-container {
+    display: flex;
+  }
+  
+  .main-content {
+    width: 100%;
+    /* max-width: 1200px; */
+    /* margin: 0 auto; */
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .goals-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+    overflow-x: auto; /* Enable horizontal scrolling */
+  }
+  
+  .goal-card {
+    min-width: 25; /* Set a minimum width to prevent cards from becoming too narrow */
+  }
+  
+  .header {
+    margin-left: 25px;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 800px) {
+    .goals-grid {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .goals-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .goal-card {
+      max-width: none;
+    }
+  }
+  
