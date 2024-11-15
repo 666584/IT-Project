@@ -1,5 +1,5 @@
 import axios from 'axios';
-const API_BASE_URL = `http://13.237.103.102/api/dashboard`;
+const API_BASE_URL = `http://13.237.103.102:8080/api/dashboard`;
 
 class DashboardAPI {	
 	

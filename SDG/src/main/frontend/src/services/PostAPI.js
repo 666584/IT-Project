@@ -1,5 +1,5 @@
 import axios from 'axios';
-const API_BASE_URL = `http://13.237.103.102/api/post`;
+const API_BASE_URL = `http://13.237.103.102:8080/api/post`;
 
 class PostAPI {	
 	
